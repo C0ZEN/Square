@@ -9,20 +9,24 @@
             cozen-form-ctrl="type"
             cozen-form-model="form">
 
-    <!-- Rows -->
-    <div ng-repeat="game in type.gameTypes track by $index"
-         class="game-type-toast">
+    <!-- Game types -->
+    <div class="game-types-container">
+        <div ng-repeat="gameType in type.gameTypes track by $index"
+             ng-class="{'selected': gameType.name == init.type.gameTypeName}"
+             ng-click="type.methods.onClickGameType($event, gameType.name)"
+             class="game-type-toast">
 
-        <!-- Column 1 -->
-        <div class="game-user-1">
-            <img ng-src="{{ game.playerOneImage }}">
-            <span>{{ game.playOneName | translate }}</span>
-        </div>
+            <!-- Column 1 -->
+            <div class="game-user-1">
+                <img ng-src="{{ gameType.playerOneImage }}">
+                <span>{{ gameType.playOneLabel | translate }}</span>
+            </div>
 
-        <!-- Column 2 -->
-        <div class="game-user-2">
-            <img ng-src="{{ game.playerTwoImage }}">
-            <span>{{ game.playTwoName | translate }}</span>
+            <!-- Column 2 -->
+            <div class="game-user-2">
+                <img ng-src="{{ gameType.playerTwoImage }}">
+                <span>{{ gameType.playTwoLabel | translate }}</span>
+            </div>
         </div>
     </div>
 
@@ -31,7 +35,7 @@
                cozen-btn-label="'INIT.TYPE.SUBMIT'"
                cozen-btn-auto-sizing="true"
                cozen-btn-disabled="type.form.type.$invalid"
-               cozen-btn-on-click="type.submit()"
+               cozen-btn-on-click="type.methods.submit()"
                cozen-btn-id="typeSubmit"
                cozen-btn-type-purple>
     </cozen-btn>

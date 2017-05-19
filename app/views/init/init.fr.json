@@ -24,8 +24,13 @@
         },
         "TYPE": {
             "TITLE": "Choix du type de partie",
-            "H2": "Choisir le type de partie",
+            "H2": "Choisir le type de partie.",
             "SUBMIT": "Modifier la difficulté"
+        },
+        "LEVEL": {
+            "TITLE": "Modification de la difficulté",
+            "H2": "Modifier la difficulté.",
+            "SUBMIT": "Jouer au Square"
         }
     }
 }

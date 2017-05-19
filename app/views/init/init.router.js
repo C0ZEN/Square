@@ -37,6 +37,15 @@
                 data        : {
                     pageTitle: 'INIT.TYPE.TITLE'
                 }
+            })
+            .state('square.init.level', {
+                url         : '/level',
+                controller  : 'InitLevelCtrl',
+                controllerAs: 'level',
+                templateUrl : 'views/init/level/init.level.html',
+                data        : {
+                    pageTitle: 'INIT.LEVEL.TITLE'
+                }
             });
     }
 
