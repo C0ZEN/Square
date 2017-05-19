@@ -1,0 +1,16 @@
+{
+    "HOME": {
+        "TITLE": "Accueil",
+        "HEADER": {
+            "H1": {
+                "1": "Redécouvrez le jeu",
+                "2": "Square."
+            },
+            "H2": {
+                "1": "Défiez des IA les unes plus intelligentes que les autres.",
+                "2": "Regardez les jouez les unes contres les autres."
+            },
+            "PLAY": "Jouer au Square"
+        }
+    }
+}

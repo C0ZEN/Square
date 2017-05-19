@@ -1,0 +1,31 @@
+{
+    "INIT": {
+        "H1": "Configurer la partie.",
+        "P": {
+            "1": "Configurer la grille de jeu,",
+            "2": "Choisissez votre type de partie,",
+            "3": "Modifier la difficulté,",
+            "4": "Jouer."
+        },
+        "GRID": {
+            "TITLE": "Configuration de la grille",
+            "H2": "Configurer la grille.",
+            "ROWS": {
+                "LABEL": "Nombre de lignes",
+                "PLACEHOLDER": "Saisir le nom de lignes",
+                "TOOLTIP": "Minimum 4 lignes.<br>Maximum 16 lignes."
+            },
+            "COLUMNS": {
+                "LABEL": "Nombre de colonnes",
+                "PLACEHOLDER": "Saisir le nom de colonnes",
+                "TOOLTIP": "Minimum 4 lignes.<br>Maximum 16 lignes."
+            },
+            "SUBMIT": "Configurer le type de partie"
+        },
+        "TYPE": {
+            "TITLE": "Choix du type de partie",
+            "H2": "Choisir le type de partie",
+            "SUBMIT": "Modifier la difficulté"
+        }
+    }
+}

@@ -1,0 +1,107 @@
+nav.nolan-navbar {
+    display          : flex;
+    flex-direction   : row;
+    align-items      : center;
+    justify-content  : space-between;
+    position         : fixed;
+    top              : 0;
+    left             : 0;
+    padding          : 0 @nolan-space-base;
+    width            : 100%;
+    z-index          : 1000;
+    background-color : @nolan-color-line-rule-light;
+    border-bottom    : 1px solid @nolan-color-line-rule;
+    height           : 60px;
+    div.nolan-navbar-block {
+        display         : flex;
+        flex-direction  : row;
+        align-items     : center;
+        justify-content : space-between;
+        height          : 100%;
+        img {
+            height       : 41px;
+            margin-right : @nolan-space-base;
+            &.brand {
+                cursor  : pointer;
+                outline : @nolan-outline;
+            }
+        }
+        a.link {
+            height          : 100%;
+            padding         : 0 8px;
+            margin          : 0 @nolan-space-base;
+            cursor          : pointer;
+            position        : relative;
+            outline         : @nolan-outline;
+            color           : @nolan-color-font;
+            font-size       : 15px;
+            font-weight     : 600;
+            transition      : @nolan-transition;
+            display         : flex;
+            flex-direction  : row;
+            align-items     : center;
+            text-decoration : none;
+            &:after {
+                position         : absolute;
+                left             : 0;
+                bottom           : -1px;
+                width            : 100%;
+                height           : 0;
+                content          : '';
+                background-color : @nolan-color-line-rule-light;
+                transition       : @nolan-transition;
+            }
+            &:hover,
+            &:focus,
+            &:active,
+            &.active {
+                &:after {
+                    height : 4px;
+                }
+                &.link-blue {
+                    color : @nolan-color-blue;
+                    &:after {
+                        background-color : @nolan-color-blue;
+                    }
+                }
+                &.link-green {
+                    color : @nolan-color-dark-purple;
+                    &:after {
+                        background-color : @nolan-color-dark-purple;
+                    }
+                }
+                &.link-purple {
+                    color : @nolan-color-purple;
+                    &:after {
+                        background-color : @nolan-color-purple;
+                    }
+                }
+                &.link-yellow {
+                    color : @nolan-color-yellow;
+                    &:after {
+                        background-color : @nolan-color-yellow;
+                    }
+                }
+            }
+            &.link-title {
+                text-transform : uppercase;
+                font-weight    : 600;
+                font-size      : 18px;
+                transition     : none;
+                &:hover,
+                &:focus,
+                &:active,
+                &.active {
+                    color : @nolan-color-font;
+                    &:after {
+                        height           : 0;
+                        background-color : @nolan-color-line-rule-light;
+                    }
+                }
+            }
+        }
+    }
+}
+body {
+    padding-top : 60px; // Height of the navbar
+}

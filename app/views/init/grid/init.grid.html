@@ -1,0 +1,61 @@
+<!-- Subtitle -->
+<h2 class="with-icon">
+    <img ng-src="images/icons8/nolan/33/Template.png">
+    <span>{{ 'INIT.GRID.H2' | translate }}</span>
+</h2>
+
+<!-- Form -->
+<cozen-form cozen-form-name="grid"
+            cozen-form-ctrl="grid"
+            cozen-form-model="form"
+            cozen-form-class="col-xs-12"
+            class="width-100-pct">
+
+    <!-- Rows -->
+    <div class="row">
+        <cozen-input class="col-xs-12 col-md-3 space-medium-after"
+                     cozen-input-model="init.grid.rowsQuantity"
+                     cozen-input-name="rowsQuantity"
+                     cozen-input-max-length="2"
+                     cozen-input-min-length="1"
+                     cozen-input-max="16"
+                     cozen-input-min="4"
+                     cozen-input-type-number
+                     cozen-input-label="INIT.GRID.ROWS.LABEL"
+                     cozen-input-placeholder="INIT.GRID.ROWS.PLACEHOLDER"
+                     cozen-input-validator-icon="false"
+                     cozen-input-required="true"
+                     cozen-input-tooltip="INIT.GRID.ROWS.TOOLTIP"
+                     cozen-input-tooltip-type="html">
+        </cozen-input>
+    </div>
+
+    <!-- Columns -->
+    <div class="row">
+        <cozen-input class="col-xs-12 col-md-3 space-medium-after"
+                     cozen-input-model="init.grid.columnsQuantity"
+                     cozen-input-name="columnsQuantity"
+                     cozen-input-max-length="2"
+                     cozen-input-min-length="1"
+                     cozen-input-max="16"
+                     cozen-input-min="4"
+                     cozen-input-type-number
+                     cozen-input-label="INIT.GRID.COLUMNS.LABEL"
+                     cozen-input-icon-right=""
+                     cozen-input-placeholder="INIT.GRID.COLUMNS.PLACEHOLDER"
+                     cozen-input-validator-icon="false"
+                     cozen-input-required="true"
+                     cozen-input-tooltip="INIT.GRID.COLUMNS.TOOLTIP"
+                     cozen-input-tooltip-type="html">
+        </cozen-input>
+    </div>
+
+    <!-- Next step -->
+    <cozen-btn cozen-btn-label="'INIT.GRID.SUBMIT'"
+               cozen-btn-auto-sizing="true"
+               cozen-btn-disabled="grid.form.grid.$invalid"
+               cozen-btn-on-click="grid.submit()"
+               cozen-btn-id="gridSubmit"
+               cozen-btn-type-purple>
+    </cozen-btn>
+</cozen-form>

@@ -1,0 +1,38 @@
+<!-- Subtitle -->
+<h2 class="with-icon">
+    <img ng-src="images/icons8/nolan/33/Visual-Game-Boy.png">
+    <span>{{ 'INIT.TYPE.H2' | translate }}</span>
+</h2>
+
+<!-- Form -->
+<cozen-form cozen-form-name="type"
+            cozen-form-ctrl="type"
+            cozen-form-model="form">
+
+    <!-- Rows -->
+    <div ng-repeat="game in type.gameTypes track by $index"
+         class="game-type-toast">
+
+        <!-- Column 1 -->
+        <div class="game-user-1">
+            <img ng-src="{{ game.playerOneImage }}">
+            <span>{{ game.playOneName | translate }}</span>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="game-user-2">
+            <img ng-src="{{ game.playerTwoImage }}">
+            <span>{{ game.playTwoName | translate }}</span>
+        </div>
+    </div>
+
+    <!-- Next step -->
+    <cozen-btn cozen-btn-class="space-medium-before"
+               cozen-btn-label="'INIT.TYPE.SUBMIT'"
+               cozen-btn-auto-sizing="true"
+               cozen-btn-disabled="type.form.type.$invalid"
+               cozen-btn-on-click="type.submit()"
+               cozen-btn-id="typeSubmit"
+               cozen-btn-type-purple>
+    </cozen-btn>
+</cozen-form>
