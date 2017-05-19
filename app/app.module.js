@@ -14,7 +14,8 @@
             'ui.router',
             'pascalprecht.translate',
             'tmh.dynamicLocale',
-            'cozenLib'
+            'cozenLib',
+            'timer'
         ]);
 
 })(window.angular);

@@ -8,10 +8,11 @@
     run.$inject = [
         '$rootScope',
         '$state',
-        'goTo'
+        'goTo',
+        'CONFIG'
     ];
 
-    function run($rootScope, $state, goTo) {
+    function run($rootScope, $state, goTo, CONFIG) {
 
         // Public global data
         $rootScope.publicData = {
@@ -19,8 +20,9 @@
         };
 
         // Public global services
-        $rootScope.$state = $state;
-        $rootScope.$goTo  = goTo;
+        $rootScope.$state  = $state;
+        $rootScope.$goTo   = goTo;
+        $rootScope.$CONFIG = CONFIG;
     }
 
 })(window.angular, window);

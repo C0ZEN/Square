@@ -7,6 +7,12 @@
     "LEVELS": {
         "EASY": "Facile",
         "MEDIUM": "Moyen",
-        "HARD": "Difficile"
+        "HARD": "Difficile",
+        "LEVEL": "niveau",
+        "AT_LEVEL": "au niveau"
+    },
+    "TYPES": {
+        "HUMANVSIA": "joueur humain contre IA",
+        "IAVSIA": "IA contre IA"
     }
 }

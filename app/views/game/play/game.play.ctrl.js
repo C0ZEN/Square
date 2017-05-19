@@ -6,12 +6,12 @@
         .controller('GamePlayCtrl', GamePlayCtrl);
 
     GamePlayCtrl.$inject = [
-        'goTo',
-        'gameInit',
+        '$rootScope',
+        '$scope',
         'gamePlayers'
     ];
 
-    function GamePlayCtrl(goTo, gameInit, gamePlayers) {
+    function GamePlayCtrl($rootScope, $scope, gamePlayers) {
         var play = this;
 
         // Public methods

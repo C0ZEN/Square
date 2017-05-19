@@ -3,16 +3,24 @@
         <div class="col-xs-12 col-md-8 col-md-push-2">
 
             <!-- Title -->
-            <h1 class="game-title">
+            <h1 class="game-title space-base-after">
                 <img ng-src="images/icons8/nolan/39/Centre-Gravity.png">
                 <span cozen-compile="'GAME.H1' | translate:{player1: game.players[0].name, player2: game.players[1].name}"></span>
                 <img ng-src="images/icons8/nolan/39/Centre-Gravity.png">
             </h1>
 
             <!-- Content -->
-            <div class="nolan-form-container animated fadeIn force-ng-hide"
+            <div class="animated fadeIn force-ng-hide"
                  ui-view>
             </div>
+
+            <!-- Configuration -->
+            <p class="help-text space-small-before">
+                <span>{{ 'GAME.CONFIGURATION.GRID' | translate:game.configuration.grid }}</span>
+                <span>{{ (('TYPES.' + game.configuration.type.gameTypeName.toUpperCase()) | translate) + ',' }}</span>
+                <span>{{ 'LEVELS.LEVEL' | translate }}</span>
+                <span>{{ (('LEVELS.' + game.configuration.level.gameLevelName.toUpperCase()) | translate).toLowerCase() + '.'}}</span>
+            </p>
         </div>
     </div>
 </div>

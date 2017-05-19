@@ -9,10 +9,11 @@
         'gameInit',
         'gamePlayers',
         'CONFIG',
-        'cozenEnhancedLogs'
+        'cozenEnhancedLogs',
+        '$rootScope'
     ];
 
-    function GameCtrl(gameInit, gamePlayers, CONFIG, cozenEnhancedLogs) {
+    function GameCtrl(gameInit, gamePlayers, CONFIG, cozenEnhancedLogs, $rootScope) {
         var game = this;
 
         // Public methods
@@ -31,6 +32,8 @@
             cozenEnhancedLogs.info.functionCalled('GameCtrl', 'createPlayers');
             cozenEnhancedLogs.explodeObject(game.players, true);
         }
+
+        $rootScope.$broadcast('timer-start');
     }
 
 })(window.angular);
