@@ -28,7 +28,7 @@
         }
 
         function submit() {
-            // goTo.view('square.init.type');
+            goTo.view('square.game.play');
         }
     }
 

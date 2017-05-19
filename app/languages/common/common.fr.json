@@ -1,7 +1,8 @@
 {
     "PEOPLE": {
         "HUMAN": "Humain",
-        "IA": "IA"
+        "IA": "IA",
+        "YOU": "Toi"
     },
     "LEVELS": {
         "EASY": "Facile",

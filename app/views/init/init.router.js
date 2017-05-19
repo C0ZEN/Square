@@ -10,8 +10,6 @@
     ];
 
     function config($stateProvider) {
-
-        // Log routes
         $stateProvider
             .state('square.init', {
                 abstract    : true,

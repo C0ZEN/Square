@@ -12,7 +12,7 @@
     <!-- Game types -->
     <div class="game-types-container">
         <div ng-repeat="gameType in type.gameTypes track by $index"
-             ng-class="{'selected': gameType.name == init.type.gameTypeName}"
+             ng-class="{'selected': gameType.name == init.configuration.type.gameTypeName}"
              ng-click="type.methods.onClickGameType($event, gameType.name)"
              class="game-type-toast">
 

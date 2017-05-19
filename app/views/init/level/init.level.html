@@ -12,7 +12,7 @@
     <!-- Game levels -->
     <div class="game-levels-container">
         <div ng-repeat="gameLevel in level.gameLevels track by $index"
-             ng-class="{'selected': gameLevel.name == init.level.gameLevelName}"
+             ng-class="{'selected': gameLevel.name == init.configuration.level.gameLevelName}"
              ng-click="level.methods.onClickGameLevel($event, gameLevel.name)"
              class="game-level-toast">
             <img ng-src="{{ gameLevel.image }}">
@@ -25,7 +25,7 @@
                cozen-btn-label="'INIT.LEVEL.SUBMIT'"
                cozen-btn-auto-sizing="true"
                cozen-btn-disabled="level.form.level.$invalid"
-               cozen-btn-on-click="level.methods.submit()"
+               cozen-btn-on-click="init.methods.saveConfiguration(); level.methods.submit()"
                cozen-btn-id="levelSubmit"
                cozen-btn-type-purple>
     </cozen-btn>

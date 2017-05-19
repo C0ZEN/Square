@@ -9,10 +9,26 @@
             </h1>
 
             <!-- Description -->
-            <p class="help-text">{{ 'INIT.P.1' | translate }}</p>
-            <p class="help-text">{{ 'INIT.P.2' | translate }}</p>
-            <p class="help-text">{{ 'INIT.P.3' | translate }}</p>
-            <p class="help-text">{{ 'INIT.P.4' | translate }}</p>
+            <a class="help-text"
+               ui-sref="square.init.grid"
+               ui-sref-active="active">
+                {{ 'INIT.P.1' | translate }}
+            </a>
+            <a class="help-text"
+               ui-sref="square.init.type"
+               ui-sref-active="active">
+                {{ 'INIT.P.2' | translate }}
+            </a>
+            <a class="help-text"
+               ui-sref="square.init.level"
+               ui-sref-active="active">
+                {{ 'INIT.P.3' | translate }}
+            </a>
+            <p class="help-text"
+               ui-sref="square.game"
+               ui-sref-active="active">
+                {{ 'INIT.P.4' | translate }}
+            </p>
 
             <!-- Content -->
             <div class="nolan-form-container animated fadeIn force-ng-hide"

@@ -8,31 +8,32 @@
     InitCtrl.$inject = [
         'gameTypes',
         '$rootScope',
-        'gameLevels'
+        'gameLevels',
+        'gameInit'
     ];
 
-    function InitCtrl(gameTypes, $rootScope, gameLevels) {
+    function InitCtrl(gameTypes, $rootScope, gameLevels, gameInit) {
         var init = this;
 
+        // Public methods
+        init.methods = {
+            saveConfiguration: saveConfiguration
+        };
+
         // Models with default values
-        init.grid  = {
-            rowsQuantity   : 6,
-            columnsQuantity: 6
-        };
-        init.type  = {
-            gameTypeName: gameTypes.getActiveGameType().name
-        };
-        init.level = {
-            gameLevelName: gameLevels.getActiveGameLevel().name
-        };
+        init.configuration = gameInit.getDefaultConfiguration();
 
         // Listeners
         $rootScope.$on('gameTypes:newActiveGameType', function ($event, $response) {
-            init.type.gameTypeName = $response.activeGameType.name;
+            init.configuration.type.gameTypeName = $response.activeGameType.name;
         });
         $rootScope.$on('gameLevels:newActiveGameLevel', function ($event, $response) {
-            init.level.gameLevelName = $response.activeGameLevel.name;
+            init.configuration.level.gameLevelName = $response.activeGameLevel.name;
         });
+
+        function saveConfiguration() {
+            gameInit.setConfiguration(init.configuration);
+        }
     }
 
 })(window.angular);

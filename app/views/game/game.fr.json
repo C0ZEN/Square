@@ -1,0 +1,8 @@
+{
+    "GAME": {
+        "H1": "{{player1}} <span class='versus'>VS</span> {{player2}}",
+        "PLAY": {
+            "TITLE": "Jouer au square"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<div class="container main-view animated fadeIn force-ng-hide">
+    <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-push-2">
+
+            <!-- Title -->
+            <h1 class="game-title">
+                <img ng-src="images/icons8/nolan/39/Centre-Gravity.png">
+                <span cozen-compile="'GAME.H1' | translate:{player1: game.players[0].name, player2: game.players[1].name}"></span>
+                <img ng-src="images/icons8/nolan/39/Centre-Gravity.png">
+            </h1>
+
+            <!-- Content -->
+            <div class="nolan-form-container animated fadeIn force-ng-hide"
+                 ui-view>
+            </div>
+        </div>
+    </div>
+</div>
