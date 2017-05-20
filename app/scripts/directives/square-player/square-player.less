@@ -1,8 +1,21 @@
 div.square-player-directive {
-    display        : flex;
-    flex-direction : column;
-    align-items    : flex-start;
+    display         : flex;
+    flex-direction  : row;
+    justify-content : flex-start;
+    align-items     : center;
+    img {
+        height       : 39px;
+        margin-right : @nolan-space-base;
+    }
     span.player-name {
-
+        font-weight : 600;
+        font-size   : 20px;
+    }
+    &.reverse {
+        flex-direction : row-reverse;
+        img {
+            margin-right : 0;
+            margin-left  : @nolan-space-base;
+        }
     }
 }

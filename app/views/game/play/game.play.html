@@ -1,20 +1,39 @@
 <div class="game-board-container">
     <div class="game-board-header">
         <div class="column">
-            <square-player square-player-name="game.players[0].name"></square-player>
+
+            <!-- Profile -->
+            <square-player square-player-name="game.players[0].name"
+                           square-player-image="game.players[0].image">
+            </square-player>
         </div>
-        <div class="column">
-            <timer interval="1000"
+        <div class="column column-middle">
+
+            <!-- VS -->
+            <span ng-show="play.phase == 'waiting'"
+                  class="versus animated zoomIn force-ng-hide">VS
+            </span>
+
+            <!-- Timer -->
+            <timer ng-show="play.phase == 'playing'"
+                   class="animated zoomIn force-ng-hide"
+                   interval="1000"
                    language="fr"
                    autostart="false">
-                {{hours}} hour{{hoursS}}, {{minutes}} minute{{minutesS}}, {{seconds}} second{{secondsS}}.
+                {{millis | date:'mm:ss'}}
             </timer>
         </div>
         <div class="column">
-            <square-player square-player-name="game.players[1].name"></square-player>
+
+            <!-- Profile -->
+            <square-player square-player-name="game.players[1].name"
+                           square-player-image="game.players[1].image"
+                           square-player-reverse="true">
+            </square-player>
         </div>
     </div>
-    <div class="game-board-body">
-
+    <hr>
+    <div class="game-board-body"
+         ui-view>
     </div>
 </div>

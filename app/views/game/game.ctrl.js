@@ -10,10 +10,10 @@
         'gamePlayers',
         'CONFIG',
         'cozenEnhancedLogs',
-        '$rootScope'
+        '$scope'
     ];
 
-    function GameCtrl(gameInit, gamePlayers, CONFIG, cozenEnhancedLogs, $rootScope) {
+    function GameCtrl(gameInit, gamePlayers, CONFIG, cozenEnhancedLogs, $scope) {
         var game = this;
 
         // Public methods
@@ -33,7 +33,15 @@
             cozenEnhancedLogs.explodeObject(game.players, true);
         }
 
-        $rootScope.$broadcast('timer-start');
+        // Create the data for the title
+        game.h1 = {
+            player1: game.players[0].name,
+            color1 : game.players[0].color,
+            player2: game.players[1].name,
+            color2 : game.players[1].color
+        };
+
+        $scope.$broadcast('timer-start');
     }
 
 })(window.angular);

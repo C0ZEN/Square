@@ -16,7 +16,8 @@
         var players = [];
         var methods = {
             createHumanPlayer: createHumanPlayer,
-            createIaPlayer   : createIaPlayer
+            createIaPlayer   : createIaPlayer,
+            getColor         : getColor
         };
 
         // Public functions
@@ -45,16 +46,24 @@
 
         function createHumanPlayer(id) {
             return {
-                id  : id,
-                name: $filter('translate')('PEOPLE.YOU')
+                id   : id,
+                name : $filter('translate')('PEOPLE.YOU'),
+                color: methods.getColor(id),
+                image: 'images/icons8/nolan/39/Person-Male.png'
             };
         }
 
         function createIaPlayer(id) {
             return {
-                id  : id,
-                name: cozenLazyLoadRandom.getRandomFirstName('male', 'en')
+                id   : id,
+                name : cozenLazyLoadRandom.getRandomFirstName('male', 'en'),
+                color: methods.getColor(id),
+                image: 'images/icons8/nolan/39/Robot-3.png'
             };
+        }
+
+        function getColor(id) {
+            return id == 1 ? 'yellow' : 'blue';
         }
     }
 

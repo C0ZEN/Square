@@ -1,7 +1,9 @@
-<div class="square-player-directive">
+<div class="square-player-directive"
+     ng-class="{'reverse': squarePlayerReverse}">
+
+    <!-- Player image -->
+    <img ng-src="{{ squarePlayerImage }}">
 
     <!-- Player name -->
-    <span class="player-name">
-        {{ squarePlayerName }}
-    </span>
+    <span class="player-name">{{ squarePlayerName }}</span>
 </div>

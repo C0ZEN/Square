@@ -19,12 +19,28 @@
                 templateUrl : 'views/game/game.html'
             })
             .state('square.game.play', {
+                abstract    : true,
                 url         : '/play',
                 controller  : 'GamePlayCtrl',
                 controllerAs: 'play',
-                templateUrl : 'views/game/play/game.play.html',
+                templateUrl : 'views/game/play/game.play.html'
+            })
+            .state('square.game.play.begin', {
+                url         : '/begin',
+                controller  : 'GamePlayBeginCtrl',
+                controllerAs: 'playBegin',
+                templateUrl : 'views/game/play/begin/play.begin.html',
                 data        : {
-                    pageTitle: 'GAME.PLAY.TITLE'
+                    pageTitle: 'GAME.PLAY.BEGIN.TITLE'
+                }
+            })
+            .state('square.game.play.play', {
+                url         : '/play',
+                controller  : 'GamePlayPlayCtrl',
+                controllerAs: 'playPlay',
+                templateUrl : 'views/game/play/play/play.play.html',
+                data        : {
+                    pageTitle: 'GAME.PLAY.PLAY.TITLE'
                 }
             });
     }

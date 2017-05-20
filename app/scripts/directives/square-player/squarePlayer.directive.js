@@ -7,7 +7,11 @@
  * @description
  *
  * [Scope params]
- * @param {string} squarePlayerName > Name of the player
+ * @param {string} squarePlayerName  > Name of the player
+ * @param {string} squarePlayerImage > Path of the image for the player
+ *
+ * [Attribute params]
+ * @param {boolean} squarePlayerReverse = false > Reverse the order of the elements (display)
  *
  */
 (function (angular) {
@@ -26,7 +30,8 @@
             link       : link,
             restrict   : 'E',
             scope      : {
-                squarePlayerName: '=?'
+                squarePlayerName : '=?',
+                squarePlayerImage: '=?'
             },
             replace    : false,
             transclude : false,
@@ -43,6 +48,8 @@
 
             function init() {
 
+                // Set default values
+                scope.squarePlayerReverse = angular.isUndefined(attrs.squarePlayerReverse) ? false : JSON.parse(attrs.squarePlayerReverse);
             }
 
             function destroy() {
