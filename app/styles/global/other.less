@@ -34,6 +34,9 @@ a.help-text {
     display         : block;
     text-decoration : none;
     transition      : @nolan-transition;
+    &:hover {
+        color : @nolan-color-dark-purple-active;
+    }
 }
 .form-left-img {
     position  : absolute;
@@ -303,8 +306,9 @@ img::selection {
     font-style : italic;
 }
 .main-view {
-    margin  : @nolan-space-extra-large 0;
-    padding : @nolan-space-base;
+    margin-top    : @nolan-space-extra-large;
+    margin-bottom : 0;
+    padding       : @nolan-space-base;
 }
 .nolan-form-container {
     height         : 100%;

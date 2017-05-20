@@ -1,12 +1,17 @@
 <div class="game-board-container">
     <div class="game-board-header">
-        <div class="column"></div>
+        <div class="column">
+            <square-player square-player-name="game.players[0].name"></square-player>
+        </div>
         <div class="column">
             <timer interval="1000"
                    language="fr"
                    autostart="false">
                 {{hours}} hour{{hoursS}}, {{minutes}} minute{{minutesS}}, {{seconds}} second{{secondsS}}.
             </timer>
+        </div>
+        <div class="column">
+            <square-player square-player-name="game.players[1].name"></square-player>
         </div>
     </div>
     <div class="game-board-body">

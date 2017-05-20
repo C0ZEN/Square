@@ -17,9 +17,13 @@ div.game-board-container {
     background-color : @nolan-color-white;
     border           : 1px solid @nolan-color-line-rule;
     border-radius    : @nolan-radius;
-    padding          : @nolan-space-base @nolan-space-medium;
+    padding          : @nolan-space-base @nolan-space-base;
     width            : 100%;
     div.game-board-header {
+        display         : flex;
+        flex-direction  : row;
+        justify-content : space-between;
+        align-items     : center;
     }
     div.game-board-body {
     }

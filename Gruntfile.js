@@ -504,6 +504,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'wiredep',
+            'languages',
             'angularFileLoader',
             'less:main',
             'concurrent:server',
@@ -521,6 +522,7 @@ module.exports = function (grunt) {
     grunt.registerTask('test', [
         'clean:server',
         'wiredep',
+        'languages',
         'concurrent:test',
         'postcss',
         'connect:test',
@@ -530,6 +532,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'wiredep',
+        'languages',
         'useminPrepare',
         'concurrent:dist',
         'postcss',
