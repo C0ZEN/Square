@@ -19,11 +19,13 @@
             start: start
         };
 
+        // Init the first phase
+        gamePhases.initPhase();
+
         function start() {
             gamePhases.nextPhase();
             goTo.view('square.game.play.play');
             $rootScope.$broadcast('timer-start');
-            $rootScope.$broadcast('timer-resume');
         }
     }
 

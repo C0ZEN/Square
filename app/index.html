@@ -2,7 +2,7 @@
 <html ng-app="squareApp">
     <head>
         <meta charset="utf-8">
-        <title ng-bind="($state.current.data.pageTitle | translate) + ' - Square App'">
+        <title ng-bind="($state.current.data.pageTitle | translate:$state.params) + ' - Square App'">
             Square App
         </title>
         <meta name="description"
@@ -24,11 +24,16 @@
 
         <!-- build:css(.) styles/vendor.css -->
         <!-- bower:css -->
-        <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css' />
-        <link rel='stylesheet' href='bower_components/components-font-awesome/css/font-awesome.css' />
-        <link rel='stylesheet' href='bower_components/animate.css/animate.min.css' />
-        <link rel='stylesheet' href='bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css' />
-        <link rel='stylesheet' href='bower_components/cozen-lib/release/main.min.css' />
+        <link rel='stylesheet'
+              href='bower_components/bootstrap/dist/css/bootstrap.min.css'/>
+        <link rel='stylesheet'
+              href='bower_components/components-font-awesome/css/font-awesome.css'/>
+        <link rel='stylesheet'
+              href='bower_components/animate.css/animate.min.css'/>
+        <link rel='stylesheet'
+              href='bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css'/>
+        <link rel='stylesheet'
+              href='bower_components/cozen-lib/release/main.min.css'/>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -114,6 +119,8 @@
 
         <script src="views/game/play/game.play.ctrl.js" type="text/javascript"></script>
 
+        <script src="views/game/play/finished/play.finished.ctrl.js" type="text/javascript"></script>
+
         <script src="views/game/play/begin/play.begin.ctrl.js" type="text/javascript"></script>
 
         <script src="views/game/game.router.js" type="text/javascript"></script>
@@ -121,6 +128,8 @@
         <script src="views/game/game.ctrl.js" type="text/javascript"></script>
 
         <script src="scripts/factories/goTo.factory.js" type="text/javascript"></script>
+
+        <script src="scripts/factories/gameWinner.factory.js" type="text/javascript"></script>
 
         <script src="scripts/factories/gameTypes.factory.js" type="text/javascript"></script>
 
@@ -131,6 +140,8 @@
         <script src="scripts/factories/gameLevels.factory.js" type="text/javascript"></script>
 
         <script src="scripts/factories/gameInit.factory.js" type="text/javascript"></script>
+
+        <script src="scripts/factories/gameGrid.factory.js" type="text/javascript"></script>
 
         <script src="scripts/directives/square-player/squarePlayer.directive.js" type="text/javascript"></script>
 

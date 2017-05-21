@@ -4,30 +4,47 @@
 
             <!-- Profile -->
             <square-player square-player-name="game.players[0].name"
-                           square-player-image="game.players[0].image">
+                           square-player-image="game.players[0].image"
+                           square-player-color="game.players[0].color">
             </square-player>
         </div>
         <div class="column column-middle">
 
             <!-- VS -->
-            <span ng-show="play.phase == 'waiting'"
-                  class="versus animated zoomIn force-ng-hide">VS
+            <span ng-show="game.phase == 'waiting'"
+                  class="versus animated zoomIn force-ng-hide">
+                VS
             </span>
 
-            <!-- Timer -->
-            <timer ng-show="play.phase == 'playing'"
-                   class="animated zoomIn force-ng-hide"
-                   interval="1000"
-                   language="fr"
-                   autostart="false">
-                {{millis | date:'mm:ss'}}
-            </timer>
+            <!-- Playing stuff -->
+            <div ng-show="game.phase == 'playing'"
+                 class="row animated zoomIn force-ng-hide">
+
+                <!-- Remaining laps -->
+                <span class="laps">
+                    {{ 'GAME.PLAY.REMAINING_LAPS' | translate:{currentLap: game.currentLap, totalLaps: game.totalLaps} }}
+                </span>
+
+                <!-- Timer -->
+                <timer interval="1000"
+                       language="fr"
+                       autostart="false">
+                    {{ millis | date:'mm:ss' }}
+                </timer>
+            </div>
+
+            <!-- Winner -->
+            <span ng-show="game.phase == 'finished'"
+                  class="winner animated zoomIn force-ng-hide">
+                {{ 'GAME.PLAY.WINNER' | translate }}
+            </span>
         </div>
         <div class="column">
 
             <!-- Profile -->
             <square-player square-player-name="game.players[1].name"
                            square-player-image="game.players[1].image"
+                           square-player-color="game.players[1].color"
                            square-player-reverse="true">
             </square-player>
         </div>

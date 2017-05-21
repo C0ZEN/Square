@@ -5,5 +5,8 @@
     <img ng-src="{{ squarePlayerImage }}">
 
     <!-- Player name -->
-    <span class="player-name">{{ squarePlayerName }}</span>
+    <span class="player-name"
+          ng-class="[squarePlayerColor]">
+        {{ squarePlayerName }}
+    </span>
 </div>

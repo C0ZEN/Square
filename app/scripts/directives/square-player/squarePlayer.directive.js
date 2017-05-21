@@ -9,6 +9,7 @@
  * [Scope params]
  * @param {string} squarePlayerName  > Name of the player
  * @param {string} squarePlayerImage > Path of the image for the player
+ * @param {string} squarePlayerColor > Color of the player
  *
  * [Attribute params]
  * @param {boolean} squarePlayerReverse = false > Reverse the order of the elements (display)
@@ -31,7 +32,8 @@
             restrict   : 'E',
             scope      : {
                 squarePlayerName : '=?',
-                squarePlayerImage: '=?'
+                squarePlayerImage: '=?',
+                squarePlayerColor: '=?'
             },
             replace    : false,
             transclude : false,

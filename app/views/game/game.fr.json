@@ -2,16 +2,26 @@
     "GAME": {
         "H1": "<span class='{{color1}}'>{{player1}}</span> <span class='versus'>VS</span> <span class='{{color2}}'>{{player2}}</span>",
         "PLAY": {
+            "REMAINING_LAPS": "{{currentLap}} / {{totalLaps}}",
+            "WINNER": "Partie terminée !",
             "BEGIN": {
                 "TITLE": "Démarrage d'une nouvelle partie",
                 "START": "Démarrer une nouvelle partie"
             },
             "PLAY": {
                 "TITLE": "Partie en cours"
+            },
+            "FINISHED": {
+                "TITLE": "Partie remportée par {{winnerName}} !",
+                "WELL_DONE": "Félicitations à <span class='{{color}}'>{{name}}</span> pour sa victoire !",
+                "WELL_DONE_YOU": "Félicitations pour ta victoire !",
+                "START": "Démarrer une nouvelle partie",
+                "CONFIG": "Modifier la configuration"
             }
         },
         "CONFIGURATION": {
             "GRID": "Plateau {{rowsQuantity}}x{{columnsQuantity}},"
-        }
+        },
+        "RESTART": "Recommencer ?"
     }
 }

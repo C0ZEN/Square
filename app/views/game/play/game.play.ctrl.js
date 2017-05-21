@@ -16,14 +16,6 @@
 
         // Public methods
         play.methods = {};
-
-        // Init the first phase
-        play.phase = gamePhases.initPhase();
-
-        // Watch for a new phase
-        $rootScope.$on('gamePhases:newPhase', function ($event, $response) {
-            play.phase = $response.newPhase;
-        });
     }
 
 })(window.angular);

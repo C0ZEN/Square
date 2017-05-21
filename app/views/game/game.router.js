@@ -42,6 +42,15 @@
                 data        : {
                     pageTitle: 'GAME.PLAY.PLAY.TITLE'
                 }
+            })
+            .state('square.game.play.finished', {
+                url         : '/finished/:winnerName',
+                controller  : 'GamePlayFinishedCtrl',
+                controllerAs: 'playFinished',
+                templateUrl : 'views/game/play/finished/play.finished.html',
+                data        : {
+                    pageTitle: 'GAME.PLAY.FINISHED.TITLE'
+                }
             });
     }
 

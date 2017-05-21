@@ -10,10 +10,11 @@
         'gamePlayers',
         'CONFIG',
         'cozenEnhancedLogs',
-        '$scope'
+        '$rootScope',
+        'gamePhases'
     ];
 
-    function GameCtrl(gameInit, gamePlayers, CONFIG, cozenEnhancedLogs, $scope) {
+    function GameCtrl(gameInit, gamePlayers, CONFIG, cozenEnhancedLogs, $rootScope, gamePhases) {
         var game = this;
 
         // Public methods
@@ -41,7 +42,22 @@
             color2 : game.players[1].color
         };
 
-        $scope.$broadcast('timer-start');
+        // Define the current player
+        gamePlayers.setCurrentPlayer(game.players[0].name);
+
+        // Define the total laps
+        game.totalLaps = gamePhases.getTotalLaps(game.configuration.grid.rowsQuantity, game.configuration.grid.columnsQuantity);
+
+        // Watch for a new phase
+        $rootScope.$on('gamePhases:newPhase', function ($event, $response) {
+            game.phase      = $response.newPhase;
+            game.currentLap = $response.currentLap;
+        });
+
+        // Watch for a new phase
+        $rootScope.$on('gamePhases:newLap', function ($event, $response) {
+            game.currentLap = $response.newLap;
+        });
     }
 
 })(window.angular);

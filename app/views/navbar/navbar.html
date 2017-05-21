@@ -12,13 +12,13 @@
             {{ 'NAVBAR.HOME' | translate }}
         </a>
         <a class="link link-blue"
-           ui-sref-active="active"
+           ng-class="{active: $goTo.hasThisParent('square.init')}"
            tabindex="0"
            ui-sref="square.init.grid">
             {{ 'NAVBAR.CONFIGURATION' | translate }}
         </a>
         <a class="link link-blue"
-           ui-sref-active="active"
+           ng-class="{active: $goTo.hasThisParent('square.game')}"
            tabindex="0"
            ui-sref="square.game.play.begin">
             {{ 'NAVBAR.PLAY' | translate }}

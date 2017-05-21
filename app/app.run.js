@@ -20,9 +20,10 @@
         };
 
         // Public global services
-        $rootScope.$state  = $state;
-        $rootScope.$goTo   = goTo;
-        $rootScope.$CONFIG = CONFIG;
+        $rootScope.$state   = $state;
+        $rootScope.$goTo    = goTo;
+        $rootScope.$CONFIG  = CONFIG;
+        $rootScope.$Methods = Methods;
     }
 
 })(window.angular, window);

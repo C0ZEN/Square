@@ -11,6 +11,12 @@ span.versus {
     font-size   : 25px;
     padding     : 0 @nolan-space-small;
 }
+span.winner {
+    color       : @nolan-color-label;
+    font-weight : 600;
+    font-size   : 20px;
+    padding     : 0 @nolan-space-small;
+}
 div.game-board-container {
     display          : flex;
     flex-direction   : column;
@@ -28,6 +34,21 @@ div.game-board-container {
             flex : 1;
             &.column-middle {
                 text-align : center;
+                div.row {
+                    display        : flex;
+                    flex-direction : column;
+                    align-items    : center;
+                    span.laps {
+                        font-weight : 400;
+                        font-size   : 16px;
+                        color       : @nolan-color-label;
+                    }
+                    timer {
+                        font-weight : 400;
+                        font-size   : 13px;
+                        color       : @nolan-color-label;
+                    }
+                }
             }
         }
     }
@@ -36,8 +57,9 @@ div.game-board-container {
     }
     div.game-board-body {
         padding    : @nolan-space-base;
-        min-height : 50vh;
+        height     : 67vh;
         position   : relative;
+        box-sizing : border-box;
         div.begin-container {
             position  : absolute;
             top       : 50%;
@@ -45,6 +67,21 @@ div.game-board-container {
             transform : translate(-50%, -50%);
         }
         div.play-container {
+            height : 100%;
+            width  : 100%;
+            @import (less) "play/play/grid.less";
+        }
+        div.finished-container {
+            display         : flex;
+            flex-direction  : column;
+            align-items     : center;
+            justify-content : center;
+            height          : 100%;
+            span.well-done {
+                font-weight : 500;
+                font-size   : 26px;
+                color       : @nolan-color-label;
+            }
         }
     }
 }

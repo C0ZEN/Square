@@ -15,7 +15,8 @@
             'pascalprecht.translate',
             'tmh.dynamicLocale',
             'cozenLib',
-            'timer'
+            'timer',
+            'uuid'
         ]);
 
 })(window.angular);

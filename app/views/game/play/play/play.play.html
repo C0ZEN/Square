@@ -1,3 +1,38 @@
 <div class="play-container">
 
+    <!-- Grid -->
+    <div class="play-grid animated fadeIn force-ng-hide"
+         ng-class="[playPlay.currentPlayer.color]">
+
+        <!-- Rows -->
+        <div ng-repeat="row in playPlay.grid track by $index"
+             class="row">
+
+            <!-- Columns -->
+            <div ng-repeat="column in playPlay.grid[row.id].columns track by $index"
+                 id="row{{ row.id }}-column{{ column.id }}"
+                 class="column">
+
+                <!-- Angle -->
+                <div class="angle"></div>
+
+                <!-- Bar -->
+                <div class="bar horizontal"
+                     ng-class="[!column.barHorizontalSelected ? '' : 'selected', column.barHorizontalColor]"
+                     ng-click="!column.barHorizontalSelected ? playPlay.methods.onClickBar($event, 'horizontal', row, column) : null">
+                </div>
+
+                <!-- Bar -->
+                <div class="bar vertical"
+                     ng-class="[!column.barVerticalSelected ? '' : 'selected', column.barVerticalColor]"
+                     ng-click="!barVerticalSelected ? playPlay.methods.onClickBar($event, 'vertical', row, column) : null">
+                </div>
+
+                <!-- Square -->
+                <div class="square"
+                     ng-class="[!column.squareCompleted ? '' : 'completed', column.squareCompletedColor]">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
