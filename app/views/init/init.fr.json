@@ -13,12 +13,12 @@
             "ROWS": {
                 "LABEL": "Nombre de lignes",
                 "PLACEHOLDER": "Saisir le nom de lignes",
-                "TOOLTIP": "Minimum 3 lignes.<br>Maximum 16 lignes."
+                "TOOLTIP": "Minimum 3 lignes.<br>Maximum 12 lignes."
             },
             "COLUMNS": {
                 "LABEL": "Nombre de colonnes",
                 "PLACEHOLDER": "Saisir le nom de colonnes",
-                "TOOLTIP": "Minimum 3 lignes.<br>Maximum 16 lignes."
+                "TOOLTIP": "Minimum 3 lignes.<br>Maximum 12 lignes."
             },
             "SUBMIT": "Configurer le type de partie"
         },
