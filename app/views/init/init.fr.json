@@ -31,6 +31,7 @@
             "TITLE": "Modification de la difficulté",
             "H2": "Modifier la difficulté.",
             "SUBMIT": "Jouer au Square"
-        }
+        },
+        "SETTINGS_SAVED": "La configuration du <strong>Square</strong> a été sauvegardée."
     }
 }

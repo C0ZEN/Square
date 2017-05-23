@@ -9,10 +9,11 @@
         'gameTypes',
         '$rootScope',
         'gameLevels',
-        'gameInit'
+        'gameInit',
+        'cozenFloatingFeedFactory'
     ];
 
-    function InitCtrl(gameTypes, $rootScope, gameLevels, gameInit) {
+    function InitCtrl(gameTypes, $rootScope, gameLevels, gameInit, cozenFloatingFeedFactory) {
         var init = this;
 
         // Public methods
@@ -32,6 +33,10 @@
         });
 
         function saveConfiguration() {
+            cozenFloatingFeedFactory.addAlert({
+                type : 'purple',
+                label: 'INIT.SETTINGS_SAVED'
+            });
             gameInit.setConfiguration(init.configuration);
         }
     }

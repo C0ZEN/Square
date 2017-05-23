@@ -25,7 +25,7 @@
                 <!-- Bar -->
                 <div class="bar vertical"
                      ng-class="[!column.barVerticalSelected ? '' : 'selected', column.barVerticalColor]"
-                     ng-click="!barVerticalSelected ? playPlay.methods.onClickBar($event, 'vertical', row, column) : null">
+                     ng-click="!column.barVerticalSelected ? playPlay.methods.onClickBar($event, 'vertical', row, column) : null">
                 </div>
 
                 <!-- Square -->
