@@ -20,7 +20,8 @@
             createGrid        : createGrid,
             getGrid           : getGrid,
             selectGridElement : selectGridElement,
-            autoCompleteSquare: autoCompleteSquare
+            autoCompleteSquare: autoCompleteSquare,
+            isElementSelected : isElementSelected
         };
 
         function createGrid(rowsQuantity, columnsQuantity) {
@@ -108,6 +109,15 @@
                 }
             }
             return false;
+        }
+
+        function isElementSelected(rowId, columnId, direction) {
+            if (direction == 'horizontal') {
+                return grid[rowId].columns[columnId].barHorizontalSelected != false;
+            }
+            else {
+                return grid[rowId].columns[columnId].barVerticalSelected != false;
+            }
         }
     }
 

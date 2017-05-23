@@ -123,6 +123,20 @@ div.play-grid {
     &.blue {
         .square-play-grid-color(@nolan-color-blue);
     }
+    &.bot-playing {
+        div.row {
+            div.column {
+                div.bar {
+                    cursor : not-allowed;
+                    &:hover {
+                        &:after {
+                            background-color : transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 .square-play-grid-color(@color) {
     div.row {

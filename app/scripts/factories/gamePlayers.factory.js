@@ -79,7 +79,8 @@
                 id   : id,
                 name : $filter('translate')('PEOPLE.YOU'),
                 color: methods.getColor(id),
-                image: 'images/icons8/nolan/39/Person-Male.png'
+                image: 'images/icons8/nolan/39/Person-Male.png',
+                type : 'human'
             };
         }
 
@@ -88,7 +89,8 @@
                 id   : id,
                 name : cozenLazyLoadRandom.getRandomFirstName('male', 'en'),
                 color: methods.getColor(id),
-                image: 'images/icons8/nolan/39/Robot-3.png'
+                image: 'images/icons8/nolan/39/Robot-3.png',
+                type : 'bot'
             };
         }
 

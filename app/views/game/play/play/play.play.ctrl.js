@@ -12,10 +12,12 @@
         'gamePlayers',
         'gameGrid',
         'gameWinner',
-        '$rootScope'
+        '$rootScope',
+        'gameBot',
+        'cozenEnhancedLogs'
     ];
 
-    function GamePlayPlayCtrl(gamePhases, goTo, gameInit, gamePlayers, gameGrid, gameWinner, $rootScope) {
+    function GamePlayPlayCtrl(gamePhases, goTo, gameInit, gamePlayers, gameGrid, gameWinner, $rootScope, gameBot, cozenEnhancedLogs) {
         var playPlay = this;
 
         // Public methods
@@ -42,26 +44,73 @@
 
         // When the user select a bar
         function onClickBar($event, direction, row, column) {
+            cozenEnhancedLogs.info.customMessage('onClickBar', 'The user has selected a bar.');
             $event.stopPropagation();
 
             // Select the element on the grid
-            var response  = gameGrid.selectGridElement(row.id, column.id, direction, playPlay.currentPlayer);
-            playPlay.grid = response.grid;
+            var response = gameGrid.selectGridElement(row.id, column.id, direction, playPlay.currentPlayer);
 
-            // Next player
+            // Execute the stuff after a play
+            afterPlay(response);
+
+            // Make the bot play if the user can not replay
             if (!response.canReplay) {
-                playPlay.currentPlayer = gamePlayers.toggleCurrentPlayer();
+                botPlay();
             }
+        }
+
+        function botPlay() {
+            cozenEnhancedLogs.info.customMessage('botPlay', 'The bot can now play.');
+
+            // The bot is playing
+            playPlay.botPlaying = true;
+            var response;
+
+            // Make the bot play
+            switch (playPlay.configuration.level.gameLevelName) {
+                case 'easy':
+                    response = gameBot.playOnEasy(playPlay.grid, playPlay.currentPlayer);
+                    break;
+            }
+
+            // Execute the stuff after a play
+            afterPlay(response);
+
+            // The bot has finished playing
+            playPlay.botPlaying = false;
+        }
+
+        function afterPlay(response) {
+
+            // Update the grid
+            playPlay.grid = response.grid;
 
             // Increase the lap
             playPlay.currentLap = gamePhases.nextLap();
 
+            // Next player
+            if (!response.canReplay) {
+                cozenEnhancedLogs.info.customMessage('afterPlay', 'The next player can now play.');
+                playPlay.currentPlayer = gamePlayers.toggleCurrentPlayer();
+            }
+
             // Check if it is finished
             if (playPlay.currentLap > playPlay.totalLaps) {
+                cozenEnhancedLogs.info.customMessage('afterPlay', 'The game is finished.');
                 gameWinner.setWinner(playPlay.currentPlayer);
                 $rootScope.$broadcast('timer-pause');
                 gamePhases.nextPhase();
                 goTo.view('square.game.play.finished', {winnerName: playPlay.currentPlayer.name});
+            }
+
+            // When the user can replay and that user is a bot
+            // Make it play again
+            if (response.canReplay) {
+                cozenEnhancedLogs.info.customMessage('afterPlay', 'We finished a square, the user can replay.');
+                if (playPlay.currentPlayer.type == 'bot') {
+                    cozenEnhancedLogs.info.customMessage('afterPlay', 'The bot can replay.');
+                    botPlay();
+                }
             }
         }
     }
