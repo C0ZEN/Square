@@ -22,7 +22,7 @@ Cette tâche est important parce qu'elle s'occupe de démarré un serveur node e
 
 Notre [documentation](https://c0zen.github.io/Cogeo/) est générée par GitHub Pages.
 
-## Authors
+## Auteurs
 
 * **Geoffrey Testelin** - Développeur Front-End - [C0ZEN](https://github.com/C0ZEN)
 * **Benoit Compere** - Développeur Front-End - [BenoitCompere](https://github.com/BenoitCompere)
