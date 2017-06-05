@@ -20,4 +20,4 @@ Tu peux modifier le **nombre de colonnes** qui seront afficher dans grille.
 > Minimum 3 colonnes  
 > Maximum 12 colonnes
 
-<a href="{{ site.baseurl }}/config/game/" class="btn btn-green">Chapitre suivant: Type de partie</a>
+<a href="{{ site.baseUrl }}config/type/" class="btn btn-green">Chapitre suivant: Type de partie</a>
