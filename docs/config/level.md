@@ -35,8 +35,9 @@ Voyons en détails les étapes et vérifications qu'elle suit:
 - Choisi une colonne aléatoire
 - Choisi une direction (arrête) aléatoire
 - Vérifie que cette arrête n'est pas déjà sélectionnée par un joueur
-   - Si déjà sélectionnée, recommence
+   - Si déjà sélectionnée, recommence toutes les étapes
    - Sinon, sélectionne l'arrête
+- Fin de l'algorithme
 
 #### Moyen
 
