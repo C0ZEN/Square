@@ -2,9 +2,9 @@
 
 #### De quoi il s'agit ?
 
-Si tu veux avoir plus d'informations sur la **configuration** de Square, c'est par ici.
+Si tu veux avoir plus d'informations sur comment se déroule le **jeu**, c'est par ici.
 
-Nous allons parler de ce qu'il est possible de faire, de configurer et de ce qui se cache derrière ces options de configuration à travers trois chapitres listé ci-dessous.
+Nous allons parler des conceptes sur la création du jeu, les règles et les étapes lors du déroulement d'une partie.
 
 #### Sommaire
 
