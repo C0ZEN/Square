@@ -8,6 +8,6 @@ Nous allons parler de ce qu'il est possible de faire, de configurer et de ce qui
 
 #### Sommaire
 
-- [Grille](https://c0zen.github.io/Cogeo/config/grid/)
-- [Type de partie](https://c0zen.github.io/Cogeo/config/type/)
-- [Difficulté](https://c0zen.github.io/Cogeo/config/level/)
+- [Grille]({{site.baseUrl}}/config/grid/)
+- [Type de partie](https://c0zen.github.io/Square/config/type/)
+- [Difficulté](https://c0zen.github.io/Square/config/level/)
