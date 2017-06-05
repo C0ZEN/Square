@@ -42,4 +42,7 @@ Une vitesse très basse est utile pour effectuée des test tandis qu'une vitesse
 > Minimum 1 milliseconde  
 > Maximum 2000 millisecondes
 
+**Note:** même si la vitesse est réglée sur 1 milliseconde, le temps d'un tour peu être plus lent en fonction de la difficulté.  
+Chaque difficulté utilise des algorithmes différents et certains sont plus rapides que d'autres.
+
 <a href="{{ site.baseurl }}/config/level/" class="btn btn-green">Chapitre suivant: Difficulté</a>
