@@ -53,12 +53,10 @@
         }
 
         function setActiveGameType(gameTypeName) {
-            if (activeGameType != gameTypeName) {
-                activeGameType = gameTypeName;
-                $rootScope.$broadcast('gameTypes:newActiveGameType', {
-                    activeGameType: getActiveGameType()
-                });
-            }
+            activeGameType = gameTypeName;
+            $rootScope.$broadcast('gameTypes:newActiveGameType', {
+                activeGameType: getActiveGameType()
+            });
         }
     }
 

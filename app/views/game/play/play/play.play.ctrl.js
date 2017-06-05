@@ -98,8 +98,14 @@
 
             // Make the bot play
             switch (playPlay.configuration.level.gameLevelName) {
+                case 'very-easy':
+                    response = gameBot.playOnVeryEasy(playPlay.grid, playPlay.currentPlayer);
+                    break;
                 case 'easy':
                     response = gameBot.playOnEasy(playPlay.grid, playPlay.currentPlayer);
+                    break;
+                case 'medium':
+                    response = gameBot.playOnMedium(playPlay.grid, playPlay.currentPlayer);
                     break;
             }
 

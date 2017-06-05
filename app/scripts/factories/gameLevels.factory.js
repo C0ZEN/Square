@@ -15,18 +15,24 @@
         var gameLevels      = [
             {
                 id   : '1',
+                name : 'very-easy',
+                image: 'images/icons8/nolan/64/Baby.png',
+                label: 'LEVELS.VERY_EASY'
+            },
+            {
+                id   : '2',
                 name : 'easy',
                 image: 'images/icons8/nolan/64/Babys-Room.png',
                 label: 'LEVELS.EASY'
             },
             {
-                id   : '2',
+                id   : '3',
                 name : 'medium',
                 image: 'images/icons8/nolan/64/Sad.png',
                 label: 'LEVELS.MEDIUM'
             },
             {
-                id   : '3',
+                id   : '4',
                 name : 'hard',
                 image: 'images/icons8/nolan/64/Skull.png',
                 label: 'LEVELS.HARD'

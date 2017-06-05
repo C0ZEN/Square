@@ -21,7 +21,9 @@
             getGrid           : getGrid,
             selectGridElement : selectGridElement,
             autoCompleteSquare: autoCompleteSquare,
-            isElementSelected : isElementSelected
+            isElementSelected : isElementSelected,
+            howManyScore      : howManyScore,
+            countScore        : countScore
         };
 
         function createGrid(rowsQuantity, columnsQuantity) {
@@ -130,6 +132,71 @@
             else {
                 return grid[rowId].columns[columnId].barVerticalSelected != false;
             }
+        }
+
+        function howManyScore(rowId, columnId, direction, currentPlayer) {
+            var fakeGrid = angular.copy(grid);
+
+            // Search for the element in the fake grid
+            for (var row = 0, rowLength = fakeGrid.length; row < rowLength; row++) {
+                if (rowId == fakeGrid[row].id) {
+                    for (var column = 0, columnLength = fakeGrid[row].columns.length; column < columnLength; column++) {
+                        if (columnId == fakeGrid[row].columns[column].id) {
+
+                            // Edit the fake grid
+                            if (direction == 'horizontal') {
+                                fakeGrid[row].columns[column].barHorizontalSelected = currentPlayer.name;
+                                fakeGrid[row].columns[column].barHorizontalColor    = currentPlayer.color;
+                            }
+                            else {
+                                fakeGrid[row].columns[column].barVerticalSelected = currentPlayer.name;
+                                fakeGrid[row].columns[column].barVerticalColor    = currentPlayer.color;
+                            }
+
+                            // Return the score
+                            return countScore(currentPlayer, 0, fakeGrid);
+                        }
+                    }
+                }
+            }
+        }
+
+        function countScore(currentPlayer, score, fakeGrid) {
+
+            // Start to search for a square to complete
+            for (var row = 0, rowLength = fakeGrid.length; row < rowLength; row++) {
+                for (var column = 0, columnLength = fakeGrid[row].columns.length; column < columnLength; column++) {
+
+                    // Check if the square is completed
+                    if (!fakeGrid[row].columns[column].squareCompleted) {
+
+                        // All bars of this column are selected
+                        if (fakeGrid[row].columns[column].barHorizontalSelected != false && fakeGrid[row].columns[column].barVerticalSelected != false) {
+
+                            // Check if this is not the last column
+                            // Check if the next column have an vertical bar selected
+                            if (column + 1 < columnLength && fakeGrid[row].columns[column + 1].barVerticalSelected != false) {
+
+                                // Check if the next row exist
+                                // Check if the column of the next row have an horizontal bar selected
+                                if (row + 1 < rowLength && fakeGrid[row + 1].columns[column].barHorizontalSelected != false) {
+
+                                    // Select the square by updating the square data
+                                    fakeGrid[row].columns[column].squareCompleted      = currentPlayer.name;
+                                    fakeGrid[row].columns[column].squareCompletedColor = currentPlayer.color;
+
+                                    // Increase the score
+                                    ++score;
+
+                                    // Then check again if we can create another square
+                                    countScore(currentPlayer, score, fakeGrid);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return score;
         }
     }
 

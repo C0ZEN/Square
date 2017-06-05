@@ -5,6 +5,8 @@
         "YOU": "Toi"
     },
     "LEVELS": {
+        "VERY_EASY": "Très facile",
+        "VERY-EASY": "Très facile",
         "EASY": "Facile",
         "MEDIUM": "Moyen",
         "HARD": "Difficile",
