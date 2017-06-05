@@ -17,17 +17,18 @@ En fonction des algorithmes et du nombre de contraintes à vérifier, la vitesse
 
 #### Difficultés
 
-Il existe trois types de difficultés:
+Il existe quatre types de difficultés:
 
+- **Très facile**
 - **Facile**
 - **Moyen**
 - **Difficile**
 
-#### Facile
+#### Très facile
 
 Dans ce type de difficulté, l'IA sera vraiment très facile.
 
-Elle repose sur des algorithmes purement aléatoire.
+Elle se repose sur des algorithmes purement aléatoire.
 
 Voyons en détails les étapes et vérifications qu'elle suit:
 
@@ -40,6 +41,26 @@ Voyons en détails les étapes et vérifications qu'elle suit:
 - Fin de l'algorithme
 
 **Note:** il n'y a aucune forme d'intelligence.
+
+#### Facile
+
+Dans ce type de difficulté, l'IA sera assez facile.
+
+Elle se repose sur des algorithmes purement aléatoire.  
+On note l'arrivée d'une petite intelligence.
+
+Voyons en détails les étapes et vérifications qu'elle suit:
+
+- Choisi une ligne aléatoire
+- Choisi une colonne aléatoire
+- Vérifie le nombre de position disponibles en fonction des arrêtes sélectionnées (0, 1 ou 2)
+   - Si 0, recommence toutes les étapes
+   - Si 1, sélectionne l'arrête
+   - Si 2, exécute une recherche sur le score potential après ajout
+      - Calcule le nombre de points que rapporte l'arrête horizontale
+      - Calcule le nombre de points que rapporte l'arrête verticale
+      - Sélectionne l'arrête qui rapporte le plus de points
+- Fin de l'algorithme
 
 #### Moyen
 
