@@ -2,7 +2,7 @@
 
 Le jeu Square pour SUPINFO 4AIT.
 
-## Getting Started
+## Pour commencer
 
 Avant tout, exécute la commande `npm install`.  
 Elle s'occupe d'installer les **node_modules** et les **bower_components**.
