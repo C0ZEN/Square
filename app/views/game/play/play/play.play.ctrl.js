@@ -131,7 +131,7 @@
             if (playPlay.currentLap > playPlay.totalLaps) {
                 cozenEnhancedLogs.info.customMessage('afterPlay', 'The game is finished');
                 $interval.cancel(interval);
-                gameWinner.setWinner(playPlay.currentPlayer);
+                gameWinner.findAndSetWinner();
                 $rootScope.$broadcast('timer-pause');
                 gamePhases.nextPhase();
                 goTo.view('square.game.play.finished', {winnerName: playPlay.currentPlayer.name});
