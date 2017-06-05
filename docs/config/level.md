@@ -25,7 +25,8 @@ Il existe trois types de difficultés:
 
 #### Facile
 
-Dans ce type de difficulté, l'IA sera vraiment très facile.
+Dans ce type de difficulté, l'IA sera vraiment très facile.  
+On ne retrouve aucune forme d'intelligence.
 
 Elle repose sur des algorithmes purement aléatoire.
 
