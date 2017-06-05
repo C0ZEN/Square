@@ -75,27 +75,32 @@
         /// INTERNAL METHODS ///
 
         function createHumanPlayer(id) {
+            var playerType = 'human';
             return {
                 id   : id,
                 name : $filter('translate')('PEOPLE.YOU'),
-                color: methods.getColor(id),
+                color: methods.getColor(id, playerType),
                 image: 'images/icons8/nolan/39/Person-Male.png',
-                type : 'human'
+                type : playerType
             };
         }
 
         function createIaPlayer(id) {
+            var playerType = 'bot';
             return {
                 id   : id,
                 name : cozenLazyLoadRandom.getRandomFirstName('male', 'en'),
-                color: methods.getColor(id),
+                color: methods.getColor(id, playerType),
                 image: 'images/icons8/nolan/39/Robot-3.png',
-                type : 'bot'
+                type : playerType
             };
         }
 
-        function getColor(id) {
-            return id == 1 ? 'yellow' : 'blue';
+        function getColor(id, playerType) {
+            if (playerType == 'human') {
+                return 'yellow';
+            }
+            return id == 1 ? 'purple' : 'blue';
         }
     }
 

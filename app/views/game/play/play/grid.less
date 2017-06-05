@@ -73,6 +73,12 @@ div.play-grid {
                             background-color : @nolan-color-yellow;
                         }
                     }
+                    &.purple {
+                        &:hover:after,
+                        &:after {
+                            background-color : @nolan-color-purple;
+                        }
+                    }
                     &.blue {
                         &:hover:after,
                         &:after {
@@ -93,6 +99,9 @@ div.play-grid {
                 &.completed {
                     &.yellow {
                         background-color : fade(@nolan-color-yellow, 50%);
+                    }
+                    &.purple {
+                        background-color : fade(@nolan-color-purple, 50%);
                     }
                     &.blue {
                         background-color : fade(@nolan-color-blue, 50%);
@@ -119,6 +128,9 @@ div.play-grid {
     }
     &.yellow {
         .square-play-grid-color(@nolan-color-yellow);
+    }
+    &.purple {
+        .square-play-grid-color(@nolan-color-purple);
     }
     &.blue {
         .square-play-grid-color(@nolan-color-blue);
