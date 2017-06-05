@@ -17,7 +17,7 @@ Dans ce type de partie, le joueur jouera contre une IA.
 
 Le premier à jouer est l'humain.
 
-> Le joueur sera représenté par la couleur jaune
+> Le joueur sera représenté par la couleur jaune  
 > L'IA sera représenté par la couleur bleu
 
 **Note:** le nom de l'IA est généré aléatoirement.
@@ -28,7 +28,7 @@ Dans ce type de partie, une IA jouera contre une autre IA.
 
 Une option supplémentaire sera disponible uniquement pour ce type de partie: la **vitesse du jeu**.
 
-> L'IA 1 sera représenté par la couleur violet
+> L'IA 1 sera représenté par la couleur violet  
 > L'IA 2 sera représenté par la couleur bleu
 
 **Note:** le nom des IA est généré aléatoirement.
