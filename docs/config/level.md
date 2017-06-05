@@ -2,7 +2,7 @@
 
 #### De quoi il s'agit ?
 
-Nous allons voir en détails les options disponibles pour configurer la difficulté de la partie.
+Nous allons voir en détails les options disponibles pour configurer la **difficulté** de la partie.
 
 #### Introduction
 
