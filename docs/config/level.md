@@ -28,7 +28,7 @@ Il existe quatre types de difficultés:
 
 Dans ce type de difficulté, l'IA sera vraiment très facile.
 
-Elle se repose sur des algorithmes purement aléatoire.
+Elle se repose sur des algorithmes **purement aléatoire**.
 
 Voyons en détails les étapes et vérifications qu'elle suit:
 
@@ -46,8 +46,8 @@ Voyons en détails les étapes et vérifications qu'elle suit:
 
 Dans ce type de difficulté, l'IA sera assez facile.
 
-Elle se repose sur des algorithmes purement aléatoire.  
-On note l'arrivée d'une petite intelligence.
+Elle se repose sur des algorithmes **aléatoire**.  
+On note l'arrivée d'une **intelligence**.
 
 Voyons en détails les étapes et vérifications qu'elle suit:
 
