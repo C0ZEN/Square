@@ -31,10 +31,12 @@
         playFinished.looser = gameWinner.getLooser();
 
         // Define the score
-        playFinished.score        = {
-            winner: playFinished.winner.score,
-            looser: playFinished.looser.score
-        };
+        if (!Methods.isNullOrEmpty(playFinished.winner) && !Methods.isNullOrEmpty(playFinished.looser)) {
+            playFinished.score = {
+                winner: playFinished.winner.score,
+                looser: playFinished.looser.score
+            };
+        }
 
         function start() {
             gamePhases.nextPhase();

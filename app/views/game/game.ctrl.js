@@ -11,10 +11,11 @@
         'CONFIG',
         'cozenEnhancedLogs',
         '$rootScope',
-        'gamePhases'
+        'gamePhases',
+        'gameWinner'
     ];
 
-    function GameCtrl(gameInit, gamePlayers, CONFIG, cozenEnhancedLogs, $rootScope, gamePhases) {
+    function GameCtrl(gameInit, gamePlayers, CONFIG, cozenEnhancedLogs, $rootScope, gamePhases, gameWinner) {
         var game = this;
 
         // Public methods
@@ -57,6 +58,14 @@
             }
             else {
                 game.currentPlayer = gamePlayers.getCurrentPlayer();
+            }
+
+            // Define the winner
+            if (game.phase == 'finished') {
+                game.winner = gameWinner.getWinner();
+            }
+            else {
+                game.winner = null;
             }
         });
 

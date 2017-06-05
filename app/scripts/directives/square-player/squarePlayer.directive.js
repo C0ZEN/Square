@@ -12,6 +12,7 @@
  * @param {string}  squarePlayerColor  > Color of the player
  * @param {boolean} squarePlayerActive > Display or hide the active icon
  * @param {number}  squarePlayerScore  > Current score of the player
+ * @param {boolean} squarePlayerWinner > Define if the player as won the game
  *
  * [Attribute params]
  * @param {boolean} squarePlayerReverse    = false > Reverse the order of the elements (display)
@@ -37,7 +38,8 @@
                 squarePlayerImage : '=?',
                 squarePlayerColor : '=?',
                 squarePlayerActive: '=?',
-                squarePlayerScore : '=?'
+                squarePlayerScore : '=?',
+                squarePlayerWinner: '=?'
             },
             replace    : false,
             transclude : false,

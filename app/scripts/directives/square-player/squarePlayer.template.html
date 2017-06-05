@@ -20,6 +20,12 @@
              class="active-image force-ng-hide"
              ng-class="[squarePlayerDirection, squarePlayerDirection == 'left' ? 'fadeInRight' : 'fadeInLeft']"
              ng-src="{{ squarePlayerActiveIcon }}">
+
+        <!-- Winner image -->
+        <img ng-show="squarePlayerWinner"
+             class="winner-image force-ng-hide"
+             ng-class="[squarePlayerDirection, squarePlayerDirection == 'left' ? 'fadeInRight' : 'fadeInLeft']"
+             ng-src="images/icons8/nolan/33/Crown.png">
     </div>
 
     <hr ng-if-start="squarePlayerScore > 0"
