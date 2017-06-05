@@ -7,10 +7,10 @@
 
     gameBot.$inject = [
         'gameGrid',
-        'gameLevels'
+        'cozenEnhancedLogs'
     ];
 
-    function gameBot(gameGrid, gameLevels) {
+    function gameBot(gameGrid, cozenEnhancedLogs) {
 
         // Private data
         var grid;
@@ -36,7 +36,7 @@
                 currentRow    = Methods.getRandomFromRange(0, rowLength - 1);
                 currentColumn = Methods.getRandomFromRange(0, columnLength - 1);
                 direction     = Methods.getRandomFromRange(0, 1) == 0 ? 'horizontal' : 'vertical';
-                console.log(currentRow, currentColumn, direction);
+                cozenEnhancedLogs.info.customMessageEnhanced('gameBot', currentPlayer.name + ' played on', currentRow + ',' + currentColumn, 'in ' + direction);
 
                 // Specific case to avoid error when getting invisible bar
                 if (currentRow == rowLength - 1 && direction == 'vertical') {

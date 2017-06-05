@@ -44,7 +44,7 @@
 
         // When the user select a bar
         function onClickBar($event, direction, row, column) {
-            cozenEnhancedLogs.info.customMessage('onClickBar', 'The user has selected a bar.');
+            cozenEnhancedLogs.info.customMessage('onClickBar', 'The user has selected a bar');
             $event.stopPropagation();
 
             // Select the element on the grid
@@ -60,7 +60,7 @@
         }
 
         function botPlay() {
-            cozenEnhancedLogs.info.customMessage('botPlay', 'The bot can now play.');
+            cozenEnhancedLogs.info.customMessage('botPlay', 'The bot can now play');
 
             // The bot is playing
             playPlay.botPlaying = true;
@@ -90,13 +90,13 @@
 
             // Next player
             if (!response.canReplay) {
-                cozenEnhancedLogs.info.customMessage('afterPlay', 'The next player can now play.');
+                cozenEnhancedLogs.info.customMessage('afterPlay', 'The next player can now play');
                 playPlay.currentPlayer = gamePlayers.toggleCurrentPlayer();
             }
 
             // Check if it is finished
             if (playPlay.currentLap > playPlay.totalLaps) {
-                cozenEnhancedLogs.info.customMessage('afterPlay', 'The game is finished.');
+                cozenEnhancedLogs.info.customMessage('afterPlay', 'The game is finished');
                 gameWinner.setWinner(playPlay.currentPlayer);
                 $rootScope.$broadcast('timer-pause');
                 gamePhases.nextPhase();
