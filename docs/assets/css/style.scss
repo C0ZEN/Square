@@ -18,15 +18,15 @@ $nolan-wisteria-hover: #5f33ff;
 .main-content h4, 
 .main-content h5, 
 .main-content h6 {
-	color: $nolan-wisteria;
+	color: $nolan-blue;
 }
 
 // Change the color hover the btn
 .btn.btn-green {
 	margin-top: 1rem;
-	background-color: $nolan-wisteria;
+	background-color: $nolan-blue;
 	&:hover {
-		background-color: $nolan-wisteria-hover;
+		background-color: $nolan-blue-hover;
 	}
 }
 
@@ -38,8 +38,8 @@ $nolan-wisteria-hover: #5f33ff;
 
 // Change the color of a link
 a {
-	color: $nolan-blue;
+	color: $nolan-wisteria;
 	&:hover {
-		color: $nolan-blue-hover;
+		color: $nolan-wisteria-hover;
 	}
 }
