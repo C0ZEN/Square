@@ -15,7 +15,7 @@
                 "TITLE": "Partie remportée par {{winnerName}} !",
                 "WELL_DONE": "Félicitations à <span class='{{color}}'>{{name}}</span> pour sa victoire !",
                 "WELL_DONE_YOU": "Félicitations pour ta victoire !",
-                "SCORE": "C'est une belle victoire <strong>{{winner}}</strong> à <strong>{{looser}}</strong>.",
+                "SCORE": "C'est une belle domination <strong>{{winner}}</strong> à <strong>{{looser}}</strong>.",
                 "START": "Démarrer une nouvelle partie",
                 "CONFIG": "Modifier la configuration"
             }
