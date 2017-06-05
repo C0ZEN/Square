@@ -107,6 +107,9 @@
                 case 'medium':
                     response = gameBot.playOnMedium(playPlay.grid, playPlay.currentPlayer);
                     break;
+                case 'hard':
+                    response = gameBot.playOnHard(playPlay.grid, playPlay.currentPlayer);
+                    break;
             }
 
             // Execute the stuff after a play
@@ -143,6 +146,10 @@
                 $rootScope.$broadcast('timer-pause');
                 gamePhases.nextPhase();
                 goTo.view('square.game.play.finished', {winnerName: playPlay.currentPlayer.name});
+
+                // Very important to return to break the function
+                // Without it, the stuff on canReplay will be executed and blocked the app
+                return;
             }
 
             // When the user can replay and that user is a bot
@@ -150,7 +157,7 @@
             if (response.canReplay) {
                 cozenEnhancedLogs.info.customMessage('afterPlay', 'We finished a square, the user can replay.');
                 if (playPlay.currentPlayer.type == 'bot') {
-                    cozenEnhancedLogs.info.customMessage('afterPlay', 'The bot can replay.');
+                    cozenEnhancedLogs.info.customMessage('afterPlay', 'The bot can replay');
                     botPlay();
                 }
             }

@@ -26,10 +26,11 @@
         return {
             playOnVeryEasy: playOnVeryEasy,
             playOnEasy    : playOnEasy,
-            playOnMedium  : playOnMedium
+            playOnMedium  : playOnMedium,
+            playOnHard    : playOnHard
         };
 
-        // Easy bot, full random
+        // Very easy bot, full random
         function playOnVeryEasy(grid, currentPlayer) {
             methods.setGridRange(grid);
 
@@ -63,7 +64,7 @@
             return gameGrid.selectGridElement(currentRow, currentColumn, direction, currentPlayer);
         }
 
-        // Medium bot, full random but try to finish square
+        // Easy bot, almost full random but select the direction that give the better score
         function playOnEasy(grid, currentPlayer) {
             methods.setGridRange(grid);
 
@@ -145,7 +146,27 @@
             return gameGrid.selectGridElement(currentRow, currentColumn, direction, currentPlayer);
         }
 
-        function playOnMedium() {
+        // Medium, try to finish an existing square, if not possible, go on very easy
+        function playOnMedium(grid, currentPlayer) {
+            console.log('playOnMedium');
+            var availableSquare = gameGrid.isSquareAvailable();
+            console.log(availableSquare);
+
+            // The bot can select an element to create a square
+            if (availableSquare != false) {
+
+                // Select the element
+                if (CONFIG.debug) {
+                    cozenEnhancedLogs.info.customMessageEnhanced('gameBot', currentPlayer.name + ' played on', currentRow + ',' + currentColumn, 'in ' + direction);
+                }
+                return gameGrid.selectGridElement(availableSquare.row, availableSquare.column, availableSquare.direction, currentPlayer);
+            }
+            else {
+                return playOnVeryEasy(grid, currentPlayer);
+            }
+        }
+
+        function playOnHard() {
 
         }
 
