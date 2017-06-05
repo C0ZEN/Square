@@ -8,6 +8,6 @@ Nous allons parler de ce qu'il est possible de faire, de configurer et de ce qui
 
 #### Sommaire
 
-- [Grille]({{site.baseUrl}}/config/grid/)
-- [Type de partie]({{site.baseUrl}}/config/type/)
-- [Difficulté]({{site.baseUrl}}/config/level/)
+- [Grille]({{site.baseUrl}}config/grid/)
+- [Type de partie]({{site.baseUrl}}config/type/)
+- [Difficulté]({{site.baseUrl}}config/level/)
