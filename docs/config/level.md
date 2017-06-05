@@ -57,8 +57,8 @@ Voyons en détails les étapes et vérifications qu'elle suit:
    - Si 0, recommence toutes les étapes
    - Si 1, sélectionne l'arrête
    - Si 2, exécute une recherche sur le score potential après ajout
-      - Calcule le nombre de points que rapporte l'arrête horizontale
-      - Calcule le nombre de points que rapporte l'arrête verticale
+      - Calcul le nombre de points que rapporte l'arrête horizontale
+      - Calcul le nombre de points que rapporte l'arrête verticale
       - Sélectionne l'arrête qui rapporte le plus de points
 - Fin de l'algorithme
 
