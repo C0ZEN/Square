@@ -8,10 +8,11 @@
     gamePlayers.$inject = [
         'cozenLazyLoadRandom',
         '$filter',
-        'gamePhases'
+        '$rootScope',
+        'cozenEnhancedLogs'
     ];
 
-    function gamePlayers(cozenLazyLoadRandom, $filter, gamePhases) {
+    function gamePlayers(cozenLazyLoadRandom, $filter, $rootScope, cozenEnhancedLogs) {
 
         // Private data
         var players = [];
@@ -30,7 +31,8 @@
             getPlayer          : getPlayer,
             getCurrentPlayer   : getCurrentPlayer,
             setCurrentPlayer   : setCurrentPlayer,
-            toggleCurrentPlayer: toggleCurrentPlayer
+            toggleCurrentPlayer: toggleCurrentPlayer,
+            increaseScore      : increaseScore
         };
 
         function createPlayers(gameConfiguration) {
@@ -72,6 +74,13 @@
             return currentPlayer;
         }
 
+        function increaseScore(playerName) {
+            var player = getPlayer(playerName);
+            player.score++;
+            cozenEnhancedLogs.info.customMessageEnhanced('gamePlayers', playerName + '\'s score is now', player.score);
+            $rootScope.$broadcast('gamePlayers:scoreChanged');
+        }
+
         /// INTERNAL METHODS ///
 
         function createHumanPlayer(id) {
@@ -81,7 +90,8 @@
                 name : $filter('translate')('PEOPLE.YOU'),
                 color: methods.getColor(id, playerType),
                 image: 'images/icons8/nolan/39/Person-Male.png',
-                type : playerType
+                type : playerType,
+                score: 0
             };
         }
 
@@ -92,7 +102,8 @@
                 name : cozenLazyLoadRandom.getRandomFirstName('male', 'en'),
                 color: methods.getColor(id, playerType),
                 image: 'images/icons8/nolan/39/Robot-3.png',
-                type : playerType
+                type : playerType,
+                score: 0
             };
         }
 

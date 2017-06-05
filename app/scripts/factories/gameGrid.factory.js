@@ -7,10 +7,10 @@
 
     gameGrid.$inject = [
         'rfc4122',
-        'gameLevels'
+        'gamePlayers'
     ];
 
-    function gameGrid(rfc4122, gameLevels) {
+    function gameGrid(rfc4122, gamePlayers) {
 
         // Private data
         var grid;
@@ -108,6 +108,9 @@
                                     // Select the square by updating the square data
                                     grid[row].columns[column].squareCompleted      = currentPlayer.name;
                                     grid[row].columns[column].squareCompletedColor = currentPlayer.color;
+
+                                    // Increase the score
+                                    gamePlayers.increaseScore(currentPlayer.name);
 
                                     // Then check again if we can create another square
                                     autoCompleteSquare(currentPlayer, true);
