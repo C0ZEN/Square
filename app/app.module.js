@@ -16,7 +16,8 @@
             'tmh.dynamicLocale',
             'cozenLib',
             'timer',
-            'uuid'
+            'uuid',
+            'LocalStorageModule'
         ]);
 
 })(window.angular);

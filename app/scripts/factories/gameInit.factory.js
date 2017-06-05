@@ -7,13 +7,14 @@
 
     gameInit.$inject = [
         'gameTypes',
-        'gameLevels'
+        'gameLevels',
+        'localStorageService'
     ];
 
-    function gameInit(gameTypes, gameLevels) {
+    function gameInit(gameTypes, gameLevels, localStorageService) {
 
         // Private data
-        var defaultConfiguration = {
+        var defaultConfiguration          = {
             grid : {
                 rowsQuantity   : 6,
                 columnsQuantity: 6
@@ -26,7 +27,8 @@
                 gameLevelName: gameLevels.getActiveGameLevel().name
             }
         };
-        var configuration        = null;
+        var localStorageConfigurationName = 'square.configuration';
+        var configuration                 = localStorageService.get(localStorageConfigurationName);
 
         // Public functions
         return {
@@ -40,7 +42,7 @@
         }
 
         function getConfiguration() {
-            if (configuration == null) {
+            if (Methods.isNullOrEmpty(configuration)) {
                 configuration = defaultConfiguration;
             }
             return configuration;
@@ -48,6 +50,7 @@
 
         function setConfiguration(newConfiguration) {
             configuration = newConfiguration;
+            localStorageService.set(localStorageConfigurationName, newConfiguration);
         }
     }
 
