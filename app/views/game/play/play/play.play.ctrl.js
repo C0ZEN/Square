@@ -15,11 +15,12 @@
         '$rootScope',
         'gameBot',
         'cozenEnhancedLogs',
-        '$interval'
+        '$interval',
+        '$scope'
     ];
 
     function GamePlayPlayCtrl(gamePhases, goTo, gameInit, gamePlayers, gameGrid, gameWinner, $rootScope, gameBot, cozenEnhancedLogs,
-                              $interval) {
+                              $interval, $scope) {
         var playPlay = this;
 
         // Public methods
@@ -34,6 +35,14 @@
         if (gamePhases.getCurrentPhase() != 'playing') {
             goTo.view('square.game.play.begin');
         }
+
+        // Stop the interval each time the ctrl is destroy
+        $scope.$on('$destroy', function () {
+            $interval.cancel(interval);
+        });
+
+        // Reset the scores
+        gamePlayers.resetScores();
 
         // Get the configuration
         playPlay.configuration = gameInit.getConfiguration();

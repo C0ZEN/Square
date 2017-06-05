@@ -22,7 +22,7 @@
         };
 
         // Models with default values
-        init.configuration = gameInit.getDefaultConfiguration();
+        init.configuration = gameInit.getConfiguration();
 
         // Listeners
         $rootScope.$on('gameTypes:newActiveGameType', function ($event, $response) {

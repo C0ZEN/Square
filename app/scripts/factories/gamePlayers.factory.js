@@ -32,7 +32,8 @@
             getCurrentPlayer   : getCurrentPlayer,
             setCurrentPlayer   : setCurrentPlayer,
             toggleCurrentPlayer: toggleCurrentPlayer,
-            increaseScore      : increaseScore
+            increaseScore      : increaseScore,
+            resetScores        : resetScores
         };
 
         function createPlayers(gameConfiguration) {
@@ -79,6 +80,12 @@
             player.score++;
             cozenEnhancedLogs.info.customMessageEnhanced('gamePlayers', playerName + '\'s score is now', player.score);
             $rootScope.$broadcast('gamePlayers:scoreChanged');
+        }
+
+        function resetScores() {
+            players.forEach(function (player) {
+                player.score = 0;
+            });
         }
 
         /// INTERNAL METHODS ///
