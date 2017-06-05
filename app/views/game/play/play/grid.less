@@ -149,6 +149,21 @@ div.play-grid {
             }
         }
     }
+    &.disabled {
+        cursor : not-allowed;
+        div.row {
+            div.column {
+                div.bar {
+                    cursor : not-allowed;
+                    &:hover {
+                        &:after {
+                            background-color : transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 .square-play-grid-color(@color) {
     div.row {

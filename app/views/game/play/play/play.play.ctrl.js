@@ -57,8 +57,10 @@
         playPlay.totalLaps = gamePhases.getTotalLaps(playPlay.configuration.grid.rowsQuantity, playPlay.configuration.grid.columnsQuantity);
 
         // If the current game is IA vs IA
+        playPlay.disabled = false;
         if (playPlay.configuration.type.gameTypeName == 'iaVsIa') {
-            interval = $interval(function () {
+            playPlay.disabled = true;
+            interval          = $interval(function () {
                 botPlay();
 
                 // Check if the game is over
