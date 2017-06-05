@@ -16,7 +16,7 @@
 
         <!-- Active image -->
         <img ng-if="squarePlayerActiveIcon != ''"
-             ng-show="squarePlayerActive"
+             ng-show="squarePlayerActive && !squarePlayerWinner"
              class="active-image force-ng-hide"
              ng-class="[squarePlayerDirection, squarePlayerDirection == 'left' ? 'fadeInRight' : 'fadeInLeft']"
              ng-src="{{ squarePlayerActiveIcon }}">
@@ -33,7 +33,8 @@
 
     <!-- Row 2 -->
     <div ng-if-end
-         class="row row-2">
+         class="row row-2"
+         ng-class="{'reverse': squarePlayerReverse}">
 
         <!-- Score -->
         <div ng-repeat="square in squareScore track by $index"
