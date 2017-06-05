@@ -20,7 +20,7 @@ Cette tâche est importante parce qu'elle s'occupe de démarré un serveur node 
 
 ## Documentation
 
-Notre [documentation](https://c0zen.github.io/Cogeo/) est générée par GitHub Pages.
+Notre [documentation](https://c0zen.github.io/Square/) est générée par GitHub Pages.
 
 ## Auteurs
 
