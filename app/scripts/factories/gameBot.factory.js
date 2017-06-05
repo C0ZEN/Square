@@ -120,7 +120,6 @@
                         // Calc the best
                         var verticalScore   = gameGrid.howManyScore(currentRow, currentColumn, 'vertical', currentPlayer);
                         var horizontalScore = gameGrid.howManyScore(currentRow, currentColumn, 'horizontal', currentPlayer);
-                        console.log(verticalScore, horizontalScore);
 
                         // Edit direction to select the best
                         if (verticalScore > horizontalScore) {
@@ -148,9 +147,7 @@
 
         // Medium, try to finish an existing square, if not possible, go on very easy
         function playOnMedium(grid, currentPlayer) {
-            console.log('playOnMedium');
             var availableSquare = gameGrid.isSquareAvailable();
-            console.log(availableSquare);
 
             // The bot can select an element to create a square
             if (availableSquare != false) {

@@ -24,32 +24,64 @@ div.game-board-container {
     border           : 1px solid @nolan-color-line-rule;
     border-radius    : @nolan-radius;
     width            : 100%;
+    position         : relative;
     div.game-board-header {
-        display         : flex;
-        flex-direction  : row;
-        justify-content : space-between;
-        align-items     : center;
-        padding         : @nolan-space-base;
-        transition      : @nolan-transition;
-        div.column {
-            flex  : 1;
-            width : 100%;
-            &.column-middle {
-                text-align : center;
-                div.row {
-                    display        : flex;
-                    flex-direction : column;
-                    align-items    : center;
-                    span.laps {
-                        font-weight : 400;
-                        font-size   : 16px;
-                        color       : @nolan-color-label;
+        position : relative;
+        outline  : @nolan-outline;
+        cursor   : default;
+        div.game-board-header-content {
+            display         : flex;
+            flex-direction  : row;
+            justify-content : space-between;
+            align-items     : center;
+            padding         : @nolan-space-base;
+            div.column {
+                flex  : 1;
+                width : 100%;
+                &.column-middle {
+                    text-align : center;
+                    div.row {
+                        display        : flex;
+                        flex-direction : column;
+                        align-items    : center;
+                        span.laps {
+                            font-weight : 400;
+                            font-size   : 16px;
+                            color       : @nolan-color-label;
+                        }
+                        timer {
+                            font-weight : 400;
+                            font-size   : 13px;
+                            color       : @nolan-color-label;
+                        }
                     }
-                    timer {
-                        font-weight : 400;
-                        font-size   : 13px;
-                        color       : @nolan-color-label;
-                    }
+                }
+            }
+        }
+        img.game-board-header-btn {
+            position            : absolute;
+            top                 : 50%;
+            left                : 50%;
+            transform           : translate(-50%, -50%);
+            cursor              : pointer;
+            border-radius       : 50%;
+            z-index             : 10;
+            display             : none;
+            animation-duration  : 0ms;
+            animation-fill-mode : @nolan-animation-fill;
+            animation-name      : fadeIn;
+        }
+        &.is-playing.ia-game {
+            cursor : pointer;
+            &:hover {
+                div.game-board-header-content {
+                    opacity          : 0.15;
+                    background-color : @nolan-color-white-hover;
+                    transition       : ease-out @nolan-animation-duration-out-fast;
+                }
+                img.game-board-header-btn {
+                    display            : block;
+                    animation-duration : @nolan-animation-duration-out-fast;
                 }
             }
         }
@@ -91,6 +123,30 @@ div.game-board-container {
                 font-weight : 400;
                 font-size   : 18px;
                 color       : @nolan-color-label;
+            }
+        }
+    }
+    div.score-column {
+        display         : flex;
+        flex-direction  : column;
+        flex-wrap       : wrap;
+        position        : absolute;
+        top             : @nolan-space-small;
+        left            : ~"calc(100% + @{nolan-space-small})";
+        height          : 100%;
+        justify-content : flex-start;
+        div.square {
+            width               : @nolan-space-base;
+            height              : @nolan-space-base;
+            border-radius       : @nolan-radius;
+            margin              : @nolan-space-base / 6 @nolan-space-base / 4;
+            animation-fill-mode : @nolan-animation-fill;
+            animation-duration  : @nolan-animation-duration-in;
+            animation-name      : zoomIn;
+            border              : 1px solid @nolan-color-line-rule;
+            background-color    : fade(@nolan-color-line-rule, 50%);
+            &.ng-leave {
+                animation-name : zoomOut;
             }
         }
     }

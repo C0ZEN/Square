@@ -1,66 +1,93 @@
 <div class="game-board-container">
-    <div class="game-board-header">
-        <div class="column">
+    <div class="game-board-header"
+         ng-click="game.methods.onHeaderClick($event)"
+         ng-class="{'is-playing': game.phase == 'playing', 'ia-game': game.configuration.type.gameTypeName == 'iaVsIa'}">
 
-            <!-- Profile -->
-            <square-player square-player-name="game.players[0].name"
-                           square-player-image="game.players[0].image"
-                           square-player-color="game.players[0].color"
-                           square-player-active-icon="images/icons8/nolan/33/Back.png"
-                           square-player-active="game.currentPlayer.name == game.players[0].name"
-                           square-player-direction="left"
-                           square-player-score="game.players[0].score"
-                           square-player-winner="game.winner.name == game.players[0].name">
-            </square-player>
-        </div>
-        <div class="column column-middle">
+        <!-- Pause btn -->
+        <img ng-show="!game.isPaused"
+             ng-src="images/icons8/nolan/48/Circled-Pause.png"
+             class="game-board-header-btn btn-pause force-ng-hide">
 
-            <!-- VS -->
-            <span ng-show="game.phase == 'waiting'"
-                  class="versus animated zoomIn force-ng-hide">
-                VS
-            </span>
+        <!-- Play btn -->
+        <img ng-show="game.isPaused"
+             ng-src="images/icons8/nolan/48/Circled-Play.png"
+             class="game-board-header-btn btn-play force-ng-hide">
 
-            <!-- Playing stuff -->
-            <div ng-show="game.phase == 'playing'"
-                 class="row animated zoomIn force-ng-hide">
+        <!-- Wrapper -->
+        <div class="game-board-header-content">
+            <div class="column">
 
-                <!-- Remaining laps -->
-                <span class="laps">
-                    {{ 'GAME.PLAY.REMAINING_LAPS' | translate:{currentLap: game.currentLap, totalLaps: game.totalLaps} }}
+                <!-- Profile -->
+                <square-player square-player-name="game.players[0].name"
+                               square-player-image="game.players[0].image"
+                               square-player-color="game.players[0].color"
+                               square-player-active-icon="images/icons8/nolan/33/Back.png"
+                               square-player-active="game.currentPlayer.name == game.players[0].name"
+                               square-player-direction="left"
+                               square-player-score="game.players[0].score"
+                               square-player-winner="game.winner.name == game.players[0].name">
+                </square-player>
+            </div>
+            <div class="column column-middle">
+
+                <!-- VS -->
+                <span ng-show="game.phase == 'waiting'"
+                      class="versus animated zoomIn force-ng-hide">
+                    VS
                 </span>
 
-                <!-- Timer -->
-                <timer interval="1000"
-                       language="fr"
-                       autostart="false">
-                    {{ millis | date:'mm:ss' }}
-                </timer>
+                <!-- Playing stuff -->
+                <div ng-show="game.phase == 'playing'"
+                     class="row animated zoomIn force-ng-hide">
+
+                    <!-- Remaining laps -->
+                    <span class="laps">
+                        {{ 'GAME.PLAY.REMAINING_LAPS' | translate:{currentLap: game.currentLap, totalLaps: game.totalLaps} }}
+                    </span>
+
+                    <!-- Timer -->
+                    <timer interval="1000"
+                           language="fr"
+                           autostart="false">
+                        {{ millis | date:'mm:ss' }}
+                    </timer>
+                </div>
+
+                <!-- Winner -->
+                <span ng-show="game.phase == 'finished'"
+                      class="winner animated zoomIn force-ng-hide">
+                    {{ 'GAME.PLAY.WINNER' | translate }}
+                </span>
             </div>
+            <div class="column">
 
-            <!-- Winner -->
-            <span ng-show="game.phase == 'finished'"
-                  class="winner animated zoomIn force-ng-hide">
-                {{ 'GAME.PLAY.WINNER' | translate }}
-            </span>
-        </div>
-        <div class="column">
-
-            <!-- Profile -->
-            <square-player square-player-name="game.players[1].name"
-                           square-player-image="game.players[1].image"
-                           square-player-color="game.players[1].color"
-                           square-player-reverse="true"
-                           square-player-active-icon="images/icons8/nolan/33/Forward.png"
-                           square-player-active="game.currentPlayer.name == game.players[1].name"
-                           square-player-direction="right"
-                           square-player-score="game.players[1].score"
-                           square-player-winner="game.winner.name == game.players[1].name">
-            </square-player>
+                <!-- Profile -->
+                <square-player square-player-name="game.players[1].name"
+                               square-player-image="game.players[1].image"
+                               square-player-color="game.players[1].color"
+                               square-player-reverse="true"
+                               square-player-active-icon="images/icons8/nolan/33/Forward.png"
+                               square-player-active="game.currentPlayer.name == game.players[1].name"
+                               square-player-direction="right"
+                               square-player-score="game.players[1].score"
+                               square-player-winner="game.winner.name == game.players[1].name">
+                </square-player>
+            </div>
         </div>
     </div>
     <hr>
-    <div class="game-board-body"
-         ui-view>
+
+    <!-- Body -->
+    <div class="game-board-body">
+        <ui-view></ui-view>
+    </div>
+
+    <!-- Column -->
+    <div class="score-column">
+
+        <!-- Score square -->
+        <div ng-repeat="square in game.totalSquareScore track by $index"
+             class="square">
+        </div>
     </div>
 </div>

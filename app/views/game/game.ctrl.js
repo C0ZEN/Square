@@ -19,7 +19,9 @@
         var game = this;
 
         // Public methods
-        game.methods = {};
+        game.methods = {
+            onHeaderClick: onHeaderClick
+        };
 
         // Get the last configuration
         game.configuration = gameInit.getConfiguration();
@@ -49,10 +51,15 @@
         // Define the total laps
         game.totalLaps = gamePhases.getTotalLaps(game.configuration.grid.rowsQuantity, game.configuration.grid.columnsQuantity);
 
+        // Define the number of square
+        game.totalScore = (game.configuration.grid.rowsQuantity - 1) * (game.configuration.grid.columnsQuantity - 1);
+
         // Watch for a new phase
         $rootScope.$on('gamePhases:newPhase', function ($event, $response) {
             game.phase      = $response.newPhase;
             game.currentLap = $response.currentLap;
+            game.isPaused   = false;
+            $rootScope.$broadcast('game:play');
             if (game.phase != 'playing') {
                 game.currentPlayer = null;
             }
@@ -62,10 +69,16 @@
 
             // Define the winner
             if (game.phase == 'finished') {
-                game.winner = gameWinner.getWinner();
+                game.winner           = gameWinner.getWinner();
+                game.totalSquareScore = [];
             }
             else {
                 game.winner = null;
+            }
+
+            // Update the total score
+            if (game.phase == 'playing') {
+                game.totalSquareScore = Methods.getNumberArray(game.totalScore);
             }
         });
 
@@ -82,7 +95,26 @@
         // Watch for a change of score
         $rootScope.$on('gamePlayers:scoreChanged', function () {
             game.players = gamePlayers.getPlayers();
+
+            // Define the current score
+            var currentScore = game.totalScore - game.players[0].score - game.players[1].score;
+            if (typeof currentScore == 'number') {
+                game.totalSquareScore = Methods.getNumberArray(currentScore);
+            }
         });
+
+        function onHeaderClick($event) {
+            $event.stopPropagation();
+            if (game.configuration.type.gameTypeName == 'iaVsIa' && game.phase == 'playing') {
+                game.isPaused = !game.isPaused;
+                if (game.isPaused) {
+                    $rootScope.$broadcast('game:pause');
+                }
+                else {
+                    $rootScope.$broadcast('game:play');
+                }
+            }
+        }
     }
 
 })(window.angular);

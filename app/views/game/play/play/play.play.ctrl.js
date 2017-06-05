@@ -25,7 +25,8 @@
 
         // Public methods
         playPlay.methods = {
-            onClickBar: onClickBar
+            onClickBar : onClickBar,
+            startIaVsIa: startIaVsIa
         };
 
         // Internal data
@@ -60,17 +61,21 @@
         playPlay.disabled = false;
         if (playPlay.configuration.type.gameTypeName == 'iaVsIa') {
             playPlay.disabled = true;
-            interval          = $interval(function () {
-                botPlay();
-
-                // Check if the game is over
-                if (playPlay.currentLap > playPlay.totalLaps) {
-
-                    // Stop the interval
-                    $interval.cancel(interval);
-                }
-            }, playPlay.configuration.type.gameSpeed);
+            startIaVsIa();
         }
+
+        // Watch for pause to pause the game
+        $rootScope.$on('game:pause', function () {
+            $interval.cancel(interval);
+        });
+
+        // Watch for play to play the game
+        $rootScope.$on('game:play', function () {
+            if (gamePhases.getCurrentPhase() == 'playing') {
+                $interval.cancel(interval);
+                startIaVsIa();
+            }
+        });
 
         // When the user select a bar
         function onClickBar($event, direction, row, column) {
@@ -155,12 +160,26 @@
             // When the user can replay and that user is a bot
             // Make it play again
             if (response.canReplay) {
-                cozenEnhancedLogs.info.customMessage('afterPlay', 'We finished a square, the user can replay.');
+                cozenEnhancedLogs.info.customMessage('afterPlay', 'We finished a square, the user can replay');
                 if (playPlay.currentPlayer.type == 'bot') {
                     cozenEnhancedLogs.info.customMessage('afterPlay', 'The bot can replay');
                     botPlay();
                 }
             }
+        }
+
+        function startIaVsIa() {
+            interval = $interval(function () {
+
+                // Check if the game is over
+                if (playPlay.currentLap > playPlay.totalLaps) {
+
+                    // Stop the interval
+                    $interval.cancel(interval);
+                    return;
+                }
+                botPlay();
+            }, playPlay.configuration.type.gameSpeed);
         }
     }
 
