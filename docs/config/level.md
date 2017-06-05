@@ -42,4 +42,4 @@ Voyons en détails les étapes et vérifications qu'elle suit:
 
 #### Difficile
 
-<a href="{{ site.baseurl }}/game/about/" class="btn btn-green">Chapitre suivant: Jeu</a>
+<a href="{{ site.baseUrl }}game/about/" class="btn btn-green">Chapitre suivant: Jeu</a>
