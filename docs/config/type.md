@@ -2,7 +2,7 @@
 
 #### De quoi il s'agit ?
 
-Nous allons voir en détails les options disponibles pour configurer le type de partie.
+Nous allons voir en détails les options disponibles pour configurer le **type** de partie.
 
 #### Type de partie
 
