@@ -2,7 +2,7 @@
 
 #### De quoi il s'agit ?
 
-Nous allons voir en détails les options disponibles pour configurer la grille sur les parties.
+Nous allons voir en détails les options disponibles pour configurer la **grille** sur les parties.
 
 #### Nombre de lignes
 
