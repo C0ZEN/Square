@@ -2,9 +2,9 @@
 
 #### De quoi il s'agit ?
 
-Si tu veux avoir plus d'informations sur la configuation de Square, c'est par ici.
+Si tu veux avoir plus d'informations sur la **configuation** de Square, c'est par ici.
 
-Nous allons parler de ce qu'il est possible de faire, de configurer et de ce qui se cache dérrière ces options de configuration.
+Nous allons parler de ce qu'il est possible de faire, de configurer et de ce qui se cache derrière ces options de configuration à travers trois chapitres listé ci-dessous.
 
 #### Sommaire
 
