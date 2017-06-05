@@ -80,7 +80,14 @@
             }
         }
 
-        function autoCompleteSquare(currentPlayer) {
+        function autoCompleteSquare(currentPlayer, forceReplay) {
+
+            // Default value for forceReplay
+            if (Methods.isNullOrEmptyStrict(forceReplay)) {
+                forceReplay = false;
+            }
+
+            // Start to search for a square to complete
             for (var row = 0, rowLength = grid.length; row < rowLength; row++) {
                 for (var column = 0, columnLength = grid[row].columns.length; column < columnLength; column++) {
 
@@ -98,17 +105,19 @@
                                 // Check if the column of the next row have an horizontal bar selected
                                 if (row + 1 < rowLength && grid[row + 1].columns[column].barHorizontalSelected != false) {
 
-                                    // Update the square data
+                                    // Select the square by updating the square data
                                     grid[row].columns[column].squareCompleted      = currentPlayer.name;
                                     grid[row].columns[column].squareCompletedColor = currentPlayer.color;
-                                    return true;
+
+                                    // Then check again if we can create another square
+                                    autoCompleteSquare(currentPlayer, true);
                                 }
                             }
                         }
                     }
                 }
             }
-            return false;
+            return forceReplay;
         }
 
         function isElementSelected(rowId, columnId, direction) {
