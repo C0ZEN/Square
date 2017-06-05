@@ -30,6 +30,30 @@
         </div>
     </div>
 
+    <!-- Game speed -->
+    <div ng-show="init.configuration.type.gameTypeName == 'iaVsIa'"
+         class="row space-medium-before animated fadeIn force-ng-hide">
+        <cozen-input class="col-xs-12 col-md-4 space-small-after"
+                     cozen-input-model="init.configuration.type.gameSpeed"
+                     cozen-input-name="gameSpeed"
+                     cozen-input-max-length="4"
+                     cozen-input-min-length="2"
+                     cozen-input-max="2000"
+                     cozen-input-min="100"
+                     cozen-input-type-number
+                     cozen-input-label="INIT.TYPE.GAME_SPEED.LABEL"
+                     cozen-input-placeholder="INIT.TYPE.GAME_SPEED.PLACEHOLDER"
+                     cozen-input-validator-icon="false"
+                     cozen-input-required="true"
+                     cozen-input-tooltip="INIT.TYPE.GAME_SPEED.TOOLTIP"
+                     cozen-input-tooltip-type="html"
+                     cozen-input-tooltip-max-width="max-width-300">
+        </cozen-input>
+        <p class="col-xs-12 col-md-12 help-text">
+            {{ 'INIT.TYPE.GAME_SPEED.HELP' | translate }}
+        </p>
+    </div>
+
     <!-- Next step -->
     <cozen-btn cozen-btn-class="space-medium-before"
                cozen-btn-label="'INIT.TYPE.SUBMIT'"

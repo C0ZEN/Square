@@ -20,7 +20,8 @@
             }
         },
         "CONFIGURATION": {
-            "GRID": "Plateau {{rowsQuantity}}x{{columnsQuantity}},"
+            "GRID": "Plateau {{rowsQuantity}}x{{columnsQuantity}},",
+            "SPEED": "({{gameSpeed}}ms),"
         },
         "RESTART": "Recommencer ?"
     }

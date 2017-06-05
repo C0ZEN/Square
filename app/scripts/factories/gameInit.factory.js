@@ -19,7 +19,8 @@
                 columnsQuantity: 6
             },
             type : {
-                gameTypeName: gameTypes.getActiveGameType().name
+                gameTypeName: gameTypes.getActiveGameType().name,
+                gameSpeed   : 500
             },
             level: {
                 gameLevelName: gameLevels.getActiveGameLevel().name

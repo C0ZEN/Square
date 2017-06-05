@@ -25,7 +25,13 @@
         "TYPE": {
             "TITLE": "Choix du type de partie",
             "H2": "Choisir le type de partie.",
-            "SUBMIT": "Modifier la difficulté"
+            "SUBMIT": "Modifier la difficulté",
+            "GAME_SPEED": {
+                "LABEL": "Vitesse du jeu",
+                "PLACEHOLDER": "Saisir la vitesse entre les actions des IA",
+                "TOOLTIP": "Minimum 100 millisecondes.<br>Maximum 2000 millisecondes.",
+                "HELP": "Correspond au temps entre chaque coup joué lors d'un IA contre IA."
+            }
         },
         "LEVEL": {
             "TITLE": "Modification de la difficulté",

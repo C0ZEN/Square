@@ -19,7 +19,8 @@
                 <!-- Configuration -->
                 <p class="help-text">
                     <span>{{ 'GAME.CONFIGURATION.GRID' | translate:game.configuration.grid }}</span>
-                    <span>{{ (('TYPES.' + game.configuration.type.gameTypeName.toUpperCase()) | translate) + ',' }}</span>
+                    <span>{{ (('TYPES.' + game.configuration.type.gameTypeName.toUpperCase()) | translate) + (game.configuration.type.gameTypeName != 'iaVsIa' ? ',' : '') }}</span>
+                    <span ng-if="game.configuration.type.gameTypeName == 'iaVsIa'">{{ 'GAME.CONFIGURATION.SPEED' | translate:game.configuration.type }}</span>
                     <span>{{ 'LEVELS.LEVEL' | translate }}</span>
                     <span>{{ (('LEVELS.' + game.configuration.level.gameLevelName.toUpperCase()) | translate).toLowerCase() + '.'}}</span>
                 </p>

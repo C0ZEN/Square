@@ -58,7 +58,7 @@
                     // Stop the interval
                     $interval.cancel(interval);
                 }
-            }, 500);
+            }, playPlay.configuration.type.gameSpeed);
         }
 
         // When the user select a bar
