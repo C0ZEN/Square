@@ -35,9 +35,9 @@ Une option supplémentaire sera disponible uniquement pour ce type de partie: la
 
 #### Vitesse du jeu
 
-La vitesse du jeu permet d'accéléré ou de modifier la vitesse entre chaque coup d'une IA.
+La vitesse du jeu permet d'accéléré ou de modifier le temps entre chaque tour d'une IA.
 
-Une vitesse très basse est utile pour effectuée des test tandis qu'une vitesse plus lente permet de voir comment joue l'IA.
+Une vitesse très basse est utile pour effectuée des test tandis qu'une vitesse plus grande permet de voir comment joue l'IA.
 
 > Minimum 1 milliseconde  
 > Maximum 2000 millisecondes
