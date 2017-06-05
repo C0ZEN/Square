@@ -6,6 +6,14 @@ Si tu veux avoir plus d'informations sur la **configuation** de Square, c'est pa
 
 Nous allons parler de ce qu'il est possible de faire, de configurer et de ce qui se cache derrière ces options de configuration à travers trois chapitres listé ci-dessous.
 
+#### Local Storage
+
+Pour information, la configuration est enregistrée dans le local storage.
+
+Si le local storage est activé sur ton ordinateur, rafraîchir la page, fermer le navigateur ou l'ordinateur n'effacera pas les données.
+
+C'est bien plus confortable de cette manière quand il faut faire des test.
+
 #### Sommaire
 
 - [Grille]({{site.baseUrl}}config/grid/)
