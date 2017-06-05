@@ -8,8 +8,8 @@ Nous allons voir en détails les options disponibles pour configurer le type de 
 
 Il existe deux types de partie:
 
-- Humain contre IA
-- IA contre IA
+- **Humain contre IA**
+- **IA contre IA**
 
 #### Humain contre IA
 
