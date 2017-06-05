@@ -39,7 +39,7 @@ La vitesse du jeu permet d'accéléré ou de modifier la vitesse entre chaque co
 
 Une vitesse très basse est utile pour effectuée des test tandis qu'une vitesse plus lente permet de voir comment joue l'IA.
 
-> Minimum 1 milliseconde
+> Minimum 1 milliseconde  
 > Maximum 2000 millisecondes
 
 <a href="{{ site.baseurl }}/config/level/" class="btn btn-green">Chapitre suivant: Difficulté</a>
