@@ -5,13 +5,9 @@
         .module('squareApp')
         .controller('GamePlayCtrl', GamePlayCtrl);
 
-    GamePlayCtrl.$inject = [
-        'gamePhases',
-        '$rootScope',
-        'gamePlayers'
-    ];
+    GamePlayCtrl.$inject = [];
 
-    function GamePlayCtrl(gamePhases, $rootScope, gamePlayers) {
+    function GamePlayCtrl() {
         var play = this;
 
         // Public methods

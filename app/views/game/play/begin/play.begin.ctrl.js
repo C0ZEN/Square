@@ -22,6 +22,7 @@
         // Init the first phase
         gamePhases.initPhase();
 
+        // When the user click on the start btn
         function start() {
             gamePhases.nextPhase();
             goTo.view('square.game.play.play');

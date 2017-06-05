@@ -54,7 +54,7 @@
             game.currentLap = $response.currentLap;
         });
 
-        // Watch for a new phase
+        // Watch for a new lap
         $rootScope.$on('gamePhases:newLap', function ($event, $response) {
             game.currentLap = $response.newLap;
         });

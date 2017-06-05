@@ -14,16 +14,21 @@
         'gameWinner',
         '$rootScope',
         'gameBot',
-        'cozenEnhancedLogs'
+        'cozenEnhancedLogs',
+        '$interval'
     ];
 
-    function GamePlayPlayCtrl(gamePhases, goTo, gameInit, gamePlayers, gameGrid, gameWinner, $rootScope, gameBot, cozenEnhancedLogs) {
+    function GamePlayPlayCtrl(gamePhases, goTo, gameInit, gamePlayers, gameGrid, gameWinner, $rootScope, gameBot, cozenEnhancedLogs,
+                              $interval) {
         var playPlay = this;
 
         // Public methods
         playPlay.methods = {
             onClickBar: onClickBar
         };
+
+        // Internal data
+        var interval;
 
         // Check if the view can be loaded
         if (gamePhases.getCurrentPhase() != 'playing') {
@@ -42,6 +47,20 @@
         // Get the maximum of laps
         playPlay.totalLaps = gamePhases.getTotalLaps(playPlay.configuration.grid.rowsQuantity, playPlay.configuration.grid.columnsQuantity);
 
+        // If the current game is IA vs IA
+        if (playPlay.configuration.type.gameTypeName == 'iaVsIa') {
+            interval = $interval(function () {
+                botPlay();
+
+                // Check if the game is over
+                if (playPlay.currentLap > playPlay.totalLaps) {
+
+                    // Stop the interval
+                    $interval.cancel(interval);
+                }
+            }, 500);
+        }
+
         // When the user select a bar
         function onClickBar($event, direction, row, column) {
             cozenEnhancedLogs.info.customMessage('onClickBar', 'The user has selected a bar');
@@ -59,7 +78,7 @@
             }
         }
 
-        function botPlay() {
+        function botPlay(callback) {
             cozenEnhancedLogs.info.customMessage('botPlay', 'The bot can now play');
 
             // The bot is playing
@@ -78,6 +97,11 @@
 
             // The bot has finished playing
             playPlay.botPlaying = false;
+
+            // Execute the callback function
+            if (Methods.isFunction(callback)) {
+                callback();
+            }
         }
 
         function afterPlay(response) {
@@ -97,6 +121,7 @@
             // Check if it is finished
             if (playPlay.currentLap > playPlay.totalLaps) {
                 cozenEnhancedLogs.info.customMessage('afterPlay', 'The game is finished');
+                $interval.cancel(interval);
                 gameWinner.setWinner(playPlay.currentPlayer);
                 $rootScope.$broadcast('timer-pause');
                 gamePhases.nextPhase();
