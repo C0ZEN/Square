@@ -52,6 +52,12 @@
         $rootScope.$on('gamePhases:newPhase', function ($event, $response) {
             game.phase      = $response.newPhase;
             game.currentLap = $response.currentLap;
+            if (game.phase != 'playing') {
+                game.currentPlayer = null;
+            }
+            else {
+                game.currentPlayer = gamePlayers.getCurrentPlayer();
+            }
         });
 
         // Watch for a new lap
@@ -62,6 +68,11 @@
         // Watch for a change of the current player
         $rootScope.$on('gamePlayers:currentPlayerChanged', function ($event, $response) {
             game.currentPlayer = $response.currentPlayer;
+        });
+
+        // Watch for a change of score
+        $rootScope.$on('gamePlayers:scoreChanged', function () {
+            game.players = gamePlayers.getPlayers();
         });
     }
 

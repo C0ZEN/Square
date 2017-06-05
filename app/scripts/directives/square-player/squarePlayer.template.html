@@ -1,20 +1,38 @@
-<div class="square-player-directive"
-     ng-class="{'reverse': squarePlayerReverse}">
+<div class="square-player-directive">
 
-    <!-- Player image -->
-    <img class="player-image"
-         ng-src="{{ squarePlayerImage }}">
+    <!-- Row 1 -->
+    <div class="row"
+         ng-class="{'reverse': squarePlayerReverse}">
 
-    <!-- Player name -->
-    <span class="player-name"
-          ng-class="[squarePlayerColor]">
-        {{ squarePlayerName }}
-    </span>
+        <!-- Player image -->
+        <img class="player-image"
+             ng-src="{{ squarePlayerImage }}">
 
-    <!-- Active image -->
-    <img ng-if="squarePlayerActiveIcon != ''"
-         ng-show="squarePlayerActive"
-         class="active-image force-ng-hide"
-         ng-class="[squarePlayerDirection, squarePlayerDirection == 'left' ? 'fadeInRight' : 'fadeInLeft']"
-         ng-src="{{ squarePlayerActiveIcon }}">
+        <!-- Player name -->
+        <span class="player-name"
+              ng-class="[squarePlayerColor]">
+            {{ squarePlayerName }}
+        </span>
+
+        <!-- Active image -->
+        <img ng-if="squarePlayerActiveIcon != ''"
+             ng-show="squarePlayerActive"
+             class="active-image force-ng-hide"
+             ng-class="[squarePlayerDirection, squarePlayerDirection == 'left' ? 'fadeInRight' : 'fadeInLeft']"
+             ng-src="{{ squarePlayerActiveIcon }}">
+    </div>
+
+    <hr ng-if-start="squarePlayerScore > 0"
+        class="separator">
+
+    <!-- Row 2 -->
+    <div ng-if-end
+         class="row">
+
+        <!-- Score -->
+        <div ng-repeat="square in squareScore track by $index"
+             ng-class="[squarePlayerColor]"
+             class="square">
+        </div>
+    </div>
 </div>

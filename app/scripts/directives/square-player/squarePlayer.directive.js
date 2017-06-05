@@ -11,6 +11,7 @@
  * @param {string}  squarePlayerImage  > Path of the image for the player
  * @param {string}  squarePlayerColor  > Color of the player
  * @param {boolean} squarePlayerActive > Display or hide the active icon
+ * @param {number}  squarePlayerScore  > Current score of the player
  *
  * [Attribute params]
  * @param {boolean} squarePlayerReverse    = false > Reverse the order of the elements (display)
@@ -25,11 +26,9 @@
         .module('squareApp')
         .directive('squarePlayer', squarePlayer);
 
-    squarePlayer.$inject = [
-        '$rootScope'
-    ];
+    squarePlayer.$inject = [];
 
-    function squarePlayer($rootScope) {
+    function squarePlayer() {
         return {
             link       : link,
             restrict   : 'E',
@@ -37,7 +36,8 @@
                 squarePlayerName  : '=?',
                 squarePlayerImage : '=?',
                 squarePlayerColor : '=?',
-                squarePlayerActive: '=?'
+                squarePlayerActive: '=?',
+                squarePlayerScore : '=?'
             },
             replace    : false,
             transclude : false,
@@ -61,6 +61,11 @@
                 scope.squarePlayerReverse    = angular.isUndefined(attrs.squarePlayerReverse) ? false : JSON.parse(attrs.squarePlayerReverse);
                 scope.squarePlayerActiveIcon = angular.isUndefined(attrs.squarePlayerActiveIcon) ? '' : attrs.squarePlayerActiveIcon;
                 scope.squarePlayerDirection  = angular.isUndefined(attrs.squarePlayerDirection) ? 'left' : attrs.squarePlayerDirection;
+
+                // Watch for a change in the score the update the array of scores
+                scope.$watch('squarePlayerScore', function (newScore, oldScore) {
+                    scope.squareScore = Methods.getNumberArray(newScore);
+                });
             }
 
             function destroy() {
