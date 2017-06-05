@@ -29,7 +29,7 @@
             "GAME_SPEED": {
                 "LABEL": "Vitesse du jeu",
                 "PLACEHOLDER": "Saisir la vitesse entre les actions des IA",
-                "TOOLTIP": "Minimum 10 millisecondes.<br>Maximum 2000 millisecondes.",
+                "TOOLTIP": "Minimum 1 millisecondes.<br>Maximum 2000 millisecondes.",
                 "HELP": "Correspond au temps entre chaque coup joué lors d'un IA contre IA."
             }
         },
