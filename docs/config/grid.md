@@ -8,7 +8,7 @@ Nous allons voir en détails les options disponibles pour configurer la grille s
 
 Tu peux modifier le nombre de lignes qui seront afficher par la grille.
 
-> Minimum 3 lignes
+> Minimum 3 lignes  
 > Maximum 12 lignes
 
 #### Nombre de colonnes
