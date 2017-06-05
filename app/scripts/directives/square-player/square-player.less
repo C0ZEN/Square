@@ -25,10 +25,13 @@ div.square-player-directive {
             }
         }
         div.square {
-            width         : @nolan-space-base;
-            height        : @nolan-space-base;
-            border-radius : @nolan-radius;
-            margin-right  : @nolan-space-base / 2;
+            width               : @nolan-space-base;
+            height              : @nolan-space-base;
+            border-radius       : @nolan-radius;
+            margin-right        : @nolan-space-base / 2;
+            animation-fill-mode : @nolan-animation-fill;
+            animation-duration  : @nolan-animation-duration-in;
+            animation-name      : zoomIn;
             &.yellow {
                 border           : 1px solid @nolan-color-yellow;
                 background-color : fade(@nolan-color-yellow, 50%);
