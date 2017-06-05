@@ -9,10 +9,11 @@
         'cozenLazyLoadRandom',
         '$filter',
         '$rootScope',
-        'cozenEnhancedLogs'
+        'cozenEnhancedLogs',
+        'CONFIG'
     ];
 
-    function gamePlayers(cozenLazyLoadRandom, $filter, $rootScope, cozenEnhancedLogs) {
+    function gamePlayers(cozenLazyLoadRandom, $filter, $rootScope, cozenEnhancedLogs, CONFIG) {
 
         // Private data
         var players = [];
@@ -68,17 +69,23 @@
         function setCurrentPlayer(playerName) {
             currentPlayer = getPlayer(playerName);
             firstPlayer   = currentPlayer;
+            return currentPlayer;
         }
 
         function toggleCurrentPlayer() {
             currentPlayer = currentPlayer.name == players[0].name ? players[1] : players[0];
+            $rootScope.$broadcast('gamePlayers:currentPlayerChanged', {
+                currentPlayer: currentPlayer
+            });
             return currentPlayer;
         }
 
         function increaseScore(playerName) {
             var player = getPlayer(playerName);
             player.score++;
-            cozenEnhancedLogs.info.customMessageEnhanced('gamePlayers', playerName + '\'s score is now', player.score);
+            if (CONFIG.debug) {
+                cozenEnhancedLogs.info.customMessageEnhanced('gamePlayers', playerName + '\'s score is now', player.score);
+            }
             $rootScope.$broadcast('gamePlayers:scoreChanged');
         }
 

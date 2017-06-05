@@ -2,11 +2,19 @@
      ng-class="{'reverse': squarePlayerReverse}">
 
     <!-- Player image -->
-    <img ng-src="{{ squarePlayerImage }}">
+    <img class="player-image"
+         ng-src="{{ squarePlayerImage }}">
 
     <!-- Player name -->
     <span class="player-name"
           ng-class="[squarePlayerColor]">
         {{ squarePlayerName }}
     </span>
+
+    <!-- Active image -->
+    <img ng-if="squarePlayerActiveIcon != ''"
+         ng-show="squarePlayerActive"
+         class="active-image force-ng-hide"
+         ng-class="[squarePlayerDirection, squarePlayerDirection == 'left' ? 'fadeInRight' : 'fadeInLeft']"
+         ng-src="{{ squarePlayerActiveIcon }}">
 </div>

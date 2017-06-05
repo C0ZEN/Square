@@ -5,7 +5,10 @@
             <!-- Profile -->
             <square-player square-player-name="game.players[0].name"
                            square-player-image="game.players[0].image"
-                           square-player-color="game.players[0].color">
+                           square-player-color="game.players[0].color"
+                           square-player-active-icon="images/icons8/nolan/33/Back.png"
+                           square-player-active="game.currentPlayer.name == game.players[0].name"
+                           square-player-direction="left">
             </square-player>
         </div>
         <div class="column column-middle">
@@ -45,7 +48,10 @@
             <square-player square-player-name="game.players[1].name"
                            square-player-image="game.players[1].image"
                            square-player-color="game.players[1].color"
-                           square-player-reverse="true">
+                           square-player-reverse="true"
+                           square-player-active-icon="images/icons8/nolan/33/Forward.png"
+                           square-player-active="game.currentPlayer.name == game.players[1].name"
+                           square-player-direction="right">
             </square-player>
         </div>
     </div>

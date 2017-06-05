@@ -3,7 +3,7 @@ div.square-player-directive {
     flex-direction  : row;
     justify-content : flex-start;
     align-items     : center;
-    img {
+    img.player-image {
         height       : 39px;
         margin-right : @nolan-space-base;
     }
@@ -11,9 +11,19 @@ div.square-player-directive {
         font-weight : 600;
         font-size   : 20px;
     }
+    img.active-image {
+        animation-fill-mode : @nolan-animation-fill;
+        animation-duration  : @nolan-animation-duration-in;
+        &.left {
+            margin-left : @nolan-space-base;
+        }
+        &.right {
+            margin-right : @nolan-space-base;
+        }
+    }
     &.reverse {
         flex-direction : row-reverse;
-        img {
+        img.player-image {
             margin-right : 0;
             margin-left  : @nolan-space-base;
         }

@@ -7,13 +7,11 @@
 
     gameBot.$inject = [
         'gameGrid',
-        'cozenEnhancedLogs'
+        'cozenEnhancedLogs',
+        'CONFIG'
     ];
 
-    function gameBot(gameGrid, cozenEnhancedLogs) {
-
-        // Private data
-        var grid;
+    function gameBot(gameGrid, cozenEnhancedLogs, CONFIG) {
 
         // Public functions
         return {
@@ -52,7 +50,9 @@
             } while (!isSelected);
 
             // Select the element
-            cozenEnhancedLogs.info.customMessageEnhanced('gameBot', currentPlayer.name + ' played on', currentRow + ',' + currentColumn, 'in ' + direction);
+            if (CONFIG.debug) {
+                cozenEnhancedLogs.info.customMessageEnhanced('gameBot', currentPlayer.name + ' played on', currentRow + ',' + currentColumn, 'in ' + direction);
+            }
             return gameGrid.selectGridElement(currentRow, currentColumn, direction, currentPlayer);
         }
     }

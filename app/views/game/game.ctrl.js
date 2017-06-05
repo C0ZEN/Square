@@ -43,7 +43,7 @@
         };
 
         // Define the current player
-        gamePlayers.setCurrentPlayer(game.players[0].name);
+        game.currentPlayer = gamePlayers.setCurrentPlayer(game.players[0].name);
 
         // Define the total laps
         game.totalLaps = gamePhases.getTotalLaps(game.configuration.grid.rowsQuantity, game.configuration.grid.columnsQuantity);
@@ -57,6 +57,11 @@
         // Watch for a new lap
         $rootScope.$on('gamePhases:newLap', function ($event, $response) {
             game.currentLap = $response.newLap;
+        });
+
+        // Watch for a change of the current player
+        $rootScope.$on('gamePlayers:currentPlayerChanged', function ($event, $response) {
+            game.currentPlayer = $response.currentPlayer;
         });
     }
 
