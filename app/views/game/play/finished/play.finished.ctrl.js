@@ -9,10 +9,11 @@
         'gamePhases',
         'goTo',
         'gameWinner',
-        '$rootScope'
+        '$rootScope',
+        'gamePlayers'
     ];
 
-    function GamePlayFinishedCtrl(gamePhases, goTo, gameWinner, $rootScope) {
+    function GamePlayFinishedCtrl(gamePhases, goTo, gameWinner, $rootScope, gamePlayers) {
         var playFinished = this;
 
         // Public methods
@@ -25,8 +26,15 @@
             goTo.view('square.game.play.begin');
         }
 
-        // Get the winner
+        // Get the winner and looser
         playFinished.winner = gameWinner.getWinner();
+        playFinished.looser = gameWinner.getLooser();
+
+        // Define the score
+        playFinished.score        = {
+            winner: playFinished.winner.score,
+            looser: playFinished.looser.score
+        };
 
         function start() {
             gamePhases.nextPhase();
