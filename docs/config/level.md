@@ -24,46 +24,6 @@ Il existe quatre types de difficultés:
 - **Moyen**
 - **Difficile**
 
-#### Très facile
+Le contenu étant assez long à expliquer, chaque difficulté aura son propre chapitre.
 
-Dans ce type de difficulté, l'IA sera vraiment très facile.
-
-Elle se repose sur des algorithmes **purement aléatoire**.
-
-Voyons en détails les étapes et vérifications qu'elle suit:
-
-- Choisi une ligne aléatoire
-- Choisi une colonne aléatoire
-- Choisi une direction (arrête) aléatoire
-- Vérifie que cette arrête n'est pas déjà sélectionnée par un joueur
-   - Si déjà sélectionnée, recommence toutes les étapes
-   - Sinon, sélectionne l'arrête
-- Fin de l'algorithme
-
-**Note:** il n'y a aucune forme d'intelligence.
-
-#### Facile
-
-Dans ce type de difficulté, l'IA sera assez facile.
-
-Elle se repose sur des algorithmes **aléatoire**.  
-On note l'arrivée d'une **intelligence**.
-
-Voyons en détails les étapes et vérifications qu'elle suit:
-
-- Choisi une ligne aléatoire
-- Choisi une colonne aléatoire
-- Vérifie le nombre de position disponibles en fonction des arrêtes sélectionnées (0, 1 ou 2)
-   - Si 0, recommence toutes les étapes
-   - Si 1, sélectionne l'arrête
-   - Si 2, exécute une recherche sur le score potential après ajout
-      - Calcul le nombre de points que rapporte l'arrête horizontale
-      - Calcul le nombre de points que rapporte l'arrête verticale
-      - Sélectionne l'arrête qui rapporte le plus de points
-- Fin de l'algorithme
-
-#### Moyen
-
-#### Difficile
-
-<a href="{{ site.baseUrl }}game/about/" class="btn btn-green">Chapitre suivant: Jeu</a>
+<a href="{{ site.baseUrl }}config/very-easy/" class="btn btn-green">Chapitre suivant: Très facile</a>
