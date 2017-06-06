@@ -17,12 +17,13 @@ En fonction des algorithmes et du nombre de contraintes à vérifier, la vitesse
 
 #### Difficultés
 
-Il existe quatre types de difficultés:
+Il existe cinq types de difficultés:
 
 - **Très facile**
 - **Facile**
 - **Moyen**
 - **Difficile**
+- **Très difficile**
 
 Le contenu étant assez long à expliquer, chaque difficulté aura son propre chapitre.
 
