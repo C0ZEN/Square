@@ -28,7 +28,7 @@ Le contenu étant assez long à expliquer, chaque difficulté aura son propre ch
 
 #### IA contre IA
 
-Lors d'une partie IA contre IA, une option supplémentaire sera disponible.
+Lors d'une partie **IA contre IA**, une option supplémentaire sera disponible.
 
 Celle-ci permet de choisir la difficulté par IA.
 
