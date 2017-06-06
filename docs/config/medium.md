@@ -28,6 +28,7 @@ Voyons en détails les étapes et vérifications qu'elle suit:
 
 Voici la liste des éléments qu'on pourrait améliorer pour rendre l'IA plus intelligente.
 
-- Sélection l'arrête qui rapporte le plus de points
+- Sélectionne l'arrête qui rapporte le plus de points
+- Si aucun carré n'est possible, place l'arrête de façon à ne pas offrir de carré à l'adversaire
 
 <a href="{{ site.baseUrl }}config/hard/" class="btn btn-green">Chapitre suivant: Difficile</a>
