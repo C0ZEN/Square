@@ -1,78 +1,35 @@
 # Début d’une partie
 
-Voici toutes les choses à savoir sur le déroulement d'une partie.
+Voici toutes les choses à savoir sur le début d'une partie.
 
-#### Humain contre IA
+#### Tour par tour
 
-Lors d'une partie humain contre IA, le joueur humain commence.
+Une partie se déroule en tour par tour.
 
-Le jeu va alors attendre une interaction de la part de l'humain.
+Chacun doit choisir une arrête valide pour passer au tour suivant.
 
-L'humain peut alors choisir une arrête valide (les arrêtes déjà sélectionnées ne sont pas sélectionnables au clique).
+C'est le nombre de tour qui détermine si une partie est terminée ou non.
 
-Dès que l'arrête est choisi, nous mettons à jours les données pour cette case du plateau.
+#### Temps
 
-La fonction de **réalisation des carrés** sera alors exécutée.
+Un chronomètre est afficher pour indiquer le temps que dure cette partie.
 
-**Note:** le joueur peut rejoué s'il termine un carré.
+#### Score
 
-Une fois que l'humain à terminé son tour, l'IA **choisi une arrête** (en fonction de l'algorithme associé à son niveau de difficulté).
+Lors du début de la partie, les joueurs ont un score de 0.
 
-Les étapes sont ensuite les mêmes que pour l'humain.
+Ce score va évolué en fonction de leurs choix et de la réalisation des carrés.
 
-#### IA contre IA
+Sous le nom des joueurs est afficher leur score courant (sous la forme d'une liste de carré).
 
-Le concepte est identique à la partie humain contre humain.
+Les carrés encore disponibles sont affichés à droite de l'écran.
 
-La seule différence ici est que l'humain est spectateur, il ne peut pas interagir avec le plateau.
+#### Pause et play
 
-De plus, la partie n'attend plus d'interaction avec l'humain.
+On peut mettre en pause la partie en cliquant sur le header, la zone avec les joueurs et leur score.
 
-**Note:** entre chaque coup de l'IA, un délai sera mise en place (correspond à la vitesse du jeu dans la configuration).
+C'est utile pour examiné une partie complexe entre deux IA par example.
 
-**Note:** les IA peuvent être de niveau différents.
+Bien entendu, on peut cliquer de nouveau sur cette zone remettre en marche la partie.
 
-#### Choix d'une arrête
-
-Cette partie concerne le choix d'une arrête par l'IA.
-
-En fonction de l'algorithme exécuté, l'arrête sélectionné peut ne pas être valide.
-
-Dans ce cas précis, la fonction est appellée récursivement jusqu'à ce que l'arrête choisi soit correcte.
-
-Une fois l'arrête choisi, l'objet du tableau sera mise à jour.
-
-#### Réalisation des carrés
-
-Après qu'un humain ou que l'IA est choisi une arrête valide, une fonction récursive va être appellée.
-
-Cette fonction va parcourir chaque case du plateau pour vérifier les règles suivantes:
-
-- Si le carré n'est pas sélectionné
-   - Si les deux arrêtes sont sélectionnées
-      - Vérifie qu'il existe une colonne à `colonne + 1`
-         - Vérifie que l'arrête verticale est sélectionnée
-      - Vérifie qu'il existe une ligne à `ligne + 1`
-         - Vérifie que l'arrête horizontale est sélectionnée
-
-Si toutes les conditions sont remplies, nous avons deux arrêtes verticales et horizontales sélectionnées mais le carré ne l'est pas.  
-Par conséquent, nous pouvons sélectionné le carré.
-
-Il est possible que le placement de la dernière arrête offre plusieurs carrés d'un coup.  
-Un appel récursif à la fonction de sélection du carré sera effectué.
-
-**Note:** dès qu'un carré est sélectionné, la fonction retourne un token qui permet au joueur de rejoué, sinon, on change de joueur.
-
-#### Victoire
-
-A chaque arrête placée, le compteur du nombre de coup sera incrémenté.
-
-Dès que le nombre de coup actuel sera plus grand que le nombre de coup total, alors la partie se termine.
-
-Une fonction va alors déterminé qui est le gagnant et le perdant en se basant sur la score des joueurs.
-
-**Note:** en cas d'égalité, le joueur de gauche remporte toujours la partie.
-
-Nous arrêtons tous les processus en cours puis une redirection sera effectuée sur la vue de victoire.
-
-<a href="{{ site.baseUrl }}game/victory/" class="btn btn-green">Chapitre suivant: Victoire</a>
+<a href="{{ site.baseUrl }}game/play/" class="btn btn-green">Chapitre suivant: Déroulement d’une partie</a>
