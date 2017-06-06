@@ -4,7 +4,7 @@
 
 Si tu veux avoir plus d'informations sur la **configuration** de Square, c'est par ici.
 
-Nous allons parler de ce qu'il est possible de faire, de configurer et de ce qui se cache derrière ces options de configuration à travers trois chapitres listé ci-dessous.
+Nous allons parler de ce qu'il est possible de faire, de configurer et de ce qui se cache derrière ces options de configuration à travers les chapitres listé ci-dessous.
 
 #### Local Storage
 
@@ -19,3 +19,7 @@ C'est bien plus confortable de cette manière quand il faut faire des test.
 - [Grille]({{site.baseUrl}}config/grid/)
 - [Type de partie]({{site.baseUrl}}config/type/)
 - [Difficulté]({{site.baseUrl}}config/level/)
+- [Très facile]({{site.baseUrl}}config/very-easy/)
+- [Facile]({{site.baseUrl}}config/easy/)
+- [Moyen]({{site.baseUrl}}config/medium/)
+- [Difficile]({{site.baseUrl}}config/hard/)
