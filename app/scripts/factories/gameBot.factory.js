@@ -15,7 +15,9 @@
 
         // Private methods
         var methods = {
-            setGridRange: setGridRange
+            setGridRange  : setGridRange,
+            selectElement : selectElement,
+            setCurrentData: setCurrentData
         };
 
         // Private data
@@ -164,8 +166,47 @@
             }
         }
 
-        function playOnHard() {
+        // Hard, try to finish an existing square, if not possible, try to find a placement where you don't offer square to opponent
+        function playOnHard(grid, currentPlayer) {
+            var availableSquare = gameGrid.isSquareAvailable();
 
+            // The bot can select an element to create a square
+            if (availableSquare != false) {
+
+                // Select the element
+                if (CONFIG.debug) {
+                    cozenEnhancedLogs.info.customMessageEnhanced('gameBot', currentPlayer.name + ' played on', currentRow + ',' + currentColumn, 'in ' + direction);
+                }
+                return gameGrid.selectGridElement(availableSquare.row, availableSquare.column, availableSquare.direction, currentPlayer);
+            }
+            else {
+                methods.setGridRange(grid);
+
+                // For each row and column
+                for (var row = 0, rowLength = grid.length; row < rowLength; row++) {
+                    for (var column = 0, columnLength = grid[row].columns.length; column < columnLength; column++) {
+
+                        // Both bar free
+                        if (!grid[row].columns[column].barHorizontalSelected && !grid[row].columns[column].barVerticalSelected) {
+
+                            // This is not the last column
+                            if (column + 1 < columnLength) {
+
+                                // This is not the last row
+                                if (row + 1 < rowLength) {
+
+                                    // The next column is free
+                                }
+                            }
+                            //methods.setCurrentData(row, column, 'vertical');
+                            // return methods.selectElement(currentPlayer);
+                        }
+                    }
+                }
+
+                // If no proper solution, play on very easy
+                return playOnVeryEasy(grid, currentPlayer);
+            }
         }
 
         function playOnVeryHard() {
@@ -178,6 +219,19 @@
         function setGridRange(grid) {
             rowLength    = grid.length;
             columnLength = grid[0].columns.length;
+        }
+
+        function selectElement(currentPlayer) {
+            if (CONFIG.debug) {
+                cozenEnhancedLogs.info.customMessageEnhanced('gameBot', currentPlayer.name + ' played on', currentRow + ',' + currentColumn, 'in ' + direction);
+            }
+            return gameGrid.selectGridElement(currentRow, currentColumn, direction, currentPlayer);
+        }
+
+        function setCurrentData(newRow, newColumn, newDirection) {
+            currentRow    = newRow;
+            currentColumn = newColumn;
+            direction     = newDirection;
         }
     }
 

@@ -24,7 +24,8 @@
             isElementSelected : isElementSelected,
             howManyScore      : howManyScore,
             countScore        : countScore,
-            isSquareAvailable : isSquareAvailable
+            isSquareAvailable : isSquareAvailable,
+            findTheBestSquare: findTheBestSquare
         };
 
         function createGrid(rowsQuantity, columnsQuantity) {
@@ -293,6 +294,10 @@
                 }
             }
             return false;
+        }
+
+        function findTheBestSquare() {
+
         }
     }
 
