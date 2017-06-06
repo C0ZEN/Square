@@ -23,3 +23,4 @@ C'est bien plus confortable de cette manière quand il faut faire des test.
 - [Facile]({{site.baseUrl}}config/easy/)
 - [Moyen]({{site.baseUrl}}config/medium/)
 - [Difficile]({{site.baseUrl}}config/hard/)
+- [Très difficile]({{site.baseUrl}}config/very-hard/)
