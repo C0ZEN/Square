@@ -26,4 +26,14 @@ Il existe quatre types de difficultés:
 
 Le contenu étant assez long à expliquer, chaque difficulté aura son propre chapitre.
 
+#### IA contre IA
+
+Lors d'une partie IA contre IA, une option supplémentaire sera disponible.
+
+Celle-ci permet de choisir la difficulté par IA.
+
+Si tu souhaite par exemple voir l'IA **très facile** se faire massacré par l'IA **moyenne**, c'est tout à faire envisagable.
+
+**Note:** c'est très bien pour testé si une IA est vraiment efficace.
+
 <a href="{{ site.baseUrl }}config/very-easy/" class="btn btn-green">Chapitre suivant: Très facile</a>
