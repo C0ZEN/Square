@@ -24,4 +24,12 @@ Voyons en détails les étapes et vérifications qu'elle suit:
 
 #### Explications détaillées
 
+#### Améliorations possibles
+
+Voici la liste des éléments qu'on pourrait améliorer pour rendre l'IA plus intelligente.
+
+- Recherche avant tout les carrés à compléter
+- Sélection l'arrête qui rapporte le plus de points
+- Choix de l'arrête selon critères
+
 <a href="{{ site.baseUrl }}config/easy/" class="btn btn-green">Chapitre suivant: Facile</a>
