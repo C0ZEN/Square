@@ -33,14 +33,14 @@
                     <span>{{ 'GAME.CONFIGURATION.SPEED' | translate:game.configuration.type }}</span>
                     <span>{{ 'LEVELS.LEVEL' | translate }}</span>
                     <span>{{ (('LEVELS.' + game.configuration.level.gameLevelName.toUpperCase()) | translate).toLowerCase() }}</span>
-                    <span>{{ 'AGAINST' | translate }}</span>
+                    <span>{{ 'AGAINST' | translate}}</span>
                     <span>{{ (('LEVELS.' + game.configuration.level.gameLevelName2.toUpperCase()) | translate).toLowerCase() + '.'}}</span>
                 </p>
 
                 <!-- Restart -->
                 <a ng-show="game.phase == 'playing'"
                    class="help-text animated fadeIn force-ng-hide"
-                   ui-sref="square.game.play.begin">
+                   ng-click="game.methods.restart($event)">
                     {{ 'GAME.RESTART' | translate }}
                 </a>
             </div>

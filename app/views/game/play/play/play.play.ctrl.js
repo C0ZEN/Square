@@ -16,11 +16,12 @@
         'gameBot',
         'cozenEnhancedLogs',
         '$interval',
-        '$scope'
+        '$scope',
+        '$state'
     ];
 
     function GamePlayPlayCtrl(gamePhases, goTo, gameInit, gamePlayers, gameGrid, gameWinner, $rootScope, gameBot, cozenEnhancedLogs,
-                              $interval, $scope) {
+                              $interval, $scope, $state) {
         var playPlay = this;
 
         // Public methods
@@ -29,18 +30,10 @@
             startIaVsIa: startIaVsIa
         };
 
-        // Internal data
-        var interval;
-
         // Check if the view can be loaded
         if (gamePhases.getCurrentPhase() != 'playing') {
             goTo.view('square.game.play.begin');
         }
-
-        // Stop the interval each time the ctrl is destroy
-        $scope.$on('$destroy', function () {
-            $interval.cancel(interval);
-        });
 
         // Reset the scores
         gamePlayers.resetScores();
@@ -64,17 +57,14 @@
             startIaVsIa();
         }
 
-        // Watch for pause to pause the game
+        // Watch for pause event to pause the game
         $rootScope.$on('game:pause', function () {
-            $interval.cancel(interval);
+            playPlay.isPaused = true;
         });
 
-        // Watch for play to play the game
+        // Watch for play event to play the game
         $rootScope.$on('game:play', function () {
-            if (gamePhases.getCurrentPhase() == 'playing') {
-                $interval.cancel(interval);
-                startIaVsIa();
-            }
+            playPlay.isPaused = false;
         });
 
         // When the user select a bar
@@ -96,6 +86,11 @@
 
         function botPlay(callback) {
             cozenEnhancedLogs.info.customMessage('botPlay', 'The bot can now play');
+
+            // Stop the play if the game is paused
+            if (playPlay.isPaused) {
+                return;
+            }
 
             // The bot is playing
             playPlay.botPlaying = true;
@@ -128,6 +123,9 @@
                 case 'hard':
                     response = gameBot.playOnHard(playPlay.grid, playPlay.currentPlayer);
                     break;
+                case 'very-hard':
+                    response = gameBot.playOnVeryHard(playPlay.grid, playPlay.currentPlayer);
+                    break;
             }
 
             // Execute the stuff after a play
@@ -159,7 +157,6 @@
             // Check if it is finished
             if (playPlay.currentLap > playPlay.totalLaps) {
                 cozenEnhancedLogs.info.customMessage('afterPlay', 'The game is finished');
-                $interval.cancel(interval);
                 gameWinner.findAndSetWinner();
                 $rootScope.$broadcast('timer-pause');
                 gamePhases.nextPhase();
@@ -182,17 +179,23 @@
         }
 
         function startIaVsIa() {
-            interval = $interval(function () {
+            if (Methods.isNullOrEmpty($rootScope.publicData.playInterval)) {
 
-                // Check if the game is over
-                if (playPlay.currentLap > playPlay.totalLaps) {
+                // Start the global interval
+                $rootScope.publicData.playInterval = $interval(function () {
 
-                    // Stop the interval
-                    $interval.cancel(interval);
-                    return;
-                }
-                botPlay();
-            }, playPlay.configuration.type.gameSpeed);
+                    // Check if we can play
+                    if (gamePhases.getCurrentPhase() == 'playing' &&
+                        $state.current.name == 'square.game.play.play' &&
+                        playPlay.configuration.type.gameTypeName == 'iaVsIa') {
+
+                        // Stop the play if the game is paused
+                        if (!playPlay.isPaused) {
+                            botPlay();
+                        }
+                    }
+                }, playPlay.configuration.type.gameSpeed);
+            }
         }
     }
 

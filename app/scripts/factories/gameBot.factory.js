@@ -27,7 +27,8 @@
             playOnVeryEasy: playOnVeryEasy,
             playOnEasy    : playOnEasy,
             playOnMedium  : playOnMedium,
-            playOnHard    : playOnHard
+            playOnHard    : playOnHard,
+            playOnVeryHard: playOnVeryHard
         };
 
         // Very easy bot, full random
@@ -164,6 +165,10 @@
         }
 
         function playOnHard() {
+
+        }
+
+        function playOnVeryHard() {
 
         }
 

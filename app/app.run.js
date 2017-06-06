@@ -16,7 +16,8 @@
 
         // Public global data
         $rootScope.publicData = {
-            innerHeight: window.innerHeight
+            innerHeight : window.innerHeight,
+            playInterval: null
         };
 
         // Public global services

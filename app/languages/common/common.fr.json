@@ -10,6 +10,8 @@
         "EASY": "Facile",
         "MEDIUM": "Moyen",
         "HARD": "Difficile",
+        "VERY_HARD": "Très difficile",
+        "VERY-HARD": "Très difficile",
         "LEVEL": "niveau",
         "AT_LEVEL": "au niveau"
     },

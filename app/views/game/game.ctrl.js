@@ -12,15 +12,17 @@
         'cozenEnhancedLogs',
         '$rootScope',
         'gamePhases',
-        'gameWinner'
+        'gameWinner',
+        'goTo'
     ];
 
-    function GameCtrl(gameInit, gamePlayers, CONFIG, cozenEnhancedLogs, $rootScope, gamePhases, gameWinner) {
+    function GameCtrl(gameInit, gamePlayers, CONFIG, cozenEnhancedLogs, $rootScope, gamePhases, gameWinner, goTo) {
         var game = this;
 
         // Public methods
         game.methods = {
-            onHeaderClick: onHeaderClick
+            onHeaderClick: onHeaderClick,
+            restart      : restart
         };
 
         // Get the last configuration
@@ -63,9 +65,6 @@
             if (game.phase != 'playing') {
                 game.currentPlayer = null;
             }
-            else {
-                game.currentPlayer = gamePlayers.getCurrentPlayer();
-            }
 
             // Define the winner
             if (game.phase == 'finished') {
@@ -76,9 +75,16 @@
                 game.winner = null;
             }
 
-            // Update the total score
+            // Update the total score and the current player
             if (game.phase == 'playing') {
+                game.currentPlayer = gamePlayers.getCurrentPlayer();
                 game.totalSquareScore = Methods.getNumberArray(game.totalScore);
+            }
+
+            // Change stuff to init properly the waiting vue
+            if (game.phase == 'waiting') {
+                game.totalSquareScore = [];
+                gamePlayers.resetScores();
             }
         });
 
@@ -114,6 +120,11 @@
                     $rootScope.$broadcast('game:play');
                 }
             }
+        }
+
+        function restart($event) {
+            $event.stopPropagation();
+            goTo.view('square.game.play.begin');
         }
     }
 

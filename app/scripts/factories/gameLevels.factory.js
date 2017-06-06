@@ -34,8 +34,14 @@
             {
                 id   : '4',
                 name : 'hard',
-                image: 'images/icons8/nolan/64/Skull.png',
+                image: 'images/icons8/nolan/64/Chiken.png',
                 label: 'LEVELS.HARD'
+            },
+            {
+                id   : '5',
+                name : 'very-hard',
+                image: 'images/icons8/nolan/64/Skull.png',
+                label: 'LEVELS.VERY_HARD'
             }
         ];
         var activeGameLevel  = gameLevels[0].name;
