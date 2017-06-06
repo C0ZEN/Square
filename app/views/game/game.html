@@ -16,13 +16,25 @@
 
             <div class="flex-vertical-center justify-space-between space-small-before">
 
-                <!-- Configuration -->
-                <p class="help-text">
+                <!-- Configuration humanVsIa -->
+                <p ng-if="game.configuration.type.gameTypeName == 'humanVsIa'"
+                   class="help-text">
                     <span>{{ 'GAME.CONFIGURATION.GRID' | translate:game.configuration.grid }}</span>
-                    <span>{{ (('TYPES.' + game.configuration.type.gameTypeName.toUpperCase()) | translate) + (game.configuration.type.gameTypeName != 'iaVsIa' ? ',' : '') }}</span>
-                    <span ng-if="game.configuration.type.gameTypeName == 'iaVsIa'">{{ 'GAME.CONFIGURATION.SPEED' | translate:game.configuration.type }}</span>
+                    <span>{{ (('TYPES.' + game.configuration.type.gameTypeName.toUpperCase()) | translate) + ',' }}</span>
                     <span>{{ 'LEVELS.LEVEL' | translate }}</span>
                     <span>{{ (('LEVELS.' + game.configuration.level.gameLevelName.toUpperCase()) | translate).toLowerCase() + '.'}}</span>
+                </p>
+
+                <!-- Configuration iaVsIa -->
+                <p ng-if="game.configuration.type.gameTypeName == 'iaVsIa'"
+                   class="help-text">
+                    <span>{{ 'GAME.CONFIGURATION.GRID' | translate:game.configuration.grid }}</span>
+                    <span>{{ (('TYPES.' + game.configuration.type.gameTypeName.toUpperCase()) | translate) }}</span>
+                    <span>{{ 'GAME.CONFIGURATION.SPEED' | translate:game.configuration.type }}</span>
+                    <span>{{ 'LEVELS.LEVEL' | translate }}</span>
+                    <span>{{ (('LEVELS.' + game.configuration.level.gameLevelName.toUpperCase()) | translate).toLowerCase() }}</span>
+                    <span>{{ 'AGAINST' | translate }}</span>
+                    <span>{{ (('LEVELS.' + game.configuration.level.gameLevelName2.toUpperCase()) | translate).toLowerCase() + '.'}}</span>
                 </p>
 
                 <!-- Restart -->

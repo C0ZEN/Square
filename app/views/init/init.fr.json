@@ -36,7 +36,9 @@
         "LEVEL": {
             "TITLE": "Modification de la difficulté",
             "H2": "Modifier la difficulté.",
-            "SUBMIT": "Jouer au Square"
+            "SUBMIT": "Jouer au Square",
+            "IA_1": "Niveau de l'IA 1",
+            "IA_2": "Niveau de l'IA 2"
         },
         "SETTINGS_SAVED": "La configuration du <strong>Square</strong> a été sauvegardée."
     }

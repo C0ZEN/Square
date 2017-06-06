@@ -16,5 +16,6 @@
     "TYPES": {
         "HUMANVSIA": "joueur humain contre IA",
         "IAVSIA": "IA contre IA"
-    }
+    },
+    "AGAINST": "contre"
 }

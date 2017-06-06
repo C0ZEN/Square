@@ -31,6 +31,9 @@
         $rootScope.$on('gameLevels:newActiveGameLevel', function ($event, $response) {
             init.configuration.level.gameLevelName = $response.activeGameLevel.name;
         });
+        $rootScope.$on('gameLevels:newActiveGameLevel2', function ($event, $response) {
+            init.configuration.level.gameLevelName2 = $response.activeGameLevel2.name;
+        });
 
         function saveConfiguration() {
             cozenFloatingFeedFactory.addAlert({

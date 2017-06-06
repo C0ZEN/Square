@@ -99,10 +99,23 @@
 
             // The bot is playing
             playPlay.botPlaying = true;
-            var response;
+            var response, gameLevel;
+
+            // Define the gameLevel
+            if (playPlay.configuration.type.gameTypeName == 'iaVsIa') {
+                if (playPlay.currentPlayer.id == 1) {
+                    gameLevel = playPlay.configuration.level.gameLevelName;
+                }
+                else {
+                    gameLevel = playPlay.configuration.level.gameLevelName2;
+                }
+            }
+            else {
+                gameLevel = playPlay.configuration.level.gameLevelName;
+            }
 
             // Make the bot play
-            switch (playPlay.configuration.level.gameLevelName) {
+            switch (gameLevel) {
                 case 'very-easy':
                     response = gameBot.playOnVeryEasy(playPlay.grid, playPlay.currentPlayer);
                     break;

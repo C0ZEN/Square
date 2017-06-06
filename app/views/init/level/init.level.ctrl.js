@@ -22,9 +22,20 @@
         // Get the game types list
         level.gameLevels = gameLevels.getGameLevels();
 
-        function onClickGameLevel($event, gameLevelName) {
+        function onClickGameLevel($event, gameLevelName, secondIa) {
+
+            // Default value
+            if (Methods.isNullOrEmpty(secondIa)) {
+                secondIa = false;
+            }
+
             $event.stopPropagation();
-            gameLevels.setActiveGameLevel(gameLevelName);
+            if (secondIa) {
+                gameLevels.setActiveGameLevel(gameLevelName, true);
+            }
+            else {
+                gameLevels.setActiveGameLevel(gameLevelName, false);
+            }
         }
 
         function submit() {

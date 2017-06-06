@@ -24,7 +24,8 @@
                 gameSpeed   : 500
             },
             level: {
-                gameLevelName: gameLevels.getActiveGameLevel().name
+                gameLevelName : gameLevels.getActiveGameLevel(false).name,
+                gameLevelName2: gameLevels.getActiveGameLevel(true).name
             }
         };
         var localStorageConfigurationName = 'square.configuration';

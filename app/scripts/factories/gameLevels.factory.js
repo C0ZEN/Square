@@ -12,7 +12,7 @@
     function gameLevels($rootScope) {
 
         // Private data
-        var gameLevels      = [
+        var gameLevels       = [
             {
                 id   : '1',
                 name : 'very-easy',
@@ -38,7 +38,8 @@
                 label: 'LEVELS.HARD'
             }
         ];
-        var activeGameLevel = gameLevels[0].name;
+        var activeGameLevel  = gameLevels[0].name;
+        var activeGameLevel2 = gameLevels[0].name;
 
         // Public functions
         return {
@@ -51,20 +52,48 @@
             return gameLevels;
         }
 
-        function getActiveGameLevel() {
-            for (var i = 0, length = gameLevels.length; i < length; i++) {
-                if (activeGameLevel == gameLevels[i].name) {
-                    return gameLevels[i];
+        function getActiveGameLevel(secondIa) {
+
+            // Default value
+            if (Methods.isNullOrEmpty(secondIa)) {
+                secondIa = false;
+            }
+
+            var i, length;
+            if (secondIa) {
+                for (i = 0, length = gameLevels.length; i < length; i++) {
+                    if (activeGameLevel2 == gameLevels[i].name) {
+                        return gameLevels[i];
+                    }
+                }
+            }
+            else {
+                for (i = 0, length = gameLevels.length; i < length; i++) {
+                    if (activeGameLevel == gameLevels[i].name) {
+                        return gameLevels[i];
+                    }
                 }
             }
             return null;
         }
 
-        function setActiveGameLevel(gameLevelName) {
-            if (activeGameLevel != gameLevelName) {
+        function setActiveGameLevel(gameLevelName, secondIa) {
+
+            // Default value
+            if (Methods.isNullOrEmpty(secondIa)) {
+                secondIa = false;
+            }
+
+            if (secondIa) {
+                activeGameLevel2 = gameLevelName;
+                $rootScope.$broadcast('gameLevels:newActiveGameLevel2', {
+                    activeGameLevel2: getActiveGameLevel(true)
+                });
+            }
+            else {
                 activeGameLevel = gameLevelName;
                 $rootScope.$broadcast('gameLevels:newActiveGameLevel', {
-                    activeGameLevel: getActiveGameLevel()
+                    activeGameLevel: getActiveGameLevel(false)
                 });
             }
         }
