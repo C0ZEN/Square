@@ -591,6 +591,7 @@ module.exports = function (grunt) {
                     '!<%= yeoman.app %>/**/*.tpl.js',
                     '!<%= yeoman.app %>/app.module.js',
                     '!<%= yeoman.app %>/app.config.js',
+                    '!<%= yeoman.app %>/app.release.config.js',
                     '!<%= yeoman.app %>/app.run.js'
                 ],
                 startTag: 'start-js',
