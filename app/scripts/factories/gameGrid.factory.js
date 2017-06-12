@@ -25,7 +25,7 @@
             howManyScore      : howManyScore,
             countScore        : countScore,
             isSquareAvailable : isSquareAvailable,
-            findTheBestSquare: findTheBestSquare
+            findTheBestSquare : findTheBestSquare
         };
 
         function createGrid(rowsQuantity, columnsQuantity) {
@@ -60,21 +60,24 @@
             return grid;
         }
 
-        function selectGridElement(rowId, columnId, direction, currentPlayer) {
-            for (var row = 0, rowLength = grid.length; row < rowLength; row++) {
-                if (rowId == grid[row].id) {
-                    for (var column = 0, columnLength = grid[row].columns.length; column < columnLength; column++) {
-                        if (columnId == grid[row].columns[column].id) {
+        function selectGridElement(rowId, columnId, direction, currentPlayer, customGrid) {
+            if (Methods.isNullOrEmpty(customGrid)) {
+                customGrid = grid;
+            }
+            for (var row = 0, rowLength = customGrid.length; row < rowLength; row++) {
+                if (rowId == customGrid[row].id) {
+                    for (var column = 0, columnLength = customGrid[row].columns.length; column < columnLength; column++) {
+                        if (columnId == customGrid[row].columns[column].id) {
                             if (direction == 'horizontal') {
-                                grid[row].columns[column].barHorizontalSelected = currentPlayer.name;
-                                grid[row].columns[column].barHorizontalColor    = currentPlayer.color;
+                                customGrid[row].columns[column].barHorizontalSelected = currentPlayer.name;
+                                customGrid[row].columns[column].barHorizontalColor    = currentPlayer.color;
                             }
                             else {
-                                grid[row].columns[column].barVerticalSelected = currentPlayer.name;
-                                grid[row].columns[column].barVerticalColor    = currentPlayer.color;
+                                customGrid[row].columns[column].barVerticalSelected = currentPlayer.name;
+                                customGrid[row].columns[column].barVerticalColor    = currentPlayer.color;
                             }
                             return {
-                                grid     : grid,
+                                grid     : customGrid,
                                 canReplay: autoCompleteSquare(currentPlayer)
                             }
                         }
@@ -200,27 +203,30 @@
             return score;
         }
 
-        function isSquareAvailable() {
+        function isSquareAvailable(customGrid) {
+            if (Methods.isNullOrEmpty(customGrid)) {
+                customGrid = grid;
+            }
 
             // Start to search for a square to complete
-            for (var row = 0, rowLength = grid.length; row < rowLength; row++) {
-                for (var column = 0, columnLength = grid[row].columns.length; column < columnLength; column++) {
+            for (var row = 0, rowLength = customGrid.length; row < rowLength; row++) {
+                for (var column = 0, columnLength = customGrid[row].columns.length; column < columnLength; column++) {
 
                     // Check if the square not completed
-                    if (!grid[row].columns[column].squareCompleted) {
+                    if (!customGrid[row].columns[column].squareCompleted) {
 
                         // Check if all the bar of this square are selected
-                        if (grid[row].columns[column].barHorizontalSelected && grid[row].columns[column].barVerticalSelected) {
+                        if (customGrid[row].columns[column].barHorizontalSelected && customGrid[row].columns[column].barVerticalSelected) {
 
                             // Check if this is not the last column
                             if (column + 1 < columnLength) {
 
                                 // Check if the next column have an vertical bar selected
-                                if (grid[row].columns[column + 1].barVerticalSelected) {
+                                if (customGrid[row].columns[column + 1].barVerticalSelected) {
 
                                     // Check if the next row exist
                                     // Check if the column of the next row have an horizontal bar selected
-                                    if (row + 1 < rowLength && grid[row + 1].columns[column].barHorizontalSelected == false) {
+                                    if (row + 1 < rowLength && customGrid[row + 1].columns[column].barHorizontalSelected == false) {
 
                                         // Then you can select one square !
                                         return {
@@ -234,7 +240,7 @@
 
                                     // Check if the next row exist
                                     // Check if the column of the next row have an horizontal bar selected
-                                    if (row + 1 < rowLength && grid[row + 1].columns[column].barHorizontalSelected) {
+                                    if (row + 1 < rowLength && customGrid[row + 1].columns[column].barHorizontalSelected) {
 
                                         // Then you can select one square !
                                         return {
@@ -246,17 +252,17 @@
                                 }
                             }
                         }
-                        else if (grid[row].columns[column].barHorizontalSelected && !grid[row].columns[column].barVerticalSelected) {
+                        else if (customGrid[row].columns[column].barHorizontalSelected && !customGrid[row].columns[column].barVerticalSelected) {
 
                             // Check if this is not the last column
                             if (column + 1 < columnLength) {
 
                                 // Check if the next column have an vertical bar selected
-                                if (grid[row].columns[column + 1].barVerticalSelected) {
+                                if (customGrid[row].columns[column + 1].barVerticalSelected) {
 
                                     // Check if the next row exist
                                     // Check if the column of the next row have an horizontal bar selected
-                                    if (row + 1 < rowLength && grid[row + 1].columns[column].barHorizontalSelected) {
+                                    if (row + 1 < rowLength && customGrid[row + 1].columns[column].barHorizontalSelected) {
 
                                         // Then you can select one square !
                                         return {
@@ -268,17 +274,17 @@
                                 }
                             }
                         }
-                        else if (!grid[row].columns[column].barHorizontalSelected && grid[row].columns[column].barVerticalSelected) {
+                        else if (!customGrid[row].columns[column].barHorizontalSelected && customGrid[row].columns[column].barVerticalSelected) {
 
                             // Check if this is not the last column
                             if (column + 1 < columnLength) {
 
                                 // Check if the next column have an vertical bar selected
-                                if (grid[row].columns[column + 1].barVerticalSelected) {
+                                if (customGrid[row].columns[column + 1].barVerticalSelected) {
 
                                     // Check if the next row exist
                                     // Check if the column of the next row have an horizontal bar selected
-                                    if (row + 1 < rowLength && grid[row + 1].columns[column].barHorizontalSelected) {
+                                    if (row + 1 < rowLength && customGrid[row + 1].columns[column].barHorizontalSelected) {
 
                                         // Then you can select one square !
                                         return {

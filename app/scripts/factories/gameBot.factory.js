@@ -183,25 +183,60 @@
                 methods.setGridRange(grid);
 
                 // For each row and column
-                for (var row = 0, rowLength = grid.length; row < rowLength; row++) {
-                    for (var column = 0, columnLength = grid[row].columns.length; column < columnLength; column++) {
+                var availableElements = [], fakeGrid = angular.copy(grid), selectGridElementReturn;
+                for (var row = 0, rowLength = fakeGrid.length; row < rowLength; row++) {
+                    for (var column = 0, columnLength = fakeGrid[row].columns.length; column < columnLength; column++) {
 
-                        // Both bar free
-                        if (!grid[row].columns[column].barHorizontalSelected && !grid[row].columns[column].barVerticalSelected) {
+                        // Check if we can select the vertical element
+                        if (row < rowLength - 1 && !gameGrid.isElementSelected(row, column, 'vertical')) {
+                            fakeGrid = angular.copy(grid);
 
-                            // This is not the last column
-                            if (column + 1 < columnLength) {
+                            // Select it
+                            selectGridElementReturn = gameGrid.selectGridElement(row, column, 'vertical', currentPlayer, fakeGrid);
+                            fakeGrid                = selectGridElementReturn.grid;
 
-                                // This is not the last row
-                                if (row + 1 < rowLength) {
+                            // Now simulate next turn and try to complete a square
+                            availableSquare = gameGrid.isSquareAvailable(fakeGrid);
 
-                                    // The next column is free
-                                }
+                            // If false, consider the element as good because we can't provide a point to next player
+                            if (!availableSquare) {
+                                availableElements.push({
+                                    row      : row,
+                                    column   : column,
+                                    direction: 'vertical'
+                                });
                             }
-                            //methods.setCurrentData(row, column, 'vertical');
-                            // return methods.selectElement(currentPlayer);
+                        }
+
+                        // Check if we can select the vertical element
+                        if (column < columnLength - 1 && !gameGrid.isElementSelected(row, column, 'horizontal')) {
+                            fakeGrid = angular.copy(grid);
+
+                            // Select it
+                            selectGridElementReturn = gameGrid.selectGridElement(row, column, 'horizontal', currentPlayer, fakeGrid);
+                            fakeGrid                = selectGridElementReturn.grid;
+
+                            // Now simulate next turn and try to complete a square
+                            availableSquare = gameGrid.isSquareAvailable(fakeGrid);
+
+                            // If false, consider the element as good because we can't provide a point to next player
+                            if (!availableSquare) {
+                                availableElements.push({
+                                    row      : row,
+                                    column   : column,
+                                    direction: 'horizontal'
+                                });
+                            }
                         }
                     }
+                }
+                cozenEnhancedLogs.info.customMessageEnhanced('gameBot', 'Found', availableElements.length, 'safe solutions');
+
+                // If we can play safe
+                if (availableElements.length > 0) {
+                    var index           = Methods.getRandomFromRange(0, availableElements.length - 1);
+                    var selectedElement = availableElements[index];
+                    return gameGrid.selectGridElement(selectedElement.row, selectedElement.column, selectedElement.direction, currentPlayer);
                 }
 
                 // If no proper solution, play on very easy
