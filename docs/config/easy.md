@@ -28,6 +28,40 @@ Voyons en détails les étapes et vérifications qu'elle suit:
 
 #### Explications détaillées
 
+Voyons en détails le code.
+
+##### Récupération d'une coordonnée
+
+Avec l'aide de `Math.random`, nous allons récupéré les coordonnées d'une arrête dans la grille.
+
+Nous choisisons aléatoirement l'index d'une ligne et l'index d'une colonne.  
+
+##### Vérification de l'arrête
+
+L'arrête choisis peut ne pas être correcte (en dehors de la grille ou déjà sélectionnée).
+
+Nous allons vérifier si l'arrête verticale et horizontale sont disponibles.
+
+Si l'arrête verticale n'est pas sélectionnée et que ce n'est pas la dernière ligne, elle est disponible.  
+Si l'arrête horizontale n'est pas sélectionnée et que ce n'est pas la dernière colonne, est est disponible.
+
+Si les deux arrêtes sont disponibles, nous allons simuler de choisir l'une et l'autre arrête puis nous allons calculer le nombre de carrés complétés avec ce choix d'arrête.
+
+L'arrête qui donne le plus de carrés sera alors l'arrête à sélectionnée (la direction horizontale prend le dessus en cas d'égalité).
+
+Si l'une des deux arrête est disponiblen alors on la choisit.
+
+Si toutes les arrêtes sont indisponibles, nous recommençons à l'étape de **récupération d'une coordonnée**, sinon, nous passons à la **sélection d'une arrête**.
+
+##### Sélection d'une arrête
+
+Nous savons que l'arrête choisis est sélectionnable.
+
+Nous la sélectionnons en actualisant ses informations (objet).
+
+De plus, nous lançons une analyse pour complétés les carrés complets.  
+Si une carré à était complété, le joueur pourra alors rejoué.
+
 #### Améliorations possibles
 
 Voici la liste des éléments qu'on pourrait améliorer pour rendre l'IA plus intelligente.
