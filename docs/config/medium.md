@@ -24,6 +24,60 @@ Voyons en détails les étapes et vérifications qu'elle suit:
 
 #### Explications détaillées
 
+Voyons en détails le code.
+
+##### Compléter un carré
+
+La première étape consiste à vérifier si nous pouvons terminé un carré.
+
+Nous allons parcourir toute la grille et pour chaque case nous allons faire des vérifications:
+
+##### Compléter un carré avec une arrête en bas manquante
+
+Si le carré n'est pas complété,  
+Et que les deux arrêtes de la case sont sélectionnées (arrête gauche/haut),  
+Et que ce n'est pas la dernière colonne,  
+Et que la colonne suivante a une arrête verticale sélectionnée,  
+Et que ce n'est pas la dernière ligne,  
+Alors l'arrête horizontale de la ligne suivante est disponible et permet de réaliser un carré.
+
+##### Compléter un carré avec une arrête à droite manquante
+
+Si le carré n'est pas complété,  
+Et que les deux arrêtes de la case sont sélectionnées (arrête gauche/haut),  
+Et que ce n'est pas la dernière ligne,  
+Et que la ligne suivante a une arrête horizontale sélectionnée,  
+Et que ce n'est pas la dernière colonne,  
+Alors l'arrête verticale de la colonne suivante est disponible et permet de réaliser un carré.
+
+##### Compléter un carré avec une arrête en haut manquante
+
+Si le carré n'est pas complété,  
+Et que l'arrête verticale est sélectionnée mais pas l'arrête horizontale,  
+Et que ce n'est pas la dernière colonne,  
+Et que la colonne suivante a une arrête verticale sélectionnée,  
+Et que ce n'est pas la dernière ligne,  
+Et que la ligne suivante a une arrête horizontale sélectionnée,  
+Alors l'arrête horizontale est disponible et permet de réaliser un carré.
+
+##### Compléter un carré avec une arrête à gauche manquante
+
+Si le carré n'est pas complété,  
+Et que l'arrête horizontale est sélectionnée mais pas l'arrête verticale,  
+Et que ce n'est pas la dernière colonne,  
+Et que la colonne suivante a une arrête verticale sélectionnée,  
+Et que ce n'est pas la dernière ligne,  
+Et que la ligne suivante a une arrête horizontale sélectionnée,  
+Alors l'arrête verticale est disponible et permet de réaliser un carré.
+
+##### Compléter le carré
+
+Si à la moindre occasion l'une des vérifications précédente s'avère exacte, alors nous pouvons compléter un carré.
+
+Dans ce cas, nous le complétons.
+
+Si ce n'est pas le cas, alors nous pouvons jouer en **très facile** pour choisir une arrête aléatoirement.
+
 #### Améliorations possibles
 
 Voici la liste des éléments qu'on pourrait améliorer pour rendre l'IA plus intelligente.
