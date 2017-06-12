@@ -49,9 +49,9 @@ Si les deux arrêtes sont disponibles, nous allons simuler de choisir l'une et l
 
 L'arrête qui donne le plus de carrés sera alors l'arrête à sélectionnée (la direction horizontale prend le dessus en cas d'égalité).
 
-Si l'une des deux arrête est disponiblen alors on la choisit.
+Sinon si l'une des deux arrêtes est disponible alors on la choisit.
 
-Si toutes les arrêtes sont indisponibles, nous recommençons à l'étape de **récupération d'une coordonnée**, sinon, nous passons à la **sélection d'une arrête**.
+Sinon si toutes les arrêtes sont indisponibles, nous recommençons à l'étape de **récupération d'une coordonnée**, sinon, nous passons à la **sélection d'une arrête**.
 
 ##### Sélection d'une arrête
 
