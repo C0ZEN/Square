@@ -10,7 +10,7 @@ Si aucun carré ne peut être terminé, elle basculera sur un choix **aléatoire
 
 Son but est donc de priorisé les points à gagnés en complétant un maximum de carrés.
 
-**Note:** une d'intelligence plus poussée fait donc son apparition.
+**Note:** une intelligence plus poussée fait donc son apparition.
 
 #### Etapes
 
