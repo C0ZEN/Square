@@ -5,7 +5,7 @@
             "REMAINING_LAPS": "{{currentLap}} / {{totalLaps}}",
             "WINNER": "Partie terminée !",
             "BEGIN": {
-                "TITLE": "Démarrage d'une nouvelle partie",
+                "TITLE": "Démarrer une nouvelle partie",
                 "START": "Démarrer une nouvelle partie"
             },
             "PLAY": {

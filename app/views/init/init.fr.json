@@ -2,10 +2,10 @@
     "INIT": {
         "H1": "Configurer la partie.",
         "P": {
-            "1": "Configurer la grille de jeu,",
+            "1": "Configurez la grille de jeu,",
             "2": "Choisissez votre type de partie,",
-            "3": "Modifier la difficulté,",
-            "4": "Sauvegarder et jouer."
+            "3": "Modifiez la difficulté,",
+            "4": "Sauvegardez et jouez."
         },
         "GRID": {
             "TITLE": "Configuration de la grille",
