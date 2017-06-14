@@ -26,8 +26,9 @@
 
         // Public methods
         playPlay.methods = {
-            onClickBar : onClickBar,
-            startIaVsIa: startIaVsIa
+            onClickBar   : onClickBar,
+            startIaVsIa  : startIaVsIa,
+            getBarClasses: getBarClasses
         };
 
         // Check if the view can be loaded
@@ -46,6 +47,7 @@
 
         // Get the current player
         playPlay.currentPlayer = gamePlayers.getCurrentPlayer();
+        playPlay.lastBotBar    = null;
 
         // Get the maximum of laps
         playPlay.totalLaps = gamePhases.getTotalLaps(playPlay.configuration.grid.rowsQuantity, playPlay.configuration.grid.columnsQuantity);
@@ -167,6 +169,11 @@
                 return;
             }
 
+            // Highlight the last bar of the bot if humanVsIa
+            if (playPlay.configuration.type.gameTypeName == 'humanVsIa') {
+                playPlay.lastBotBar = response.bar;
+            }
+
             // When the user can replay and that user is a bot
             // Make it play again
             if (response.canReplay) {
@@ -196,6 +203,30 @@
                     }
                 }, playPlay.configuration.type.gameSpeed);
             }
+        }
+
+        function getBarClasses(direction, column, rowId) {
+            var classes = [];
+            if (direction == 'horizontal') {
+                classes.push(column.barHorizontalColor);
+                if (column.barHorizontalSelected != false) {
+                    classes.push('selected');
+                }
+            }
+            else {
+                classes.push(column.barVerticalColor);
+                if (column.barVerticalSelected != false) {
+                    classes.push('selected');
+                }
+            }
+            if (playPlay.lastBotBar != null) {
+                if (playPlay.lastBotBar.row == rowId &&
+                    playPlay.lastBotBar.column == column.id &&
+                    playPlay.lastBotBar.direction == direction) {
+                    classes.push('blink');
+                }
+            }
+            return classes;
         }
     }
 

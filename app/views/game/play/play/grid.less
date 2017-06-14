@@ -86,6 +86,12 @@ div.play-grid {
                         }
                     }
                 }
+                &.blink {
+                    animation-name            : blink;
+                    animation-duration        : 1200ms;
+                    animation-fill-mode       : @nolan-animation-fill;
+                    animation-iteration-count : infinite;
+                }
             }
             div.square {
                 position         : absolute;
@@ -176,5 +182,27 @@ div.play-grid {
                 }
             }
         }
+    }
+}
+@-webkit-keyframes blink {
+    from {
+        opacity : 1;
+    }
+    to {
+        opacity : 0;
+    }
+}
+@keyframes blink {
+    0% {
+        opacity : 1;
+    }
+    43% {
+        opacity : 1;
+    }
+    57% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
