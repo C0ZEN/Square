@@ -8,10 +8,11 @@
     gameBot.$inject = [
         'gameGrid',
         'cozenEnhancedLogs',
-        'CONFIG'
+        'CONFIG',
+        'gameVeryHard'
     ];
 
-    function gameBot(gameGrid, cozenEnhancedLogs, CONFIG) {
+    function gameBot(gameGrid, cozenEnhancedLogs, CONFIG, gameVeryHard) {
 
         // Private methods
         var methods = {
@@ -244,8 +245,8 @@
             }
         }
 
-        function playOnVeryHard() {
-
+        function playOnVeryHard(grid, currentPlayer) {
+            gameVeryHard.doSomeStuff();
         }
 
         /// INTERNAL METHODS ///
