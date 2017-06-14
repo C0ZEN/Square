@@ -8,10 +8,11 @@ Nous allons voir en détails les options disponibles pour configurer la **diffic
 
 Chaque difficulté augmente la difficulté de l'IA.  
 
-Pour chaque difficulté, des algorithmes différents sont utilisés.  
+Pour chaque difficulté, des algorithmes différents sont utilisés.
+
 De plus, certaines difficultés ajoutent des vérifications supplémentaires pour rendre l'IA encore plus efficace.
 
-En fonction des algorithmes et du nombre de contraintes à vérifier, la vitesse d'un tour de jeu par l'IA peu fortement variée.
+En fonction des algorithmes et du nombre de contraintes à vérifier, la vitesse d'un tour de jeu par l'IA peu fortement varier.
 
 **Note:** la taille de la grille a également un impact important sur la vitesse d'un tour.
 
@@ -33,8 +34,8 @@ Lors d'une partie **IA contre IA**, une option supplémentaire sera disponible.
 
 Celle-ci permet de choisir la difficulté par IA.
 
-Si tu souhaite par exemple voir l'IA **très facile** se faire massacré par l'IA **moyenne**, c'est tout à faire envisagable.
+Si vous souhaitez par exemple voir l'IA **très facile** se faire massacrer par l'IA **moyenne**, c'est tout à fait envisagable.
 
-**Note:** c'est très bien pour testé si une IA est vraiment efficace.
+**Note:** c'est très bien pour tester si une IA est vraiment efficace.
 
 <a href="{{ site.baseUrl }}config/very-easy/" class="btn btn-green">Chapitre suivant: Très facile</a>

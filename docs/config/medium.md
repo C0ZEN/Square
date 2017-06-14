@@ -4,11 +4,11 @@
 
 Dans ce type de difficulté, l'IA sera assez intelligente pour être un adversaire prêt à vous battre.
 
-Elle se repose sur un algorithme de recherche de carrés à terminé.
+Elle repose sur un algorithme de recherche de carrés à terminer.
 
 Si aucun carré ne peut être terminé, elle basculera sur un choix **aléatoire** comme pour le niveau **très facile**.
 
-Son but est donc de priorisé les points à gagnés en complétant un maximum de carrés.
+Son but est donc de prioriser les points à gagner en complétant un maximum de carrés.
 
 **Note:** une intelligence plus poussée fait donc son apparition.
 
@@ -17,9 +17,9 @@ Son but est donc de priorisé les points à gagnés en complétant un maximum de
 Voyons en détails les étapes et vérifications qu'elle suit:
 
 - Parcours de toute la grille
-   - Vérifie si un carré peut-être terminé
+   - Vérifie si un carré peut être terminé
    - Si oui, sélectionne l'arrête manquante pour compléter le carré
-   - Si non, choisi une arrête au hasard (bascule vers **très facile**)
+   - Si non, choisit une arrête au hasard (bascule vers **très facile**)
 - Fin de l'algorithme
 
 #### Explications détaillées
@@ -28,7 +28,7 @@ Voyons en détails le code.
 
 ##### Compléter un carré
 
-La première étape consiste à vérifier si nous pouvons terminé un carré.
+La première étape consiste à vérifier si nous pouvons terminer un carré.
 
 Nous allons parcourir toute la grille et pour chaque case nous allons faire des vérifications:
 
@@ -82,7 +82,7 @@ Si ce n'est pas le cas, alors nous pouvons jouer en **très facile** pour choisi
 
 Voici la liste des éléments qu'on pourrait améliorer pour rendre l'IA plus intelligente.
 
-- Sélectionne l'arrête qui rapporte le plus de points
+- Sélection de l'arrête qui rapporte le plus de points
 - Si aucun carré n'est possible, place l'arrête de façon à ne pas offrir de carré à l'adversaire
 
 <a href="{{ site.baseUrl }}config/hard/" class="btn btn-green">Chapitre suivant: Difficile</a>

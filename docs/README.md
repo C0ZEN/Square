@@ -4,10 +4,10 @@ Le jeu Square pour SUPINFO 4AIT.
 
 ## Pour commencer
 
-Avant tout, exécute la commande `npm install`.  
+Avant tout, exécuter la commande `npm install`.
 Elle s'occupe d'installer les **node_modules** et les **bower_components**.
 
-Utilise ensuite `grunt serve` pour exécuter Square en mode développement.  
+Utiliser ensuite `grunt serve` pour exécuter Square en mode développement.
 Cette tâche est importante parce qu'elle s'occupe de démarrer un serveur node en local.
 
 **Note:** sans ce serveur node, Square ne fonctionnera pas correctement (JSON non lu).

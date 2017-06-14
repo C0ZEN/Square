@@ -2,9 +2,9 @@
 
 #### De quoi il s'agit ?
 
-Si tu veux avoir plus d'informations sur comment se déroule le **jeu**, c'est par ici.
+Si vous voulez avoir plus d'informations sur comment se déroule le **jeu**, c'est par ici.
 
-Nous allons parler des conceptes sur la création du jeu, les règles et les étapes lors du déroulement d'une partie.
+Nous allons parler des concepts sur la création du jeu, les règles et les étapes lors du déroulement d'une partie.
 
 #### Sommaire
 

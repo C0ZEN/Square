@@ -18,7 +18,7 @@ Dans ce type de partie, le joueur jouera contre une IA.
 Le premier à jouer est l'humain.
 
 > Le joueur sera représenté par la couleur jaune  
-> L'IA sera représenté par la couleur bleu
+> L'IA sera représentée par la couleur bleu
 
 **Note:** le nom de l'IA est généré aléatoirement.
 
@@ -28,21 +28,21 @@ Dans ce type de partie, une IA jouera contre une autre IA.
 
 Une option supplémentaire sera disponible uniquement pour ce type de partie: la **vitesse du jeu**.
 
-> L'IA 1 sera représenté par la couleur violet  
-> L'IA 2 sera représenté par la couleur bleu
+> L'IA 1 sera représentée par la couleur violet
+> L'IA 2 sera représentée par la couleur bleu
 
 **Note:** le nom des IA est généré aléatoirement.
 
 #### Vitesse du jeu
 
-La vitesse du jeu permet d'accéléré ou de modifier le temps entre chaque tour d'une IA.
+La vitesse du jeu permet d'accélérer ou de modifier le temps entre chaque tour d'une IA.
 
-Une vitesse très basse est utile pour effectuée des test tandis qu'une vitesse plus grande permet de voir comment joue l'IA.
+Une vitesse très basse est utile pour effectuer des tests tandis qu'une vitesse plus grande permet de voir comment joue l'IA.
 
 > Minimum 1 milliseconde  
 > Maximum 2000 millisecondes
 
-**Note:** même si la vitesse est réglée sur 1 milliseconde, le temps d'un tour peu être plus lent en fonction de la difficulté.
+**Note:** même si la vitesse est réglée sur 1 milliseconde, le temps d'un tour peut être plus lent en fonction de la difficulté.
 
 **Note:** chaque difficulté utilise des algorithmes différents et certains sont plus rapides que d'autres.
 

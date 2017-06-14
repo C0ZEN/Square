@@ -12,22 +12,24 @@ Cela va permettre de **créer les joueurs**, le plateau, le type de partie et to
 
 Nous créons ensuite les joueurs, en fonction du type de partie (si humain vs IA ou IA vs IA).
 
-Dans le cas d'une partie humain vs IA, le joueur humain sera toujours à gauche, en jaune, et sera la premier à joué.  
-L'IA sera à droite en bleu.
+Dans le cas d'une partie humain vs IA, le joueur humain sera toujours à gauche, en jaune, et sera la premier à jouer.
 
-Dans le cas d'une partie IA vs IA, la première IA sera à gauche en violet.  
-La deuxième IA sera à droite en bleu.
+> L'IA sera à droite en bleu.
+
+Dans le cas d'une partie IA vs IA, la première IA sera à gauche en violet.
+
+> La deuxième IA sera à droite en bleu.
 
 #### Initialisation des données
 
 Notre application Square est vraiment complète et nous avons voulu rendre le jeu vraiment agréable, pour nous, et notre correcteur ;)
 
-Par conséquent, il y a un tas de données à initialisé pour que la partie fonctionne (début/recommencer).
+Par conséquent, il y a un tas de données à initialiser pour que la partie fonctionne (début/recommencer).
 
 Par exemples:
 
 - Le score des joueurs est réinitialisé à 0
-- Le nombre de carré à réalisé est recalculé
+- Le nombre de carrés à réaliser est recalculé
 - Le temps est réinitialisé à 0
 - Le nombre de coups total et courrant est recalculé
 
