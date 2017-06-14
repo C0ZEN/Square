@@ -1,0 +1,38 @@
+<div class="finished-container">
+
+    <!-- Crown winner image -->
+    <img class="crown"
+         ng-src="images/icons8/nolan/64/Crown.png">
+
+    <!-- Well done -->
+    <span ng-show="playFinished.winner.name == 'Toi'"
+          class="well-done"
+          cozen-compile="'GAME.PLAY.FINISHED.WELL_DONE_YOU' | translate:playFinished.winner">
+    </span>
+
+    <!-- Well done -->
+    <span ng-show="playFinished.winner.name != 'Toi'"
+          class="well-done"
+          cozen-compile="'GAME.PLAY.FINISHED.WELL_DONE' | translate:playFinished.winner">
+    </span>
+
+    <!-- Score -->
+    <span class="score"
+          cozen-compile="'GAME.PLAY.FINISHED.SCORE' | translate:playFinished.score">
+    </span>
+
+    <!-- New game -->
+    <cozen-btn cozen-btn-class="space-large-before space-base-after"
+               cozen-btn-label="'GAME.PLAY.FINISHED.START'"
+               cozen-btn-auto-sizing="true"
+               cozen-btn-on-click="playFinished.methods.start()"
+               cozen-btn-type-green>
+    </cozen-btn>
+
+    <!-- Change config -->
+    <cozen-btn cozen-btn-label="'GAME.PLAY.FINISHED.CONFIG'"
+               cozen-btn-auto-sizing="true"
+               cozen-btn-on-click="$goTo.view('square.init.grid')"
+               cozen-btn-type-green>
+    </cozen-btn>
+</div>

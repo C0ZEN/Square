@@ -1,6 +1,23 @@
 {
     "PEOPLE": {
         "HUMAN": "Humain",
-        "IA": "IA"
-    }
+        "IA": "IA",
+        "YOU": "Toi"
+    },
+    "LEVELS": {
+        "VERY_EASY": "Très facile",
+        "VERY-EASY": "Très facile",
+        "EASY": "Facile",
+        "MEDIUM": "Moyen",
+        "HARD": "Difficile",
+        "VERY_HARD": "Très difficile",
+        "VERY-HARD": "Très difficile",
+        "LEVEL": "niveau",
+        "AT_LEVEL": "au niveau"
+    },
+    "TYPES": {
+        "HUMANVSIA": "joueur humain contre IA",
+        "IAVSIA": "IA contre IA"
+    },
+    "AGAINST": "contre"
 }

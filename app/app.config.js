@@ -46,7 +46,7 @@
             .positionLeft('10px');
         CozenFloatingFeedProvider
             .width(520)
-            .timeoutTime(14000);
+            .timeoutTime(6000);
 
         // Configure the location provider
         $locationProvider

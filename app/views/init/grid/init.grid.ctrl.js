@@ -12,9 +12,14 @@
     function InitGridCtrl(goTo) {
         var grid = this;
 
-        grid.submit = function () {
-            goTo.view('square.init.type');
+        // Public methods
+        grid.methods = {
+            submit: submit
         };
+
+        function submit() {
+            goTo.view('square.init.type');
+        }
     }
 
 })(window.angular);

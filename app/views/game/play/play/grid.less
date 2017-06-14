@@ -1,0 +1,180 @@
+div.play-grid {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : center;
+    height          : 100%;
+    width           : 100%;
+    @square-grid-angle-height : @nolan-space-base;
+    @square-grid-angle-width : @nolan-space-base;
+    @square-grid-bar-space : 0;
+    @square-grid-bar-height : @nolan-space-small;
+    @square-grid-bar-width : @nolan-space-large;
+    div.row {
+        display        : flex;
+        flex-direction : row;
+        div.column {
+            height   : @square-grid-angle-height + @nolan-space-large + @square-grid-bar-space + @square-grid-bar-space;
+            width    : @square-grid-angle-width + @nolan-space-large + @square-grid-bar-space + @square-grid-bar-space;
+            position : relative;
+            div.angle {
+                position         : absolute;
+                top              : 0;
+                left             : 0;
+                height           : @square-grid-angle-height;
+                width            : @square-grid-angle-width;
+                border-radius    : @nolan-radius;
+                background-color : @nolan-color-line-rule;
+                z-index          : 10;
+            }
+            div.bar {
+                position         : absolute;
+                border-radius    : 0;
+                background-color : transparent;
+                cursor           : pointer;
+                outline          : @nolan-outline;
+                z-index          : 8;
+                &:after {
+                    position         : absolute;
+                    content          : '';
+                    cursor           : inherit;
+                    transition       : @nolan-transition;
+                    background-color : transparent;
+                }
+                &.horizontal {
+                    top    : 0;
+                    left   : @square-grid-angle-width + @square-grid-bar-space;
+                    height : @square-grid-angle-height;
+                    width  : @square-grid-bar-width;
+                    &:after {
+                        top    : (@square-grid-angle-height - @square-grid-bar-height) / 2;
+                        left   : 0;
+                        height : @square-grid-bar-height;
+                        width  : @square-grid-bar-width;
+                    }
+                }
+                &.vertical {
+                    top    : @square-grid-angle-height + @square-grid-bar-space;
+                    left   : 0;
+                    height : @square-grid-bar-width;
+                    width  : @square-grid-bar-height;
+                    &:after {
+                        top    : 0;
+                        left   : (@square-grid-angle-height - @square-grid-bar-height) / 2;
+                        height : @square-grid-bar-width;
+                        width  : @square-grid-bar-height;
+                    }
+                }
+                &.selected {
+                    cursor : not-allowed;
+                    &.yellow {
+                        &:hover:after,
+                        &:after {
+                            background-color : @nolan-color-yellow;
+                        }
+                    }
+                    &.purple {
+                        &:hover:after,
+                        &:after {
+                            background-color : @nolan-color-purple;
+                        }
+                    }
+                    &.blue {
+                        &:hover:after,
+                        &:after {
+                            background-color : @nolan-color-blue;
+                        }
+                    }
+                }
+            }
+            div.square {
+                position         : absolute;
+                top              : (@square-grid-angle-height - @square-grid-bar-height) / 2;
+                left             : (@square-grid-angle-height - @square-grid-bar-height) / 2;
+                width            : @square-grid-angle-width + @square-grid-bar-width;
+                height           : @square-grid-angle-height + @square-grid-bar-width;
+                background-color : transparent;
+                z-index          : 5;
+                transition       : @nolan-transition;
+                &.completed {
+                    &.yellow {
+                        background-color : fade(@nolan-color-yellow, 50%);
+                    }
+                    &.purple {
+                        background-color : fade(@nolan-color-purple, 50%);
+                    }
+                    &.blue {
+                        background-color : fade(@nolan-color-blue, 50%);
+                    }
+                }
+            }
+            &:last-child {
+                width : @square-grid-angle-width;
+                div.bar.horizontal,
+                div.square {
+                    display : none;
+                }
+            }
+        }
+        &:last-child {
+            div.column {
+                height : @square-grid-angle-height;
+                div.bar.vertical,
+                div.square {
+                    display : none;
+                }
+            }
+        }
+    }
+    &.yellow {
+        .square-play-grid-color(@nolan-color-yellow);
+    }
+    &.purple {
+        .square-play-grid-color(@nolan-color-purple);
+    }
+    &.blue {
+        .square-play-grid-color(@nolan-color-blue);
+    }
+    &.bot-playing {
+        div.row {
+            div.column {
+                div.bar {
+                    cursor : not-allowed;
+                    &:hover {
+                        &:after {
+                            background-color : transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.disabled {
+        cursor : not-allowed;
+        div.row {
+            div.column {
+                div.bar {
+                    cursor : not-allowed;
+                    &:hover {
+                        &:after {
+                            background-color : transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.square-play-grid-color(@color) {
+    div.row {
+        div.column {
+            div.bar {
+                &:hover {
+                    &:after {
+                        background-color : fade(@color, 50%);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,153 @@
+h1.game-title {
+    display         : flex;
+    flex-direction  : row;
+    justify-content : space-between;
+    align-items     : center;
+    margin          : 0;
+}
+span.versus {
+    color       : @nolan-color-dark-purple;
+    font-weight : 800;
+    font-size   : 25px;
+    padding     : 0 @nolan-space-small;
+}
+span.winner {
+    color       : @nolan-color-label;
+    font-weight : 600;
+    font-size   : 20px;
+    padding     : 0 @nolan-space-small;
+}
+div.game-board-container {
+    display          : flex;
+    flex-direction   : column;
+    background-color : @nolan-color-white;
+    border           : 1px solid @nolan-color-line-rule;
+    border-radius    : @nolan-radius;
+    width            : 100%;
+    position         : relative;
+    div.game-board-header {
+        position : relative;
+        outline  : @nolan-outline;
+        cursor   : default;
+        div.game-board-header-content {
+            display         : flex;
+            flex-direction  : row;
+            justify-content : space-between;
+            align-items     : center;
+            padding         : @nolan-space-base;
+            div.column {
+                flex  : 1;
+                width : 100%;
+                &.column-middle {
+                    text-align : center;
+                    div.row {
+                        display        : flex;
+                        flex-direction : column;
+                        align-items    : center;
+                        span.laps {
+                            font-weight : 400;
+                            font-size   : 16px;
+                            color       : @nolan-color-label;
+                        }
+                        timer {
+                            font-weight : 400;
+                            font-size   : 13px;
+                            color       : @nolan-color-label;
+                        }
+                    }
+                }
+            }
+        }
+        img.game-board-header-btn {
+            position            : absolute;
+            top                 : 50%;
+            left                : 50%;
+            transform           : translate(-50%, -50%);
+            cursor              : pointer;
+            border-radius       : 50%;
+            z-index             : 10;
+            display             : none;
+            animation-duration  : 0ms;
+            animation-fill-mode : @nolan-animation-fill;
+            animation-name      : fadeIn;
+        }
+        &.is-playing.ia-game {
+            cursor : pointer;
+            &:hover {
+                div.game-board-header-content {
+                    opacity          : 0.15;
+                    background-color : @nolan-color-white-hover;
+                    transition       : ease-out @nolan-animation-duration-out-fast;
+                }
+                img.game-board-header-btn {
+                    display            : block;
+                    animation-duration : @nolan-animation-duration-out-fast;
+                }
+            }
+        }
+    }
+    hr {
+        margin : 0;
+    }
+    div.game-board-body {
+        padding    : @nolan-space-base;
+        height     : 63vh;
+        position   : relative;
+        box-sizing : border-box;
+        div.begin-container {
+            position  : absolute;
+            top       : 50%;
+            left      : 50%;
+            transform : translate(-50%, -50%);
+        }
+        div.play-container {
+            height : 100%;
+            width  : 100%;
+            @import (less) "play/play/grid.less";
+        }
+        div.finished-container {
+            display         : flex;
+            flex-direction  : column;
+            align-items     : center;
+            justify-content : center;
+            height          : 100%;
+            img.crown {
+                margin-bottom : @nolan-space-large;
+            }
+            span.well-done {
+                font-weight : 500;
+                font-size   : 26px;
+                color       : @nolan-color-label;
+            }
+            span.score {
+                font-weight : 400;
+                font-size   : 18px;
+                color       : @nolan-color-label;
+            }
+        }
+    }
+    div.score-column {
+        display         : flex;
+        flex-direction  : column;
+        flex-wrap       : wrap;
+        position        : absolute;
+        top             : @nolan-space-small;
+        left            : ~"calc(100% + @{nolan-space-small})";
+        height          : 100%;
+        justify-content : flex-start;
+        div.square {
+            width               : @nolan-space-base;
+            height              : @nolan-space-base;
+            border-radius       : @nolan-radius;
+            margin              : @nolan-space-base / 6 @nolan-space-base / 4;
+            animation-fill-mode : @nolan-animation-fill;
+            animation-duration  : @nolan-animation-duration-in;
+            animation-name      : zoomIn;
+            border              : 1px solid @nolan-color-line-rule;
+            background-color    : fade(@nolan-color-line-rule, 50%);
+            &.ng-leave {
+                animation-name : zoomOut;
+            }
+        }
+    }
+}

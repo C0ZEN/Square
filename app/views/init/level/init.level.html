@@ -1,0 +1,50 @@
+<!-- Subtitle -->
+<h2 class="with-icon">
+    <img ng-src="images/icons8/nolan/33/Brain.png">
+    <span>{{ 'INIT.LEVEL.H2' | translate }}</span>
+</h2>
+
+<!-- Form -->
+<cozen-form cozen-form-name="level"
+            cozen-form-ctrl="level"
+            cozen-form-model="form">
+
+    <!-- Game levels -->
+    <p ng-if="init.configuration.type.gameTypeName == 'iaVsIa'"
+       class="help-text space-small-after">{{ 'INIT.LEVEL.IA_1' | translate }}
+    </p>
+    <div class="game-levels-container">
+        <div ng-repeat="gameLevel in level.gameLevels track by $index"
+             ng-class="{'selected': gameLevel.name == init.configuration.level.gameLevelName}"
+             ng-click="level.methods.onClickGameLevel($event, gameLevel.name, false)"
+             class="game-level-toast">
+            <img ng-src="{{ gameLevel.image }}">
+            <span>{{ gameLevel.label | translate }}</span>
+        </div>
+    </div>
+
+    <!-- Game levels -->
+    <p ng-if-start="init.configuration.type.gameTypeName == 'iaVsIa'"
+       class="help-text space-medium-before space-small-after">{{ 'INIT.LEVEL.IA_2' | translate }}
+    </p>
+    <div ng-if-end
+         class="game-levels-container">
+        <div ng-repeat="gameLevel in level.gameLevels track by $index"
+             ng-class="{'selected': gameLevel.name == init.configuration.level.gameLevelName2}"
+             ng-click="level.methods.onClickGameLevel($event, gameLevel.name, true)"
+             class="game-level-toast">
+            <img ng-src="{{ gameLevel.image }}">
+            <span>{{ gameLevel.label | translate }}</span>
+        </div>
+    </div>
+
+    <!-- Next step -->
+    <cozen-btn cozen-btn-class="space-medium-before"
+               cozen-btn-label="'INIT.LEVEL.SUBMIT'"
+               cozen-btn-auto-sizing="true"
+               cozen-btn-disabled="level.form.level.$invalid"
+               cozen-btn-on-click="init.methods.saveConfiguration(); level.methods.submit()"
+               cozen-btn-id="levelSubmit"
+               cozen-btn-type-green>
+    </cozen-btn>
+</cozen-form>

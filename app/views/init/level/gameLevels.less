@@ -1,0 +1,38 @@
+div.game-levels-container {
+    display         : flex;
+    flex-direction  : row;
+    justify-content : flex-start;
+    align-items     : center;
+    div.game-level-toast {
+        background-color : @nolan-color-white;
+        border           : 1px solid @nolan-color-line-rule;
+        border-radius    : @nolan-radius;
+        padding          : @nolan-space-base @nolan-space-medium;
+        display          : flex;
+        flex-direction   : column;
+        align-items      : center;
+        transition       : @nolan-transition;
+        outline          : @nolan-outline;
+        cursor           : pointer;
+        margin-right     : @nolan-space-medium;
+        position         : relative;
+        img {
+            margin-bottom : @nolan-space-small;
+        }
+        span {
+            font-weight : 500;
+            font-size   : 16px;
+        }
+        &:hover {
+            border           : 1px solid @nolan-color-blue;
+            background-color : fade(@nolan-color-blue, 5%);
+        }
+        &.selected {
+            border           : 1px solid @nolan-color-purple;
+            background-color : fade(@nolan-color-purple, 5%);
+        }
+        &:last-of-type {
+            margin-right : 0;
+        }
+    }
+}
