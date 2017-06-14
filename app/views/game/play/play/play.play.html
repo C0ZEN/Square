@@ -20,13 +20,13 @@
 
                 <!-- Bar -->
                 <div class="bar horizontal"
-                     ng-class="playPlay.getBarClasses()"
+                     ng-class="playPlay.methods.getBarClasses('horizontal', column, row.id)"
                      ng-click="!column.barHorizontalSelected && !playPlay.botPlaying && !playPlay.disabled ? playPlay.methods.onClickBar($event, 'horizontal', row, column) : null">
                 </div>
 
                 <!-- Bar -->
                 <div class="bar vertical"
-                     ng-class="[!column.barVerticalSelected ? '' : 'selected', column.barVerticalColor]"
+                     ng-class="playPlay.methods.getBarClasses('vertical', column, row.id)"
                      ng-click="!column.barVerticalSelected && !playPlay.botPlaying && !playPlay.disabled ? playPlay.methods.onClickBar($event, 'vertical', row, column) : null">
                 </div>
 

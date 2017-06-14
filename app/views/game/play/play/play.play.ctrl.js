@@ -205,8 +205,28 @@
             }
         }
 
-        function getBarClasses() {
-            [!column.barHorizontalSelected ? '' : 'selected', column.barHorizontalColor]
+        function getBarClasses(direction, column, rowId) {
+            var classes = [];
+            if (direction == 'horizontal') {
+                classes.push(column.barHorizontalColor);
+                if (column.barHorizontalSelected != false) {
+                    classes.push('selected');
+                }
+            }
+            else {
+                classes.push(column.barVerticalColor);
+                if (column.barVerticalSelected != false) {
+                    classes.push('selected');
+                }
+            }
+            if (playPlay.lastBotBar != null) {
+                if (playPlay.lastBotBar.row == rowId &&
+                    playPlay.lastBotBar.column == column.id &&
+                    playPlay.lastBotBar.direction == direction) {
+                    classes.push('blink');
+                }
+            }
+            return classes;
         }
     }
 
