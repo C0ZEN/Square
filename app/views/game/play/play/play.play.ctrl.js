@@ -46,6 +46,7 @@
 
         // Get the current player
         playPlay.currentPlayer = gamePlayers.getCurrentPlayer();
+        playPlay.lastBotBar    = null;
 
         // Get the maximum of laps
         playPlay.totalLaps = gamePhases.getTotalLaps(playPlay.configuration.grid.rowsQuantity, playPlay.configuration.grid.columnsQuantity);

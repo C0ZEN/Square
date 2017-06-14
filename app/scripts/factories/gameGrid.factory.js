@@ -78,7 +78,12 @@
                             }
                             return {
                                 grid     : customGrid,
-                                canReplay: autoCompleteSquare(currentPlayer)
+                                canReplay: autoCompleteSquare(currentPlayer),
+                                bar      : {
+                                    line     : row,
+                                    column   : column,
+                                    direction: direction
+                                }
                             }
                         }
                     }
