@@ -20,8 +20,7 @@
 
                 <!-- Bar -->
                 <div class="bar horizontal"
-                     ng-class="[!column.barHorizontalSelected ? '' : 'selected', column.barHorizontalColor,
-                     ]"
+                     ng-class="playPlay.getBarClasses()"
                      ng-click="!column.barHorizontalSelected && !playPlay.botPlaying && !playPlay.disabled ? playPlay.methods.onClickBar($event, 'horizontal', row, column) : null">
                 </div>
 

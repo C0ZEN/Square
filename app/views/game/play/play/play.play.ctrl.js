@@ -26,8 +26,9 @@
 
         // Public methods
         playPlay.methods = {
-            onClickBar : onClickBar,
-            startIaVsIa: startIaVsIa
+            onClickBar   : onClickBar,
+            startIaVsIa  : startIaVsIa,
+            getBarClasses: getBarClasses
         };
 
         // Check if the view can be loaded
@@ -168,6 +169,11 @@
                 return;
             }
 
+            // Highlight the last bar of the bot if humanVsIa
+            if (playPlay.configuration.type.gameTypeName == 'humanVsIa') {
+                playPlay.lastBotBar = response.bar;
+            }
+
             // When the user can replay and that user is a bot
             // Make it play again
             if (response.canReplay) {
@@ -197,6 +203,10 @@
                     }
                 }, playPlay.configuration.type.gameSpeed);
             }
+        }
+
+        function getBarClasses() {
+            [!column.barHorizontalSelected ? '' : 'selected', column.barHorizontalColor]
         }
     }
 
