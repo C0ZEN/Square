@@ -8,10 +8,11 @@
     gameBot.$inject = [
         'gameGrid',
         'cozenEnhancedLogs',
-        'CONFIG'
+        'CONFIG',
+        'gameVeryHard'
     ];
 
-    function gameBot(gameGrid, cozenEnhancedLogs, CONFIG) {
+    function gameBot(gameGrid, cozenEnhancedLogs, CONFIG, gameVeryHard) {
 
         // Private methods
         var methods = {
@@ -244,9 +245,66 @@
             }
         }
 
-        function playOnVeryHard() {
-
+        function playOnVeryHard(grid, currentPlayer) {
+            // Set current state
+            var state = gameVeryHard.newState(grid, currentPlayer);
+            // Create Tree
+            var tree = gameVeryHard.newTree(state);
+            // Populate tree with available moves to 4 generations
+            for(var x=0; i<4; i++) {
+                var previousNode;
+                if(x == 0) {
+                    previousNode = tree.root;
+                } else {
+                    previousNode = tree.root.children[x]
+                }
+                var availableMoves = state.isAvailable();
+                availableMoves.forEach(function(nextState) {
+                    // Create node with correct state
+                    var node = gameVeryHard.newNode(nextState);
+                    node.parent = previousNode;
+                    node.setScore();
+                    node.parent.children.push(node);
+                });
+            }
+            // Apply our minimax algorithm
+            var bestValue = tree.customMiniMax(tree.root, -Number.MAX_VALUE, Number.MAX_VALUE, true);
+            // Get 1st Gen node with this bestValue
+            var bestMoveNode;
+            tree.root.children.forEach(function(childNode) {
+                if(childNode.score == bestValue) {
+                    bestMoveNode = childNode;
+                }
+            });
+            // Get the segment coords
+            var h = bestMoveNode.data.board.length;
+            var w = bestMoveNode.data.board[0].length;
+            var row, column, direction;
+            var goOn = true;
+            for(var i=0; goOn && i<h; i++) {
+                for(var i=0; i<w; i++) {
+                    if(state.board[i][j].up != bestMoveNode.data.board[i][j].up) {
+                        row = i; column = j; direction = 'horizontal';
+                        goOn = false; break;
+                    }
+                    if(state.board[i][j].down != bestMoveNode.data.board[i][j].down) {
+                        row = i+1; column = j; direction = 'horizontal';
+                        goOn = false; break;
+                    }
+                    if(state.board[i][j].left != bestMoveNode.data.board[i][j].left) {
+                        row = i; column = j; direction = 'vertical';
+                        goOn = false; break;
+                    }
+                    if(state.board[i][j].right != bestMoveNode.data.board[i][j].right) {
+                        row = i; column = j+1; direction = 'vertical';
+                        goOn = false; break;
+                    }
+                }
+            }
+            // PLAY
+            return gameGrid.selectGridElement(row, column, direction, currentPlayer);
         }
+        
 
         /// INTERNAL METHODS ///
 
@@ -271,4 +329,3 @@
     }
 
 })(window.angular);
-

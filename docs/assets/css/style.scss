@@ -1,0 +1,45 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+// Colors
+$nolan-amethyst: #c424ff;
+$nolan-amethyst-hover: #a800e6;
+$nolan-blue: #216bff;
+$nolan-blue-hover: #0055ff;
+$nolan-wisteria: #7048ff;
+$nolan-wisteria-hover: #5f33ff;
+
+// Override the green of the cayman
+.main-content h1, 
+.main-content h2, 
+.main-content h3, 
+.main-content h4, 
+.main-content h5, 
+.main-content h6 {
+	color: $nolan-blue;
+}
+
+// Change the color hover the btn
+.btn.btn-green {
+	margin-top: 1rem;
+	background-color: $nolan-blue;
+	&:hover {
+		background-color: $nolan-blue-hover;
+	}
+}
+
+// Change the color of the header
+.page-header {
+ 	background-color: $nolan-wisteria;
+   	background-image: linear-gradient(180deg, $nolan-blue, $nolan-wisteria, $nolan-amethyst);
+}
+
+// Change the color of a link
+a {
+	color: $nolan-wisteria;
+	&:hover {
+		color: $nolan-wisteria-hover;
+	}
+}
