@@ -10,8 +10,6 @@
     ];
 
     function config($stateProvider) {
-
-        // Log routes
         $stateProvider
             .state('square.init', {
                 abstract    : true,
@@ -36,6 +34,15 @@
                 templateUrl : 'views/init/type/init.type.html',
                 data        : {
                     pageTitle: 'INIT.TYPE.TITLE'
+                }
+            })
+            .state('square.init.level', {
+                url         : '/level',
+                controller  : 'InitLevelCtrl',
+                controllerAs: 'level',
+                templateUrl : 'views/init/level/init.level.html',
+                data        : {
+                    pageTitle: 'INIT.LEVEL.TITLE'
                 }
             });
     }

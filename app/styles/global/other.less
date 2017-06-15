@@ -21,10 +21,23 @@ div.nolan-btn-container {
 }
 small.help-text,
 span.help-text,
+a.help-text,
 p.help-text {
     margin     : 0;
     color      : @nolan-color-label;
     text-align : justify;
+    &.active {
+        color : @nolan-color-dark-purple-active;
+    }
+}
+a.help-text {
+    display         : block;
+    text-decoration : none;
+    transition      : @nolan-transition;
+    cursor          : pointer;
+    &:hover {
+        color : @nolan-color-dark-purple-active;
+    }
 }
 .form-left-img {
     position  : absolute;
@@ -174,6 +187,9 @@ i.nolan-icon-btn {
 .justify-content-start {
     justify-content : flex-start !important;
 }
+.justify-space-between {
+    justify-content : space-between !important;
+}
 .full-center-content {
     display        : flex;
     flex-direction : row;
@@ -294,8 +310,9 @@ img::selection {
     font-style : italic;
 }
 .main-view {
-    margin  : @nolan-space-extra-large 0;
-    padding : @nolan-space-base;
+    margin-top    : 80px;
+    margin-bottom : 0;
+    padding       : @nolan-space-base;
 }
 .nolan-form-container {
     height         : 100%;

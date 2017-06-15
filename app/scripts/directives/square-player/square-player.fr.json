@@ -1,0 +1,7 @@
+{
+  "SQUARE_PLAYER": {
+    "PLAYER": {
+      "NAME": "Joueur: {{playerName}}"
+    }
+  }
+}

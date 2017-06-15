@@ -1,18 +1,27 @@
 <nav class="nolan-navbar">
     <div class="nolan-navbar-block left">
         <a class="link link-blue link-title"
-           ng-class="{'active': $goTo.isCurrentView('square.home')}"
-           ng-click="$goTo.view('square.home')"
            tabindex="0"
            ui-sref="square.home">
             Square App
         </a>
         <a class="link link-blue"
-           ng-class="{'active': goTo.isCurrentView('square.home')}"
-           ng-click="$goTo.view('square.home')"
+           ui-sref-active="active"
            tabindex="0"
            ui-sref="square.home">
-            {{ 'HOME.TITLE' | translate }}
+            {{ 'NAVBAR.HOME' | translate }}
+        </a>
+        <a class="link link-blue"
+           ng-class="{active: $goTo.hasThisParent('square.init')}"
+           tabindex="0"
+           ui-sref="square.init.grid">
+            {{ 'NAVBAR.CONFIGURATION' | translate }}
+        </a>
+        <a class="link link-blue"
+           ng-class="{active: $goTo.hasThisParent('square.game')}"
+           tabindex="0"
+           ui-sref="square.game.play.begin">
+            {{ 'NAVBAR.PLAY' | translate }}
         </a>
     </div>
 </nav>

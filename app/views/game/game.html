@@ -1,0 +1,49 @@
+<div class="container main-view animated fadeIn force-ng-hide">
+    <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-push-1">
+
+            <!-- Title -->
+            <!--<h1 class="game-title space-base-after">-->
+            <!--<img ng-src="images/icons8/nolan/39/Centre-Gravity.png">-->
+            <!--<span cozen-compile="'GAME.H1' | translate:game.h1"></span>-->
+            <!--<img ng-src="images/icons8/nolan/39/Centre-Gravity.png">-->
+            <!--</h1>-->
+
+            <!-- Content -->
+            <div class="animated fadeIn force-ng-hide"
+                 ui-view>
+            </div>
+
+            <div class="flex-vertical-center justify-space-between space-small-before">
+
+                <!-- Configuration humanVsIa -->
+                <p ng-if="game.configuration.type.gameTypeName == 'humanVsIa'"
+                   class="help-text">
+                    <span>{{ 'GAME.CONFIGURATION.GRID' | translate:game.configuration.grid }}</span>
+                    <span>{{ (('TYPES.' + game.configuration.type.gameTypeName.toUpperCase()) | translate) + ',' }}</span>
+                    <span>{{ 'LEVELS.LEVEL' | translate }}</span>
+                    <span>{{ (('LEVELS.' + game.configuration.level.gameLevelName.toUpperCase()) | translate).toLowerCase() + '.'}}</span>
+                </p>
+
+                <!-- Configuration iaVsIa -->
+                <p ng-if="game.configuration.type.gameTypeName == 'iaVsIa'"
+                   class="help-text">
+                    <span>{{ 'GAME.CONFIGURATION.GRID' | translate:game.configuration.grid }}</span>
+                    <span>{{ (('TYPES.' + game.configuration.type.gameTypeName.toUpperCase()) | translate) }}</span>
+                    <span>{{ 'GAME.CONFIGURATION.SPEED' | translate:game.configuration.type }}</span>
+                    <span>{{ 'LEVELS.LEVEL' | translate }}</span>
+                    <span>{{ (('LEVELS.' + game.configuration.level.gameLevelName.toUpperCase()) | translate).toLowerCase() }}</span>
+                    <span>{{ 'AGAINST' | translate}}</span>
+                    <span>{{ (('LEVELS.' + game.configuration.level.gameLevelName2.toUpperCase()) | translate).toLowerCase() + '.'}}</span>
+                </p>
+
+                <!-- Restart -->
+                <a ng-show="game.phase == 'playing'"
+                   class="help-text animated fadeIn force-ng-hide"
+                   ng-click="game.methods.restart($event)">
+                    {{ 'GAME.RESTART' | translate }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
