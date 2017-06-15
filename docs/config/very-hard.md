@@ -125,6 +125,3 @@ Bien que passionnantes, les lectures mathématiques nécessaires au préalable �
 C'est pourquoi, pris par le manque de temps nous n'avons pu conclure le développement de cette super IA.
 Cependant, l'ensemble du code relatif à la création du graph reprenant les différents états, la fonction de score affectant un coefficient de bénéfice à chaque noeud, ainsi que l'algorithme minimax parcourant notre arbre à la recherche du meilleur coup sont réalisés.
 Seule la finalisation, c'est à dire la phase de tests et debug nous a manqué.
-
-
-<a href="{{ site.baseUrl }}config/very-hard/" class="btn btn-green">Chapitre suivant: Très difficile</a>
