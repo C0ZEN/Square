@@ -169,11 +169,6 @@
                 return;
             }
 
-            // Highlight the last bar of the bot if humanVsIa
-            if (playPlay.configuration.type.gameTypeName == 'humanVsIa') {
-                playPlay.lastBotBar = response.bar;
-            }
-
             // When the user can replay and that user is a bot
             // Make it play again
             if (response.canReplay) {
@@ -181,6 +176,13 @@
                 if (playPlay.currentPlayer.type == 'bot') {
                     cozenEnhancedLogs.info.customMessage('afterPlay', 'The bot can replay');
                     botPlay();
+                }
+            }
+            else {
+                
+                // Highlight the last bar of the bot if humanVsIa
+                if (playPlay.configuration.type.gameTypeName == 'humanVsIa') {
+                    playPlay.lastBotBar = response.bar;
                 }
             }
         }
