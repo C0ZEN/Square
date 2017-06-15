@@ -34,5 +34,13 @@ div.game-levels-container {
         &:last-of-type {
             margin-right : 0;
         }
+        &.disabled {
+            opacity : 0.5;
+            cursor  : not-allowed;
+            &:hover {
+                border           : 1px solid @nolan-color-line-rule;
+                background-color : @nolan-color-white;
+            }
+        }
     }
 }

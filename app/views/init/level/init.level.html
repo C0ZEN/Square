@@ -15,8 +15,8 @@
     </p>
     <div class="game-levels-container">
         <div ng-repeat="gameLevel in level.gameLevels track by $index"
-             ng-class="{'selected': gameLevel.name == init.configuration.level.gameLevelName}"
-             ng-click="level.methods.onClickGameLevel($event, gameLevel.name, false)"
+             ng-class="{'selected': gameLevel.name == init.configuration.level.gameLevelName, disabled: gameLevel.disabled}"
+             ng-click="gameLevel.disabled ? '' : level.methods.onClickGameLevel($event, gameLevel.name, false)"
              class="game-level-toast">
             <img ng-src="{{ gameLevel.image }}">
             <span>{{ gameLevel.label | translate }}</span>
@@ -30,8 +30,8 @@
     <div ng-if-end
          class="game-levels-container">
         <div ng-repeat="gameLevel in level.gameLevels track by $index"
-             ng-class="{'selected': gameLevel.name == init.configuration.level.gameLevelName2}"
-             ng-click="level.methods.onClickGameLevel($event, gameLevel.name, true)"
+             ng-class="{'selected': gameLevel.name == init.configuration.level.gameLevelName2, disabled: gameLevel.disabled}"
+             ng-click="gameLevel.disabled ? '' : level.methods.onClickGameLevel($event, gameLevel.name, true)"
              class="game-level-toast">
             <img ng-src="{{ gameLevel.image }}">
             <span>{{ gameLevel.label | translate }}</span>
