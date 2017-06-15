@@ -2,10 +2,10 @@
     "INIT": {
         "H1": "Configurer la partie.",
         "P": {
-            "1": "Configurer la grille de jeu,",
+            "1": "Configurez la grille de jeu,",
             "2": "Choisissez votre type de partie,",
-            "3": "Modifier la difficulté,",
-            "4": "Jouer."
+            "3": "Modifiez la difficulté,",
+            "4": "Sauvegardez et jouez."
         },
         "GRID": {
             "TITLE": "Configuration de la grille",
@@ -13,19 +13,33 @@
             "ROWS": {
                 "LABEL": "Nombre de lignes",
                 "PLACEHOLDER": "Saisir le nom de lignes",
-                "TOOLTIP": "Minimum 4 lignes.<br>Maximum 16 lignes."
+                "TOOLTIP": "Minimum 3 lignes.<br>Maximum 12 lignes."
             },
             "COLUMNS": {
                 "LABEL": "Nombre de colonnes",
                 "PLACEHOLDER": "Saisir le nom de colonnes",
-                "TOOLTIP": "Minimum 4 lignes.<br>Maximum 16 lignes."
+                "TOOLTIP": "Minimum 3 lignes.<br>Maximum 12 lignes."
             },
             "SUBMIT": "Configurer le type de partie"
         },
         "TYPE": {
             "TITLE": "Choix du type de partie",
-            "H2": "Choisir le type de partie",
-            "SUBMIT": "Modifier la difficulté"
-        }
+            "H2": "Choisir le type de partie.",
+            "SUBMIT": "Modifier la difficulté",
+            "GAME_SPEED": {
+                "LABEL": "Vitesse du jeu",
+                "PLACEHOLDER": "Saisir la vitesse entre les actions des IA",
+                "TOOLTIP": "Minimum 1 milliseconde.<br>Maximum 2000 millisecondes.",
+                "HELP": "Correspond au temps entre chaque coup joué lors d'un IA contre IA."
+            }
+        },
+        "LEVEL": {
+            "TITLE": "Modification de la difficulté",
+            "H2": "Modifier la difficulté.",
+            "SUBMIT": "Jouer au Square",
+            "IA_1": "Niveau de l'IA 1",
+            "IA_2": "Niveau de l'IA 2"
+        },
+        "SETTINGS_SAVED": "La configuration du <strong>Square</strong> a été sauvegardée."
     }
 }

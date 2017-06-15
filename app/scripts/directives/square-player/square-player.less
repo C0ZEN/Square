@@ -1,0 +1,63 @@
+div.square-player-directive {
+    display        : flex;
+    flex-direction : column;
+    div.row {
+        display         : flex;
+        flex-direction  : row;
+        justify-content : flex-start;
+        align-items     : center;
+        img.player-image {
+            height       : 39px;
+            margin-right : @nolan-space-base;
+        }
+        span.player-name {
+            font-weight : 600;
+            font-size   : 20px;
+        }
+        img.winner-image,
+        img.active-image {
+            animation-fill-mode : @nolan-animation-fill;
+            animation-duration  : @nolan-animation-duration-in;
+            &.left {
+                margin-left : @nolan-space-base;
+            }
+            &.right {
+                margin-right : @nolan-space-base;
+            }
+        }
+        div.square {
+            width               : @nolan-space-base;
+            height              : @nolan-space-base;
+            border-radius       : @nolan-radius;
+            margin              : @nolan-space-base / 6 @nolan-space-base / 4;
+            animation-fill-mode : @nolan-animation-fill;
+            animation-duration  : @nolan-animation-duration-in;
+            animation-name      : zoomIn;
+            &.yellow {
+                border           : 1px solid @nolan-color-yellow;
+                background-color : fade(@nolan-color-yellow, 50%);
+            }
+            &.purple {
+                border           : 1px solid @nolan-color-purple;
+                background-color : fade(@nolan-color-purple, 50%);
+            }
+            &.blue {
+                border           : 1px solid @nolan-color-blue;
+                background-color : fade(@nolan-color-blue, 50%);
+            }
+        }
+        &.reverse {
+            flex-direction : row-reverse;
+            img.player-image {
+                margin-right : 0;
+                margin-left  : @nolan-space-base;
+            }
+        }
+        &.row-2 {
+            flex-wrap : wrap;
+        }
+    }
+    hr.separator {
+        margin : @nolan-space-small 0 @nolan-space-base 0;
+    }
+}
