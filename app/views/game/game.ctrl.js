@@ -13,16 +13,20 @@
         '$rootScope',
         'gamePhases',
         'gameWinner',
-        'goTo'
+        'goTo',
+        '$window',
+        '$scope'
     ];
 
-    function GameCtrl(gameInit, gamePlayers, CONFIG, cozenEnhancedLogs, $rootScope, gamePhases, gameWinner, goTo) {
+    function GameCtrl(gameInit, gamePlayers, CONFIG, cozenEnhancedLogs, $rootScope, gamePhases, gameWinner, goTo, $window, $scope) {
         var game = this;
 
         // Public methods
         game.methods = {
-            onHeaderClick: onHeaderClick,
-            restart      : restart
+            onHeaderClick  : onHeaderClick,
+            restart        : restart,
+            onKeyDown      : onKeyDown,
+            togglePlayPause: togglePlayPause
         };
 
         // Get the last configuration
@@ -77,7 +81,7 @@
 
             // Update the total score and the current player
             if (game.phase == 'playing') {
-                game.currentPlayer = gamePlayers.getCurrentPlayer();
+                game.currentPlayer    = gamePlayers.getCurrentPlayer();
                 game.totalSquareScore = Methods.getNumberArray(game.totalScore);
             }
 
@@ -109,8 +113,36 @@
             }
         });
 
+        // Listen for keyboard event
+        $window.addEventListener('keydown', game.methods.onKeyDown);
+
+        // Watch for destroy to stop the listener
+        $scope.$on('$destroy', function () {
+            $window.removeEventListener('keydown', game.methods.onKeyDown);
+        });
+
         function onHeaderClick($event) {
             $event.stopPropagation();
+            game.methods.togglePlayPause();
+        }
+
+        function restart($event) {
+            $event.stopPropagation();
+            goTo.view('square.game.play.begin');
+        }
+
+        function onKeyDown($event) {
+            $event.stopPropagation();
+            switch ($event.keyCode) {
+
+                // Space to toggle play/pause
+                case 32:
+                    game.methods.togglePlayPause();
+                    break;
+            }
+        }
+
+        function togglePlayPause() {
             if (game.configuration.type.gameTypeName == 'iaVsIa' && game.phase == 'playing') {
                 game.isPaused = !game.isPaused;
                 if (game.isPaused) {
@@ -120,11 +152,6 @@
                     $rootScope.$broadcast('game:play');
                 }
             }
-        }
-
-        function restart($event) {
-            $event.stopPropagation();
-            goTo.view('square.game.play.begin');
         }
     }
 

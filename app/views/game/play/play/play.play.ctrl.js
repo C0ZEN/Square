@@ -179,7 +179,7 @@
                 }
             }
             else {
-                
+
                 // Highlight the last bar of the bot if humanVsIa
                 if (playPlay.configuration.type.gameTypeName == 'humanVsIa') {
                     playPlay.lastBotBar = response.bar;
