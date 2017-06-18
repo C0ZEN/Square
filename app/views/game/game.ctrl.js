@@ -121,16 +121,19 @@
             $window.removeEventListener('keydown', game.methods.onKeyDown);
         });
 
+        // On click on the header, toggle paly/pause
         function onHeaderClick($event) {
             $event.stopPropagation();
             game.methods.togglePlayPause();
         }
 
+        // On click on restart game btn
         function restart($event) {
             $event.stopPropagation();
             goTo.view('square.game.play.begin');
         }
 
+        // On key down received
         function onKeyDown($event) {
             $event.stopPropagation();
             switch ($event.keyCode) {
@@ -142,6 +145,7 @@
             }
         }
 
+        // Toggle the play/pause (only if we can)
         function togglePlayPause() {
             if (game.configuration.type.gameTypeName == 'iaVsIa' && game.phase == 'playing') {
                 game.isPaused = !game.isPaused;
