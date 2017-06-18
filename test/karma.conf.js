@@ -42,7 +42,7 @@ module.exports = function(config) {
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/jquery-mousewheel/jquery.mousewheel.js',
       'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
-      'bower_components/ng-scrollbars/dist/scrollbars.min.js',
+      'bower_components/ng-scrollbars-2/dist/scrollbars.min.js',
       'bower_components/angular-uuid-service/angular-uuid-service.js',
       'bower_components/angular-elastic/elastic.js',
       'bower_components/ng-file-upload/ng-file-upload.js',

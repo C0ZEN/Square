@@ -112,6 +112,7 @@
             }
 
             // Make the bot play
+            cozenEnhancedLogs.wrap.starting('botPlay', 'Started to play on ' + gameLevel + '...');
             switch (gameLevel) {
                 case 'very-easy':
                     response = gameBot.playOnVeryEasy(playPlay.grid, playPlay.currentPlayer);
@@ -129,6 +130,7 @@
                     response = gameBot.playOnVeryHard(playPlay.grid, playPlay.currentPlayer);
                     break;
             }
+            cozenEnhancedLogs.wrap.end('botPlay', 'Finished to play on ' + gameLevel + ' in');
 
             // Execute the stuff after a play
             afterPlay(response);
