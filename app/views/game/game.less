@@ -36,10 +36,12 @@ div.game-board-container {
             align-items     : center;
             padding         : @nolan-space-base;
             div.column {
-                flex  : 1;
-                width : 100%;
+                flex       : 1;
+                width      : 100%;
+                align-self : flex-start;
                 &.column-middle {
                     text-align : center;
+                    align-self : center;
                     div.row {
                         display        : flex;
                         flex-direction : column;
