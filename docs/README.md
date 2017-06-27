@@ -25,4 +25,4 @@ Notre [documentation](https://c0zen.github.io/Square/) est générée par GitHub
 ## Auteurs
 
 * **Geoffrey Testelin** - Développeur Front-End - [C0ZEN](https://github.com/C0ZEN)
-* **Benoit Compere** - Développeur Front-End - [BenoitCompere](https://github.com/BenoitCompere)
+* **Benoit Compere** - Développeur Back-End - [BenoitCompere](https://github.com/BenoitCompere)
